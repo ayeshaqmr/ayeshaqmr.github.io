@@ -289,7 +289,7 @@ function initNavbarScroll() {
   onScroll();
 }
 
-function initPage() {
+async function initPage() {
   destroyPage();
   initHeroGSAP();
   initClock();
@@ -312,7 +312,7 @@ function initPage() {
 
   if (typeof window.initMagneticButtons === 'function') window.initMagneticButtons();
   if (typeof window.initMarquee === 'function') window.initMarquee();
-  if (typeof window.initContent === 'function') window.initContent();
+  if (typeof window.initContent === 'function') await window.initContent();
   if (typeof window.initGithub === 'function' && document.getElementById('github-graph-img-wrap')) {
     window.initGithub();
   }
