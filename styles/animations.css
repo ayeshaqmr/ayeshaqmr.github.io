@@ -1,0 +1,167 @@
+@keyframes fadeInUp {
+  from { opacity: 0; transform: translateY(30px); }
+  to   { opacity: 1; transform: translateY(0); }
+}
+@keyframes fadeIn {
+  from { opacity: 0; }
+  to   { opacity: 1; }
+}
+@keyframes ripple-dot {
+  0%   { transform: scale(1); opacity: 0.6; }
+  100% { transform: scale(3); opacity: 0; }
+}
+@keyframes float {
+  0%, 100% { transform: translateY(0); }
+  50%       { transform: translateY(-8px); }
+}
+@keyframes spin-ring {
+  from { transform: rotate(360deg); }
+  to { transform: rotate(720deg); }
+}
+@keyframes spin-ring-slow {
+  from { transform: rotate(360deg); }
+  to { transform: rotate(0deg); }
+}
+@keyframes pulse-glow {
+  0%, 100% { opacity: 0.3; transform: scale(1); }
+  50% { opacity: 0.9; transform: scale(1.15); }
+}
+
+@keyframes avatarReveal {
+  0% { opacity: 0; transform: scale(0.5) rotate(-10deg); filter: blur(8px); }
+  60% { transform: scale(1.08) rotate(2deg); filter: blur(0); }
+  100% { opacity: 1; transform: scale(1) rotate(0deg); filter: blur(0); }
+}
+@keyframes ringReveal {
+  0% { opacity: 0; transform: scale(0.3) rotate(0deg); }
+  50% { opacity: 0.6; transform: scale(1.1) rotate(180deg); }
+  100% { opacity: 1; transform: scale(1) rotate(360deg); }
+}
+@keyframes glowReveal {
+  0% { opacity: 0; transform: scale(0.2); }
+  100% { opacity: 1; transform: scale(1); }
+}
+
+.reveal {
+  opacity: 0;
+  transform: translateY(32px);
+  transition: opacity 0.65s var(--ease-expo), transform 0.65s var(--ease-expo);
+}
+.reveal.visible {
+  opacity: 1;
+  transform: translateY(0);
+}
+
+.reveal--left {
+  opacity: 0;
+  transform: translateX(-28px);
+  transition: opacity 0.7s var(--ease-expo), transform 0.7s var(--ease-expo);
+}
+.reveal--left.visible {
+  opacity: 1;
+  transform: translateX(0);
+}
+
+.reveal-stagger > * {
+  opacity: 0;
+  transform: translateY(20px);
+  transition: opacity 0.6s var(--ease-expo), transform 0.6s var(--ease-expo);
+}
+.reveal-stagger.visible > * { opacity: 1; transform: translateY(0); }
+.reveal-stagger.visible > *:nth-child(1) { transition-delay: 0.00s; }
+.reveal-stagger.visible > *:nth-child(2) { transition-delay: 0.06s; }
+.reveal-stagger.visible > *:nth-child(3) { transition-delay: 0.12s; }
+.reveal-stagger.visible > *:nth-child(4) { transition-delay: 0.18s; }
+.reveal-stagger.visible > *:nth-child(5) { transition-delay: 0.24s; }
+.reveal-stagger.visible > *:nth-child(6) { transition-delay: 0.30s; }
+.reveal-stagger.visible > *:nth-child(7) { transition-delay: 0.36s; }
+.reveal-stagger.visible > *:nth-child(8) { transition-delay: 0.42s; }
+
+.experience-row {
+  opacity: 0;
+  transform: translateX(-18px);
+  transition: opacity 0.5s var(--ease-expo), transform 0.5s var(--ease-expo),
+              background var(--transition-fast);
+}
+.experience-row.visible { opacity: 1; transform: translateX(0); }
+
+.note-item {
+  opacity: 0;
+  transform: translateY(16px);
+  transition: opacity 0.5s var(--ease-expo), transform 0.5s var(--ease-expo);
+}
+.note-item.visible { opacity: 1; transform: translateY(0); }
+
+.research-item {
+  opacity: 0;
+  transform: translateY(16px);
+  transition: opacity 0.5s var(--ease-expo), transform 0.5s var(--ease-expo);
+}
+.research-item.visible { opacity: 1; transform: translateY(0); }
+
+.section-line::after { transition: transform 1s var(--ease-expo) 0.2s; }
+
+.hero__greeting { animation: fadeIn 0.5s var(--ease-expo) 0.25s both; }
+.hero__title-row { animation: fadeInUp 0.6s var(--ease-expo) 1.2s both; }
+.hero__cta-row { animation: fadeInUp 0.6s var(--ease-expo) 1.3s both; }
+.hero__location { animation: fadeInUp 0.5s var(--ease-expo) 1.4s both; }
+.hero__avatar-lg {
+  animation: avatarReveal 0.9s var(--ease-expo) 0.3s both;
+}
+.hero__avatar-ring {
+  animation:
+    ringReveal 1s var(--ease-expo) 0.2s forwards,
+    spin-ring 4s linear 1.2s infinite;
+}
+.hero__avatar-ring--slow {
+  animation:
+    ringReveal 1.2s var(--ease-expo) 0.4s forwards,
+    spin-ring-slow 8s linear 1.4s infinite;
+}
+.hero__avatar-glow {
+  animation:
+    glowReveal 1s var(--ease-expo) 0.5s forwards,
+    pulse-glow 3s ease-in-out 1.5s infinite;
+}
+
+.marquee-section:hover .marquee-content {
+  animation-play-state: paused;
+}
+
+.stat-card__num { transition: color var(--transition-fast); }
+.stat-card:hover .stat-card__num { color: var(--accent); }
+
+.page-transition-overlay {
+  position: fixed;
+  inset: 0;
+  background: var(--bg-base);
+  z-index: 999;
+  pointer-events: none;
+  opacity: 0;
+  transition: opacity 0.3s var(--ease-expo);
+}
+.page-transition-overlay.active { opacity: 1; pointer-events: all; }
+
+.hero__avatar-frame { animation: float 6s ease-in-out infinite; }
+
+@media (prefers-reduced-motion: reduce) {
+  *, *::before, *::after {
+    animation-duration: 0.001ms !important;
+    transition-duration: 0.001ms !important;
+  }
+  .reveal, .reveal--left,
+  .reveal-stagger > *, .experience-row, .note-item, .research-item {
+    opacity: 1;
+    transform: none;
+  }
+  .hero__avatar-lg {
+    opacity: 1;
+    transform: none;
+    filter: none;
+  }
+  .hero__avatar-ring, .hero__avatar-ring--slow,
+  .hero__avatar-glow {
+    opacity: 0 !important;
+    display: none;
+  }
+}

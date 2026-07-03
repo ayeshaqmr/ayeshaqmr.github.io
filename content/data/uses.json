@@ -1,0 +1,18 @@
+[
+  {
+    "category": "Editor & Terminal",
+    "icon": "package",
+    "items": [
+      { "emoji": "💻", "name": "VS Code", "desc": "My primary editor for everything from Flutter to Python. Stripped down with minimal extensions." },
+      { "emoji": "🎨", "name": "Theme: GitHub Dark Default", "desc": "Clean, high-contrast, and easy on the eyes during late-night coding sessions." },
+      { "emoji": "⌨️", "name": "Font: Wumpus Mono / Montserrat / Source Code Pro", "desc": "Wumpus Mono for body text, Montserrat bold for headings, and Source Code Pro for code and UI labels on this site." }
+    ]
+  },
+  {
+    "category": "Design",
+    "icon": "circle",
+    "items": [
+      { "emoji": "✨", "name": "Figma", "desc": "Where every project starts. I use it for wireframing, UI design, and prototyping." }
+    ]
+  }
+]

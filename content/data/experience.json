@@ -1,0 +1,12 @@
+{
+  "rows": [
+    { "year": "Feb–Mar 2026", "role": "Software Development Intern", "company": "Oil & Gas Development Company (OGDC)", "badge": "Internship" },
+    { "year": "2022–2026", "role": "BS Computer Science", "company": "FAST NUCES", "badge": "Graduated" }
+  ],
+  "certifications": [
+    { "name": "Google IT Support", "issuer": "Google · Networking, Cybersecurity, Sysadmin" },
+    { "name": "Google Project Management", "issuer": "Google · Agile, Scrum, SDLC" },
+    { "name": "Google UX Design", "issuer": "Google · Research, Wireframing, Prototyping" },
+    { "name": "Cisco Cybersecurity", "issuer": "Cisco · Security Fundamentals & Threats" }
+  ]
+}

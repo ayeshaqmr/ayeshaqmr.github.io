@@ -1,0 +1,278 @@
+<!DOCTYPE html>
+<html lang="en" data-theme="dark">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>Admin — Ayesha Qamar</title>
+  <style>
+    * { margin: 0; padding: 0; box-sizing: border-box; }
+    :root {
+      --bg: #0d0d0d; --surface: #141414; --elevated: #1a1a1a;
+      --border: #222; --text: #e5e5e5; --muted: #777; --accent: #e8e4a8;
+      --green: #4ade80; --red: #f87171; --radius: 6px;
+      --mono: 'SF Mono','Fira Code','Consolas',monospace;
+    }
+    body {
+      background: var(--bg); color: var(--text); font-family: var(--mono);
+      font-size: 13px; line-height: 1.6; padding: 24px;
+    }
+    h1 { font-size: 20px; font-weight: 800; margin-bottom: 4px; }
+    .sub { color: var(--muted); font-size: 11px; margin-bottom: 24px; }
+    .card {
+      background: var(--surface); border: 1px solid var(--border);
+      border-radius: var(--radius); padding: 16px; margin-bottom: 16px;
+    }
+    label { display: block; font-size: 10px; text-transform: uppercase; letter-spacing: 0.1em; color: var(--muted); margin-bottom: 4px; }
+    input, textarea, select {
+      width: 100%; background: var(--elevated); border: 1px solid var(--border);
+      border-radius: var(--radius); padding: 8px 10px; font: inherit;
+      color: var(--text); outline: none;
+    }
+    input:focus, textarea:focus { border-color: var(--accent); }
+    textarea { min-height: 300px; resize: vertical; font-size: 12px; line-height: 1.5; }
+    .row { display: flex; gap: 8px; align-items: end; }
+    .row > * { flex: 1; }
+    .row .btn { flex: 0 0 auto; }
+    .btn {
+      padding: 8px 16px; border-radius: var(--radius); border: none;
+      cursor: pointer; font: inherit; font-size: 11px; font-weight: 600;
+      background: var(--accent); color: #000; transition: opacity 0.2s;
+    }
+    .btn:hover { opacity: 0.85; }
+    .btn--outline { background: transparent; border: 1px solid var(--border); color: var(--text); }
+    .btn--outline:hover { border-color: var(--muted); }
+    .btn--danger { background: var(--red); color: #000; }
+    .btn--sm { padding: 4px 10px; font-size: 10px; }
+    .file-list { list-style: none; }
+    .file-list li {
+      display: flex; align-items: center; justify-content: space-between;
+      padding: 8px 0; border-bottom: 1px solid var(--border);
+    }
+    .file-list li:last-child { border-bottom: none; }
+    .file-list a { color: var(--accent); text-decoration: none; cursor: pointer; }
+    .file-list a:hover { text-decoration: underline; }
+    .badge {
+      display: inline-block; padding: 2px 8px; border-radius: 999px;
+      font-size: 9px; font-weight: 600; background: var(--elevated); color: var(--muted);
+    }
+    .badge--green { background: rgba(74,222,128,0.12); color: var(--green); }
+    .msg { font-size: 11px; padding: 8px 12px; border-radius: var(--radius); margin: 8px 0; display: none; }
+    .msg--success { background: rgba(74,222,128,0.1); color: var(--green); border: 1px solid rgba(74,222,128,0.2); }
+    .msg--error { background: rgba(248,113,113,0.1); color: var(--red); border: 1px solid rgba(248,113,113,0.2); }
+    .hidden { display: none !important; }
+    #status-bar { display: flex; gap: 8px; align-items: center; margin-bottom: 16px; }
+    .spinner { width: 14px; height: 14px; border: 2px solid var(--border); border-top-color: var(--accent); border-radius: 50%; animation: spin 0.6s linear infinite; display: none; }
+    @keyframes spin { to { transform: rotate(360deg); } }
+    .nav { display: flex; gap: 8px; margin-bottom: 16px; flex-wrap: wrap; }
+    .nav a { color: var(--muted); text-decoration: none; font-size: 11px; padding: 4px 10px; border-radius: 999px; border: 1px solid var(--border); }
+    .nav a:hover, .nav a.active { color: var(--text); border-color: var(--muted); }
+  </style>
+</head>
+<body>
+
+  <div style="max-width:720px;margin:0 auto;">
+
+    <div style="display:flex;justify-content:space-between;align-items:start;">
+      <div>
+        <h1>Admin</h1>
+        <p class="sub">Content management for ayeshaqmr.github.io</p>
+      </div>
+      <a href="../index.html" class="btn btn--outline btn--sm" style="text-decoration:none;">← Site</a>
+    </div>
+
+    <div class="card" id="login-section">
+      <div class="row" style="margin-bottom:12px;">
+        <div>
+          <label>GitHub Personal Access Token</label>
+          <input type="password" id="pat-input" placeholder="ghp_..." />
+        </div>
+        <div>
+          <label>Owner / Repo</label>
+          <input type="text" id="repo-input" placeholder="ayeshaqmr/ayeshaqmr.github.io" />
+        </div>
+      </div>
+      <div class="row">
+        <button class="btn" onclick="login()">Connect</button>
+        <button class="btn btn--outline" onclick="localStorage.removeItem('admin_config');location.reload();">Reset</button>
+      </div>
+      <div id="login-msg" class="msg"></div>
+    </div>
+
+    <div id="panel" class="hidden">
+
+      <div id="status-bar">
+        <span id="status-text" style="font-size:11px;color:var(--muted);">Connected</span>
+        <span class="badge badge--green" id="repo-badge">ayeshaqmr/ayeshaqmr.github.io</span>
+        <div class="spinner" id="spinner"></div>
+      </div>
+
+      <div class="card" id="browser-view">
+        <div style="display:flex;justify-content:space-between;align-items:center;margin-bottom:8px;">
+          <label style="margin:0;">Content Files</label>
+          <button class="btn btn--sm btn--outline" onclick="loadFileList()">Refresh</button>
+        </div>
+        <ul class="file-list" id="file-list"></ul>
+      </div>
+
+      <div class="card hidden" id="editor-view">
+        <div style="display:flex;justify-content:space-between;align-items:center;margin-bottom:8px;">
+          <label style="margin:0;" id="editor-filename">file.json</label>
+          <div style="display:flex;gap:4px;">
+            <button class="btn btn--sm btn--outline" onclick="showBrowser()">← Back</button>
+            <button class="btn btn--sm" onclick="saveFile()">Save</button>
+          </div>
+        </div>
+        <textarea id="editor" spellcheck="false"></textarea>
+        <div id="editor-msg" class="msg"></div>
+      </div>
+
+    </div>
+
+  </div>
+
+  <script>
+    const API = 'https://api.github.com';
+    let config = JSON.parse(localStorage.getItem('admin_config') || 'null');
+    let currentFile = null;
+    let currentSha = null;
+
+    function $(id) { return document.getElementById(id); }
+
+    function login() {
+      const pat = $('pat-input').value.trim();
+      const repo = $('repo-input').value.trim();
+      if (!pat || !repo) { showMsg('login-msg', 'Fill in both fields', 'error'); return; }
+      if (!repo.includes('/')) { showMsg('login-msg', 'Repo must be owner/repo format', 'error'); return; }
+
+      config = { pat, repo };
+      localStorage.setItem('admin_config', JSON.stringify(config));
+      initPanel();
+    }
+
+    function initPanel() {
+      if (!config) return;
+      $('login-section').classList.add('hidden');
+      $('panel').classList.remove('hidden');
+      $('repo-badge').textContent = config.repo;
+      $('pat-input').value = config.pat;
+      $('repo-input').value = config.repo;
+      loadFileList();
+    }
+
+    async function api(path, method = 'GET', body = null) {
+      const opts = {
+        method,
+        headers: {
+          Authorization: `Bearer ${config.pat}`,
+          Accept: 'application/vnd.github.v3+json',
+          'User-Agent': 'admin-cms'
+        }
+      };
+      if (body) opts.body = JSON.stringify(body);
+
+      $('spinner').style.display = 'inline-block';
+      try {
+        const res = await fetch(`${API}${path}`, opts);
+        $('spinner').style.display = 'none';
+        return res;
+      } catch (e) {
+        $('spinner').style.display = 'none';
+        throw e;
+      }
+    }
+
+    async function loadFileList() {
+      showBrowser();
+      const list = $('file-list');
+      list.innerHTML = '<li style="color:var(--muted);">Loading...</li>';
+
+      try {
+        const res = await api(`/repos/${config.repo}/contents/content/data`);
+        if (!res.ok) {
+          if (res.status === 404) { list.innerHTML = '<li style="color:var(--muted);">Directory not found. Create content/data/ first.</li>'; return; }
+          if (res.status === 401) { list.innerHTML = '<li style="color:var(--muted);">Invalid token or insufficient permissions.</li>'; return; }
+          list.innerHTML = `<li style="color:var(--muted);">Error ${res.status}</li>`; return;
+        }
+        const files = await res.json();
+        if (!Array.isArray(files)) { list.innerHTML = '<li style="color:var(--muted);">Not a directory</li>'; return; }
+
+        list.innerHTML = files.filter(f => f.name.endsWith('.json')).map(f => `
+          <li>
+            <a onclick="editFile('${f.path}', '${f.name}')">${f.name}</a>
+            <span style="font-size:10px;color:var(--muted);">${(f.size / 1024).toFixed(1)} KB</span>
+          </li>
+        `).join('') || '<li style="color:var(--muted);">No JSON files found</li>';
+      } catch (e) {
+        list.innerHTML = `<li style="color:var(--muted);">Error: ${e.message}</li>`;
+      }
+    }
+
+    async function editFile(path, name) {
+      $('browser-view').classList.add('hidden');
+      $('editor-view').classList.remove('hidden');
+      $('editor-filename').textContent = name;
+      $('editor').value = 'Loading...';
+      $('editor-msg').style.display = 'none';
+      currentFile = path;
+
+      try {
+        const res = await api(`/repos/${config.repo}/contents/${path}`);
+        if (!res.ok) { $('editor').value = 'Error loading file'; return; }
+        const data = await res.json();
+        currentSha = data.sha;
+        const content = atob(data.content.replace(/\n/g, ''));
+        $('editor').value = content;
+      } catch (e) {
+        $('editor').value = `Error: ${e.message}`;
+      }
+    }
+
+    async function saveFile() {
+      const content = $('editor').value;
+      if (!content.trim()) { showMsg('editor-msg', 'Content is empty', 'error'); return; }
+
+      try {
+        JSON.parse(content);
+      } catch (e) {
+        showMsg('editor-msg', `Invalid JSON: ${e.message}`, 'error');
+        return;
+      }
+
+      try {
+        const body = {
+          message: `Update ${currentFile.split('/').pop()}`,
+          content: btoa(unescape(encodeURIComponent(content))),
+          sha: currentSha
+        };
+        const res = await api(`/repos/${config.repo}/contents/${currentFile}`, 'PUT', body);
+        if (!res.ok) {
+          const err = await res.json();
+          showMsg('editor-msg', `Save failed: ${err.message || res.status}`, 'error');
+          return;
+        }
+        const data = await res.json();
+        currentSha = data.content.sha;
+        showMsg('editor-msg', 'Saved successfully!', 'success');
+      } catch (e) {
+        showMsg('editor-msg', `Error: ${e.message}`, 'error');
+      }
+    }
+
+    function showBrowser() {
+      $('browser-view').classList.remove('hidden');
+      $('editor-view').classList.add('hidden');
+      $('editor-msg').style.display = 'none';
+    }
+
+    function showMsg(id, text, type) {
+      const el = $(id);
+      el.textContent = text;
+      el.className = `msg msg--${type}`;
+      el.style.display = 'block';
+    }
+
+    // Auto-init if config exists
+    if (config) initPanel();
+  </script>
+</body>
+</html>

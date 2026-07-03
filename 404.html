@@ -1,0 +1,52 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>404</title>
+  <link rel="icon" href="assets/images/profile.dark.png" type="image/png" />
+
+  <link rel="stylesheet" href="styles/fonts.css" />
+  <link rel="stylesheet" href="styles/tokens.css" />
+  <link rel="stylesheet" href="styles/layout.css" />
+  <link rel="stylesheet" href="styles/components.css" />
+  <link rel="stylesheet" href="styles/animations.css" />
+  <link rel="stylesheet" href="styles/responsive.css" />
+
+  <script src="https://cdnjs.cloudflare.com/ajax/libs/gsap/3.12.5/gsap.min.js" defer></script>
+</head>
+
+<body>
+
+  <a href="#main" class="skip-link">Skip to content</a>
+
+  <div class="cursor-dot" aria-hidden="true"></div>
+  <div class="cursor-ring" aria-hidden="true"></div>
+  <div class="noise" aria-hidden="true"></div>
+
+  <div class="site-wrapper" style="align-items:center; justify-content:center;">
+
+    <main class="main-content" id="main"
+      style="margin-top:0;display:flex;align-items:center;justify-content:center;min-height:100vh;">
+
+      <div class="not-found reveal">
+        <p class="not-found__code">Error 404</p>
+        <h1 class="not-found__num">404</h1>
+        <p class="not-found__msg">The page you're looking for doesn't exist, was moved, or maybe just never existed in
+          the first place.</p>
+        <a href="index.html" class="btn btn--primary">
+          Return home <span class="btn-arrow">→</span>
+        </a>
+      </div>
+
+    </main>
+  </div>
+
+  <script src="scripts/cursor.js"></script>
+  <script src="scripts/animations.js"></script>
+  <script src="scripts/content-loader.js"></script>
+  <script src="scripts/main.js"></script>
+</body>
+
+</html>

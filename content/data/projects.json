@@ -1,0 +1,52 @@
+[
+  {
+    "title": "Speak Dine",
+    "category": "mobile ai",
+    "year": "2025",
+    "description": "An AI-assisted voice-accessibility food delivery app built for visually impaired users. Integrates STT, TTS, and conversational AI via Gemini API. Built with Flutter and Firebase for cross-platform delivery.",
+    "tags": ["Flutter", "Gemini API", "Firebase", "TTS/STT", "Dart"],
+    "image": "project-mobile.png",
+    "link": "case-study.html",
+    "featured": true
+  },
+  {
+    "title": "Glaucoma Detection",
+    "category": "ai",
+    "year": "2024",
+    "description": "Trained a deep learning model on the EyePACS + AIROGS Light v2 dataset for retinal fundus image classification and early glaucoma detection.",
+    "tags": ["TensorFlow", "OpenCV", "Python"],
+    "image": "project-dashboard.png",
+    "link": "projects.html",
+    "featured": false
+  },
+  {
+    "title": "Smart Trash Routing",
+    "category": "systems",
+    "year": "2024",
+    "description": "Optimized waste-collection vehicle routing using graph theory algorithms, significantly reducing fuel consumption and operational time.",
+    "tags": ["Python", "Graph Theory", "DSA"],
+    "image": "project-ecommerce.png",
+    "link": "projects.html",
+    "featured": false
+  },
+  {
+    "title": "OGDC E-Medical Dashboard",
+    "category": "full-stack",
+    "year": "2026",
+    "description": "Internal medical management dashboard built during internship at OGDC. Oracle SQL-backed data visualization with AI-driven analytics for patient records.",
+    "tags": ["Oracle SQL", "Python", "AI"],
+    "image": null,
+    "link": "#",
+    "featured": false
+  },
+  {
+    "title": "Nextcent Web App",
+    "category": "full-stack web",
+    "year": "2025",
+    "description": "A community-focused web platform for managing memberships, events, and resources with a clean, modern interface.",
+    "tags": ["React", "Node.js", "MongoDB"],
+    "image": "project-banking.png",
+    "link": "#",
+    "featured": false
+  }
+]

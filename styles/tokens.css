@@ -1,0 +1,82 @@
+:root {
+  
+  --bg-base:        #0f0f0f;   
+  --bg-surface:     #161616;   
+  --bg-elevated:    #1e1e1e;   
+  --bg-overlay:     #252525;   
+  --border:         #242424;
+  --border-light:   #333333;
+  --border-bright:  #484848;
+
+  --text-primary:   #f0f0f0;
+  --text-secondary: #a8a8a8;
+  --text-muted:     #636363;
+  --text-faint:     #3a3a3a;
+
+  --accent:         #e8e4a8;   
+  --accent-dim:     #c2be8a;
+  --accent-glow:    rgba(232, 228, 168, 0.12);
+  --accent-border:  rgba(232, 228, 168, 0.25);
+
+  --green:          #4ade80;
+  --green-glow:     rgba(74, 222, 128, 0.2);
+
+  --spotlight-color: rgba(232, 228, 168, 0.04);
+
+  --font-display:   'Monument Extended', sans-serif;
+  --font-body:      'Wumpus Mono', 'Courier New', monospace;
+  --font-mono:      'Source Code Pro', 'Courier New', monospace;
+
+  --text-2xs:  0.625rem;    
+  --text-xs:   0.6875rem;   
+  --text-sm:   0.75rem;     
+  --text-base: 0.875rem;    
+  --text-md:   1rem;        
+  --text-lg:   1.125rem;    
+  --text-xl:   1.375rem;    
+  --text-2xl:  1.75rem;     
+  --text-3xl:  2.25rem;     
+  --text-4xl:  3rem;        
+  --text-5xl:  4rem;        
+  --text-6xl:  5.5rem;      
+
+  --space-1:   0.25rem;
+  --space-2:   0.5rem;
+  --space-3:   0.75rem;
+  --space-4:   1rem;
+  --space-5:   1.25rem;
+  --space-6:   1.5rem;
+  --space-8:   2rem;
+  --space-10:  2.5rem;
+  --space-12:  3rem;
+  --space-16:  4rem;
+  --space-20:  5rem;
+  --space-24:  6rem;
+  --space-32:  8rem;
+
+  --sidebar-width:   280px;
+  --content-max:     1200px;
+  --card-radius:     6px;
+  --card-radius-lg:  10px;
+  --section-gap:     3rem;
+
+  --shadow-sm:   0 1px 3px rgba(0,0,0,0.5);
+  --shadow-md:   0 4px 16px rgba(0,0,0,0.4);
+  --shadow-lg:   0 8px 40px rgba(0,0,0,0.5);
+  --shadow-accent: 0 0 30px var(--accent-glow), 0 0 60px rgba(232,228,168,0.04);
+
+  --ease-expo:      cubic-bezier(0.16, 1, 0.3, 1);
+  --ease-bounce:    cubic-bezier(0.34, 1.56, 0.64, 1);
+  --ease-in-out:    cubic-bezier(0.4, 0, 0.2, 1);
+  --transition-fast:  0.15s var(--ease-expo);
+  --transition-base:  0.3s var(--ease-expo);
+  --transition-slow:  0.6s var(--ease-expo);
+  --transition-xslow: 1s var(--ease-expo);
+
+  --z-base:     1;
+  --z-card:     2;
+  --z-sidebar:  10;
+  --z-nav:      20;
+  --z-overlay:  50;
+  --z-cursor:   9999;
+}
