@@ -174,8 +174,8 @@ function renderResearch(research) {
 async function initContent() {
   try {
     const skills = await loadJSON('skills.json');
-    renderMarquee(skills.marquee);
-    renderSkillsGrid(skills.grid);
+    renderMarquee(skills);
+    renderSkillsGrid(skills);
 
     const stats = await loadJSON('stats.json');
     renderStats(stats);

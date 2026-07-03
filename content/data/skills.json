@@ -1,4 +1,1 @@
-{
-  "marquee": ["Python", "Flutter", "React.js", "Next.js", "TensorFlow", "Firebase", "OpenCV", "Figma", "Framer", "Supabase", "PostgreSQL", "Scikit-learn", "Tailwind CSS", "Dart", "C++", "Streamlit", "MongoDB", "Gemini API", "IoT / Blynk", "Git & GitHub"],
-  "grid": ["Python", "Flutter / Dart", "React.js", "Next.js", "TensorFlow", "PyTorch", "OpenCV", "Firebase", "Supabase", "PostgreSQL", "MongoDB", "Oracle SQL", "C / C++", "HTML / CSS / JS", "Tailwind CSS", "Figma", "Framer", "Streamlit", "Git / GitHub", "Gemini API", "IoT / Blynk", "Android Studio"]
-}
+["Python", "Flutter", "React.js", "Next.js", "TensorFlow", "Firebase", "OpenCV", "Figma", "Framer", "Supabase", "PostgreSQL", "Scikit-learn", "Tailwind CSS", "Dart", "C++", "Streamlit", "MongoDB", "Gemini API", "IoT / Blynk", "Git & GitHub"]
