@@ -291,7 +291,6 @@ function initNavbarScroll() {
 
 function initPage() {
   destroyPage();
-  initScrollReveal();
   initHeroGSAP();
   initClock();
   initSectionParallax();
@@ -320,6 +319,8 @@ function initPage() {
   if (typeof window.initArticle === 'function' && document.getElementById('markdown-container')) {
     window.initArticle();
   }
+
+  initScrollReveal();
 
   setTimeout(initTilt, 500);
 
