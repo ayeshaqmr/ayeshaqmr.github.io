@@ -140,12 +140,11 @@ function renderEducation(education) {
   if (!container || !education) return;
   container.innerHTML = education.map(e => `
     <div class="edu-item">
-      <div class="edu-item__dot" aria-hidden="true"></div>
       <div class="edu-item__body">
         <span class="edu-item__year">${e.year}</span>
         <h3 class="edu-item__degree">${e.degree}</h3>
         <p class="edu-item__school">${e.school}</p>
-        <p class="edu-item__desc">${e.description}</p>
+        ${e.description ? `<p class="edu-item__desc">${e.description}</p>` : ''}
       </div>
     </div>
   `).join('');

@@ -31,12 +31,12 @@
   },
   {
     "title": "OGDC E-Medical Dashboard",
-    "category": "full-stack",
+    "category": "full-stack web",
     "year": "2026",
     "description": "Internal medical management dashboard built during internship at OGDC. Oracle SQL-backed data visualization with AI-driven analytics for patient records.",
     "tags": ["Oracle SQL", "Python", "AI"],
     "image": null,
-    "link": "#",
+    "link": "projects.html",
     "featured": false
   },
   {
@@ -46,7 +46,7 @@
     "description": "A community-focused web platform for managing memberships, events, and resources with a clean, modern interface.",
     "tags": ["React", "Node.js", "MongoDB"],
     "image": "project-banking.png",
-    "link": "#",
+    "link": "projects.html",
     "featured": false
   }
 ]

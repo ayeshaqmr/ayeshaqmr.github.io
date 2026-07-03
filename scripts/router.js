@@ -18,16 +18,33 @@
     return href.split('#')[0];
   }
 
+  function fadeOverlay(from, to) {
+    return new Promise(resolve => {
+      const overlay = document.querySelector('.page-transition-overlay');
+      if (!overlay) return resolve();
+      if (typeof gsap === 'undefined') {
+        overlay.classList.toggle('active', to === 1);
+        return resolve();
+      }
+      gsap.set(overlay, { opacity: from, display: 'block', pointerEvents: 'all' });
+      gsap.to(overlay, { opacity: to, duration: 0.3, ease: 'power2.inOut', onComplete: () => {
+        if (to === 0) {
+          gsap.set(overlay, { pointerEvents: 'none' });
+        }
+        resolve();
+      }});
+    });
+  }
+
   async function navigateTo(href, pushState = true) {
     if (isNavigating) return;
     isNavigating = true;
 
-    const overlay = document.querySelector('.page-transition-overlay');
     const url = new URL(href, window.location.href);
     const fetchUrl = url.pathname.split('/').pop() || 'index.html';
     const fullUrl = fetchUrl + url.search;
 
-    overlay?.classList.add('active');
+    await fadeOverlay(0, 1);
 
     try {
       const response = await fetch(fullUrl);
@@ -39,8 +56,6 @@
       const currentMain = document.querySelector('main.main-content');
 
       if (!newMain || !currentMain) throw new Error('Main content not found');
-
-      await new Promise(r => setTimeout(r, 280));
 
       currentMain.replaceWith(newMain.cloneNode(true));
 
@@ -63,7 +78,7 @@
     } catch {
       window.location.href = href;
     } finally {
-      overlay?.classList.remove('active');
+      await fadeOverlay(1, 0);
       isNavigating = false;
     }
   }

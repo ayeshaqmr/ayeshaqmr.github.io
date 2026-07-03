@@ -60,10 +60,6 @@ function initHeroGSAP() {
   requestAnimationFrame(() => { heroName.style.opacity = '1'; });
 }
 
-function initCardParallax() {
-
-}
-
 function initSectionParallax() {
   if (typeof gsap === 'undefined' || typeof ScrollTrigger === 'undefined') return;
 
@@ -239,13 +235,27 @@ function initProjectFilter() {
       btn.classList.add('active');
       const cat = btn.dataset.filter;
 
-      cards.forEach(card => {
+      cards.forEach((card, i) => {
         const show = cat === 'all' || card.dataset.category?.includes(cat);
-        card.style.transition = 'opacity 0.3s ease, transform 0.3s ease';
-        card.style.opacity    = show ? '1' : '0';
-        card.style.transform  = show ? 'scale(1)' : 'scale(0.96)';
-        card.style.pointerEvents = show ? 'all' : 'none';
-        card.style.display    = 'flex';
+        if (typeof gsap !== 'undefined') {
+          gsap.to(card, {
+            opacity: show ? 1 : 0,
+            scale: show ? 1 : 0.96,
+            y: show ? 0 : 8,
+            duration: 0.35,
+            delay: show ? i * 0.04 : 0,
+            ease: 'power2.out',
+            overwrite: 'auto',
+            onStart: () => { if (show) card.style.display = 'flex'; else card.style.pointerEvents = 'none'; },
+            onComplete: () => { if (!show) card.style.display = 'none'; else card.style.pointerEvents = 'all'; },
+          });
+        } else {
+          card.style.transition = 'opacity 0.3s ease, transform 0.3s ease';
+          card.style.opacity    = show ? '1' : '0';
+          card.style.transform  = show ? 'scale(1)' : 'scale(0.96)';
+          card.style.pointerEvents = show ? 'all' : 'none';
+          card.style.display    = 'flex';
+        }
       });
     });
   });
@@ -284,7 +294,6 @@ function initPage() {
   initScrollReveal();
   initHeroGSAP();
   initClock();
-  initCardParallax();
   initSectionParallax();
   initCounters();
   initScrollspy();

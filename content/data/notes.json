@@ -11,13 +11,13 @@
     "date": "Aug 2024",
     "description": "Lessons learned from processing retinal fundus images and managing large healthcare datasets.",
     "tags": ["AI", "TensorFlow", "Computer Vision"],
-    "link": "#"
+    "link": "projects.html"
   },
   {
     "title": "IoT Basics: Building a Smart Plant Monitor",
     "date": "May 2024",
     "description": "My first steps into hardware. Using an ESP32 and Blynk to stop killing my houseplants.",
     "tags": ["IoT", "Hardware", "C++"],
-    "link": "#"
+    "link": "projects.html"
   }
 ]

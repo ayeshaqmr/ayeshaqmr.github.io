@@ -1,7 +1,6 @@
 {
   "rows": [
-    { "year": "Feb–Mar 2026", "role": "Software Development Intern", "company": "Oil & Gas Development Company (OGDC)", "badge": "Internship" },
-    { "year": "2022–2026", "role": "BS Computer Science", "company": "FAST NUCES", "badge": "Graduated" }
+    { "year": "Feb–Mar 2026", "role": "Software Development Intern", "company": "Oil & Gas Development Company (OGDC)", "badge": "Internship" }
   ],
   "certifications": [
     { "name": "Google IT Support", "issuer": "Google · Networking, Cybersecurity, Sysadmin" },
