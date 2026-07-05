@@ -103,7 +103,7 @@
 .hero__name {
   font-family: var(--font-display);
   font-weight: 900;
-  font-size: clamp(2.5rem, 6vw, 5rem);
+  font-size: clamp(3rem, 8vw, 6rem);
   color: var(--accent);
   text-transform: uppercase;
   letter-spacing: -0.02em;
