@@ -288,14 +288,14 @@
 }
 .project-card__category {
   font-family: var(--font-mono);
-  font-size: var(--text-2xs);
+  font-size: var(--text-xs);
   color: var(--text-muted);
   text-transform: uppercase;
   letter-spacing: 0.08em;
 }
 .project-card__year {
   font-family: var(--font-mono);
-  font-size: var(--text-2xs);
+  font-size: var(--text-xs);
   color: var(--text-faint);
 }
 
@@ -342,7 +342,7 @@
 
 .tag {
   font-family: var(--font-mono);
-  font-size: var(--text-2xs);
+  font-size: var(--text-xs);
   color: var(--text-muted);
   background: var(--bg-base);
   border: 1px solid var(--border);
@@ -400,7 +400,7 @@
 }
 .stat-card__label {
   font-family: var(--font-mono);
-  font-size: var(--text-2xs);
+  font-size: var(--text-xs);
   color: var(--text-muted);
   text-transform: uppercase;
   letter-spacing: 0.1em;
@@ -441,7 +441,7 @@
 
 .edu-section-label {
   font-family: var(--font-mono);
-  font-size: var(--text-2xs);
+  font-size: var(--text-xs);
   text-transform: uppercase;
   letter-spacing: 0.12em;
   color: var(--text-muted);
@@ -474,7 +474,7 @@
 
 .edu-item__year {
   font-family: var(--font-mono);
-  font-size: var(--text-2xs);
+  font-size: var(--text-xs);
   color: var(--text-muted);
   text-transform: uppercase;
   letter-spacing: 0.12em;
@@ -512,7 +512,7 @@
 .exp-company { font-size: var(--text-sm); color: var(--text-secondary); }
 .exp-badge {
   font-family: var(--font-mono);
-  font-size: var(--text-2xs);
+  font-size: var(--text-xs);
   color: var(--accent-dim);
   background: var(--accent-glow);
   border: 1px solid var(--accent-border);
@@ -617,7 +617,7 @@
   left: 50%;
   transform: translateX(-50%);
   font-family: var(--font-mono);
-  font-size: var(--text-2xs);
+  font-size: var(--text-xs);
   color: var(--accent);
   background: var(--bg-overlay);
   border: 1px solid var(--accent-border);
@@ -741,7 +741,7 @@
 }
 .not-found__code {
   font-family: var(--font-mono);
-  font-size: var(--text-2xs);
+  font-size: var(--text-xs);
   color: var(--text-muted);
   letter-spacing: 0.1em;
   text-transform: uppercase;
@@ -782,7 +782,7 @@
 .cert-item:hover { background: var(--bg-elevated); }
 .cert-item__icon { font-size: 1.1em; flex-shrink: 0; }
 .cert-item__name { font-size: var(--text-sm); font-weight: 600; color: var(--text-primary); line-height: 1.3; }
-.cert-item__issuer { font-family: var(--font-mono); font-size: var(--text-2xs); color: var(--text-muted); margin-top: 3px; }
+.cert-item__issuer { font-family: var(--font-mono); font-size: var(--text-xs); color: var(--text-muted); margin-top: 3px; }
 
 .skills-grid {
   display: flex;
