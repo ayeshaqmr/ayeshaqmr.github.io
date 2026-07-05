@@ -408,40 +408,12 @@
   display: block;
 }
 
-.about__card {
-  max-width: 760px;
-  margin: 0 auto;
-  position: relative;
-  border: 1px solid var(--border);
-  border-radius: var(--card-radius-lg);
-  padding: var(--space-8);
-  background: var(--bg-surface);
-}
-.about__body {
-  display: flex;
-  flex-direction: column;
-  gap: var(--space-4);
-  font-size: var(--text-base);
-  color: var(--text-secondary);
-  line-height: 1.85;
-}
-.about__edu {
-  margin-top: var(--space-8);
-  padding-top: var(--space-6);
-  border-top: 1px solid var(--border);
-}
-.about__highlight {
-  color: var(--text-primary);
-  font-weight: 500;
-}
-
-.edu-section-label {
+.sec-label {
   font-family: var(--font-mono);
   font-size: var(--text-xs);
   text-transform: uppercase;
   letter-spacing: 0.12em;
   color: var(--text-muted);
-  margin-top: var(--space-6);
   margin-bottom: var(--space-3);
 }
 
