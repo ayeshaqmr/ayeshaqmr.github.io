@@ -526,10 +526,7 @@ h1, h2, h3, h4, h5, h6 {
   border-radius: var(--card-radius);
   overflow: hidden;
   background: var(--bg-surface);
-  padding: var(--space-5);
-  max-width: 680px;
-  margin-left: auto;
-  margin-right: auto;
+  padding: var(--space-6);
 }
 
 .github-stats-grid {
