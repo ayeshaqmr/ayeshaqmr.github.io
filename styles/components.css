@@ -764,23 +764,25 @@
 
 .cert-grid {
   display: grid;
-  grid-template-columns: 1fr 1fr;
-  gap: 1px;
-  background: var(--border);
-  border: 1px solid var(--border);
-  border-radius: var(--card-radius);
-  overflow: hidden;
+  grid-template-columns: repeat(auto-fit, minmax(260px, 1fr));
+  gap: var(--space-3);
 }
 .cert-item {
   background: var(--bg-surface);
+  border: 1px solid var(--border);
+  border-radius: var(--card-radius);
   padding: var(--space-4) var(--space-5);
   display: flex;
   gap: var(--space-3);
   align-items: flex-start;
-  transition: background var(--transition-fast);
+  transition: all 0.3s var(--ease-expo);
 }
-.cert-item:hover { background: var(--bg-elevated); }
-.cert-item__icon { font-size: 1.1em; flex-shrink: 0; }
+.cert-item:hover {
+  border-color: var(--accent-border);
+  background: var(--bg-elevated);
+  box-shadow: 0 0 20px var(--accent-glow);
+}
+.cert-item__icon { font-size: 1.2em; flex-shrink: 0; margin-top: 1px; }
 .cert-item__name { font-size: var(--text-sm); font-weight: 600; color: var(--text-primary); line-height: 1.3; }
 .cert-item__issuer { font-family: var(--font-mono); font-size: var(--text-xs); color: var(--text-muted); margin-top: 3px; }
 
