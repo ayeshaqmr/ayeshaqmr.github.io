@@ -146,17 +146,6 @@
 .stat-card__num { transition: color var(--transition-fast); }
 .stat-card:hover .stat-card__num { color: var(--accent); }
 
-.page-transition-overlay {
-  position: fixed;
-  inset: 0;
-  background: var(--bg-base);
-  z-index: 999;
-  pointer-events: none;
-  opacity: 0;
-  transition: opacity 0.3s var(--ease-expo);
-}
-.page-transition-overlay.active { opacity: 1; pointer-events: all; }
-
 .hero__avatar-frame { animation: float 6s ease-in-out infinite; }
 
 @media (prefers-reduced-motion: reduce) {

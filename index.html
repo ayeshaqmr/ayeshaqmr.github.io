@@ -39,7 +39,6 @@
 
   <div class="noise" aria-hidden="true"></div>
 
-  <div class="page-transition-overlay" aria-hidden="true"></div>
   <div class="reading-progress" aria-hidden="true"></div>
 
   <div class="site-wrapper">
@@ -63,10 +62,9 @@
       <div class="navbar__center">
         <nav class="navbar-nav" aria-label="Primary">
           <ul class="navbar-nav__list">
-            <li class="navbar-nav__item"><a href="index.html" class="active"><span>Portfolio</span></a></li>
-            <li class="navbar-nav__item"><a href="projects.html"><span>Projects</span></a></li>
-
-            <li class="navbar-nav__item"><a href="uses.html"><span>Uses</span></a></li>
+            <li class="navbar-nav__item"><a href="#home" class="active"><span>Portfolio</span></a></li>
+            <li class="navbar-nav__item"><a href="#projects"><span>Projects</span></a></li>
+            <li class="navbar-nav__item"><a href="#uses"><span>Uses</span></a></li>
           </ul>
         </nav>
       </div>
@@ -109,10 +107,9 @@
 
     <div class="navbar-drawer" data-drawer aria-hidden="true">
       <ul class="navbar-drawer__list">
-        <li><a href="index.html" class="active"><span>Portfolio</span></a></li>
-        <li><a href="projects.html"><span>Projects</span></a></li>
-
-        <li><a href="uses.html"><span>Uses</span></a></li>
+        <li><a href="#home" class="active"><span>Portfolio</span></a></li>
+        <li><a href="#projects"><span>Projects</span></a></li>
+        <li><a href="#uses"><span>Uses</span></a></li>
       </ul>
     </div>
 
@@ -150,7 +147,7 @@
 
             <div class="hero__cta-row">
               <span class="btn-magnetic">
-                <a href="projects.html" class="btn btn--primary">
+                <a href="#projects" class="btn btn--primary">
                   View my work <span class="btn-arrow">→</span>
                 </a>
               </span>
@@ -316,21 +313,27 @@
 
 
 
-        <section class="section" id="work" aria-labelledby="work-heading">
+        <section class="section" id="projects" aria-labelledby="work-heading">
 
           <div class="section-header reveal">
             <span class="section-label" id="work-heading">
               <svg width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" aria-hidden="true"><path d="M22 19a2 2 0 0 1-2 2H4a2 2 0 0 1-2-2V5a2 2 0 0 1 2-2h5l2 3h9a2 2 0 0 1 2 2z"></path></svg>
-              Featured Projects
+              Projects
             </span>
             <div class="section-line"></div>
-            <a href="projects.html" class="btn btn--ghost" style="flex-shrink:0;font-size:11px;">All projects →</a>
+          </div>
+
+          <div class="filter-bar reveal-up">
+            <button class="filter-btn active" data-filter="all">All</button>
+            <button class="filter-btn" data-filter="ai">AI / ML</button>
+            <button class="filter-btn" data-filter="web">Full-Stack Web</button>
+            <button class="filter-btn" data-filter="mobile">Mobile</button>
+            <button class="filter-btn" data-filter="systems">Systems</button>
           </div>
 
           <div class="projects-grid reveal-stagger">
-
             <article class="project-card" data-category="mobile ai">
-              <a href="case-study.html" class="project-card__link">
+              <a href="#" class="project-card__link">
                 <div class="project-card__image">
                   <img src="assets/images/project-mobile.png" alt="Speak Dine app UI" loading="lazy" />
                   <div class="project-card__glare" aria-hidden="true"></div>
@@ -344,11 +347,7 @@
                   <p class="project-card__desc">An AI-assisted voice-accessibility food delivery app built for visually impaired users. Integrates STT, TTS, and conversational AI via Gemini API.</p>
                   <div class="project-card__footer">
                     <div class="project-card__tags">
-                      <span class="tag">Flutter</span>
-                      <span class="tag">Gemini API</span>
-                      <span class="tag">Firebase</span>
-                      <span class="tag">TTS/STT</span>
-                      <span class="tag">Dart</span>
+                      <span class="tag">Flutter</span><span class="tag">Gemini API</span><span class="tag">Firebase</span><span class="tag">TTS/STT</span><span class="tag">Dart</span>
                     </div>
                     <span class="project-card__arrow">↗</span>
                   </div>
@@ -357,7 +356,7 @@
             </article>
 
             <article class="project-card" data-category="ai">
-              <a href="projects.html" class="project-card__link">
+              <a href="#" class="project-card__link">
                 <div class="project-card__image">
                   <img src="assets/images/project-dashboard.png" alt="Glaucoma detection model" loading="lazy" />
                   <div class="project-card__glare" aria-hidden="true"></div>
@@ -368,12 +367,32 @@
                     <span class="project-card__year">2024</span>
                   </div>
                   <h2 class="project-card__title">Glaucoma Detection</h2>
-                  <p class="project-card__desc">Trained a deep learning model on the EyePACS + AIROGS Light v2 dataset for retinal fundus image classification and early glaucoma detection.</p>
+                  <p class="project-card__desc">Trained a deep learning model on the EyePACS dataset for early glaucoma detection.</p>
                   <div class="project-card__footer">
                     <div class="project-card__tags">
-                      <span class="tag">TensorFlow</span>
-                      <span class="tag">OpenCV</span>
-                      <span class="tag">Python</span>
+                      <span class="tag">TensorFlow</span><span class="tag">OpenCV</span><span class="tag">Python</span>
+                    </div>
+                    <span class="project-card__arrow">↗</span>
+                  </div>
+                </div>
+              </a>
+            </article>
+
+            <article class="project-card" data-category="web">
+              <a href="#" class="project-card__link">
+                <div class="project-card__image" style="display:flex;align-items:center;justify-content:center;background:var(--bg-elevated);color:var(--text-muted);font-size:var(--text-xs);font-family:var(--font-mono);">
+                  [ Internal Dashboard ]
+                </div>
+                <div class="project-card__body">
+                  <div class="project-card__meta">
+                    <span class="project-card__category">Database · Full-Stack</span>
+                    <span class="project-card__year">2026</span>
+                  </div>
+                  <h2 class="project-card__title">OGDC E-Medical Dashboard</h2>
+                  <p class="project-card__desc">Built data analysis modules over large-scale Oracle SQL databases during my internship.</p>
+                  <div class="project-card__footer">
+                    <div class="project-card__tags">
+                      <span class="tag">Oracle SQL</span><span class="tag">Python</span>
                     </div>
                     <span class="project-card__arrow">↗</span>
                   </div>
@@ -382,7 +401,7 @@
             </article>
 
             <article class="project-card" data-category="systems">
-              <a href="projects.html" class="project-card__link">
+              <a href="#" class="project-card__link">
                 <div class="project-card__image">
                   <img src="assets/images/project-ecommerce.png" alt="Route optimization system" loading="lazy" />
                   <div class="project-card__glare" aria-hidden="true"></div>
@@ -393,12 +412,10 @@
                     <span class="project-card__year">2024</span>
                   </div>
                   <h2 class="project-card__title">Smart Trash Routing</h2>
-                  <p class="project-card__desc">Optimized waste-collection vehicle routing using graph theory algorithms, significantly reducing fuel consumption and operational time.</p>
+                  <p class="project-card__desc">Optimized waste-collection routing using graph theory algorithms to reduce fuel consumption.</p>
                   <div class="project-card__footer">
                     <div class="project-card__tags">
-                      <span class="tag">Python</span>
-                      <span class="tag">Graph Theory</span>
-                      <span class="tag">DSA</span>
+                      <span class="tag">Python</span><span class="tag">Graph Theory</span>
                     </div>
                     <span class="project-card__arrow">↗</span>
                   </div>
@@ -406,6 +423,96 @@
               </a>
             </article>
 
+            <article class="project-card" data-category="web">
+              <a href="#" class="project-card__link">
+                <div class="project-card__image">
+                  <img src="assets/images/project-banking.png" alt="Nextcent UI" loading="lazy" />
+                  <div class="project-card__glare" aria-hidden="true"></div>
+                </div>
+                <div class="project-card__body">
+                  <div class="project-card__meta">
+                    <span class="project-card__category">UI Design · Web</span>
+                    <span class="project-card__year">2023</span>
+                  </div>
+                  <h2 class="project-card__title">Nextcent Web App</h2>
+                  <p class="project-card__desc">Developed a scalable community management dashboard focusing on data visualization.</p>
+                  <div class="project-card__footer">
+                    <div class="project-card__tags">
+                      <span class="tag">React</span><span class="tag">Figma</span>
+                    </div>
+                    <span class="project-card__arrow">↗</span>
+                  </div>
+                </div>
+              </a>
+            </article>
+
+          </div>
+
+        </section>
+
+        <section class="section content-inner--narrow" id="uses" aria-labelledby="uses-heading">
+
+          <div class="section-header reveal">
+            <span class="section-label" id="uses-heading">
+              <svg width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" aria-hidden="true"><circle cx="12" cy="12" r="10"></circle><polygon points="16.24 7.76 14.12 14.12 7.76 16.24 9.88 9.88 16.24 7.76"></polygon></svg>
+              Uses
+            </span>
+            <div class="section-line"></div>
+          </div>
+
+          <div class="uses-content">
+            <section class="uses-section reveal">
+              <h2 class="uses-category-title">
+                <svg width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2">
+                  <path d="M21 16V8a2 2 0 0 0-1-1.73l-7-4a2 2 0 0 0-2 0l-7 4A2 2 0 0 0 3 8v8a2 2 0 0 0 1 1.73l7 4a2 2 0 0 0 2 0l7-4A2 2 0 0 0 21 16z"></path>
+                  <polyline points="3.27 6.96 12 12.01 20.73 6.96"></polyline>
+                  <line x1="12" y1="22.08" x2="12" y2="12"></line>
+                </svg>
+                Editor & Terminal
+              </h2>
+              <div class="uses-list">
+                <div class="uses-item">
+                  <span class="uses-item__emoji">💻</span>
+                  <div>
+                    <p class="uses-item__name">VS Code</p>
+                    <p class="uses-item__desc">My primary editor for everything from Flutter to Python. Stripped down with minimal extensions.</p>
+                  </div>
+                </div>
+                <div class="uses-item">
+                  <span class="uses-item__emoji">🎨</span>
+                  <div>
+                    <p class="uses-item__name">Theme: GitHub Dark Default</p>
+                    <p class="uses-item__desc">Clean, high-contrast, and easy on the eyes during late-night coding sessions.</p>
+                  </div>
+                </div>
+                <div class="uses-item">
+                  <span class="uses-item__emoji">⌨️</span>
+                  <div>
+                    <p class="uses-item__name">Font: Wumpus Mono / Montserrat / Source Code Pro</p>
+                    <p class="uses-item__desc">Wumpus Mono for body text, Montserrat bold for headings, and Source Code Pro for code and UI labels on this site.</p>
+                  </div>
+                </div>
+              </div>
+            </section>
+
+            <section class="uses-section reveal">
+              <h2 class="uses-category-title">
+                <svg width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2">
+                  <circle cx="12" cy="12" r="10"></circle>
+                  <polygon points="16.24 7.76 14.12 14.12 7.76 16.24 9.88 9.88 16.24 7.76"></polygon>
+                </svg>
+                Design
+              </h2>
+              <div class="uses-list">
+                <div class="uses-item">
+                  <span class="uses-item__emoji">✨</span>
+                  <div>
+                    <p class="uses-item__name">Figma</p>
+                    <p class="uses-item__desc">Where every project starts. I use it for wireframing, UI design, and prototyping.</p>
+                  </div>
+                </div>
+              </div>
+            </section>
           </div>
 
         </section>
@@ -473,7 +580,6 @@
   <script src="scripts/content-loader.js"></script>
   <script src="scripts/main.js"></script>
   <script src="scripts/github.js"></script>
-  <script src="scripts/router.js"></script>
 
 </body>
 

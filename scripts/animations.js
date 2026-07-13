@@ -137,30 +137,6 @@ function initScrollspy() {
   sections.forEach(s => obs.observe(s));
 }
 
-function initActiveNav() {
-  const path = window.location.pathname.split('/').pop() || 'index.html';
-  const onArticle = path.includes('article');
-  const onCaseStudy = path.includes('case-study');
-  const links = document.querySelectorAll('.navbar-nav__item a, .navbar-drawer__list a');
-
-  links.forEach(link => {
-    const href = link.getAttribute('href')?.split('?')[0] || '';
-    const linkPath = href === '/' || href === '' ? 'index.html' : href;
-    let match = linkPath === path
-      || (path === '' && linkPath === 'index.html');
-
-    if (onArticle && linkPath === 'case-study.html') match = true;
-    if (onCaseStudy && linkPath === 'case-study.html') match = true;
-
-    link.classList.toggle('active', match);
-    if (match) {
-      link.setAttribute('aria-current', 'page');
-    } else {
-      link.removeAttribute('aria-current');
-    }
-  });
-}
-
 function initSectionLines() {
   const obs = new IntersectionObserver((entries) => {
     entries.forEach(e => {
@@ -287,7 +263,6 @@ async function initPage() {
   initSectionParallax();
   initCounters();
   initScrollspy();
-  initActiveNav();
   initSectionLines();
   initCopyEmail();
   initSmoothNav();
@@ -295,19 +270,11 @@ async function initPage() {
   initProjectFilter();
   initNavbarScroll();
 
-  document.body.classList.remove('page-article', 'page-case-study');
-  const page = window.location.pathname.split('/').pop() || 'index.html';
-  if (page.includes('article')) document.body.classList.add('page-article');
-  if (page.includes('case-study')) document.body.classList.add('page-case-study');
-
   if (typeof window.initMagneticButtons === 'function') window.initMagneticButtons();
   if (typeof window.initMarquee === 'function') window.initMarquee();
   if (typeof window.initContent === 'function') await window.initContent();
   if (typeof window.initGithub === 'function' && document.getElementById('github-graph-img-wrap')) {
     window.initGithub();
-  }
-  if (typeof window.initArticle === 'function' && document.getElementById('markdown-container')) {
-    window.initArticle();
   }
 
   initScrollReveal();

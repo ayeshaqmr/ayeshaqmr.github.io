@@ -6,7 +6,7 @@
     "description": "An AI-assisted voice-accessibility food delivery app built for visually impaired users. Integrates STT, TTS, and conversational AI via Gemini API. Built with Flutter and Firebase for cross-platform delivery.",
     "tags": ["Flutter", "Gemini API", "Firebase", "TTS/STT", "Dart"],
     "image": "project-mobile.png",
-    "link": "case-study.html",
+    "link": "#",
     "featured": true
   },
   {
@@ -16,7 +16,7 @@
     "description": "Trained a deep learning model on the EyePACS + AIROGS Light v2 dataset for retinal fundus image classification and early glaucoma detection.",
     "tags": ["TensorFlow", "OpenCV", "Python"],
     "image": "project-dashboard.png",
-    "link": "projects.html",
+    "link": "#",
     "featured": false
   },
   {
@@ -26,7 +26,7 @@
     "description": "Optimized waste-collection vehicle routing using graph theory algorithms, significantly reducing fuel consumption and operational time.",
     "tags": ["Python", "Graph Theory", "DSA"],
     "image": "project-ecommerce.png",
-    "link": "projects.html",
+    "link": "#",
     "featured": false
   },
   {
@@ -36,7 +36,7 @@
     "description": "Internal medical management dashboard built during internship at OGDC. Oracle SQL-backed data visualization with AI-driven analytics for patient records.",
     "tags": ["Oracle SQL", "Python", "AI"],
     "image": null,
-    "link": "projects.html",
+    "link": "#",
     "featured": false
   },
   {
@@ -46,7 +46,7 @@
     "description": "A community-focused web platform for managing memberships, events, and resources with a clean, modern interface.",
     "tags": ["React", "Node.js", "MongoDB"],
     "image": "project-banking.png",
-    "link": "projects.html",
+    "link": "#",
     "featured": false
   }
 ]
