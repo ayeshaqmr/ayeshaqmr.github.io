@@ -9,7 +9,16 @@ async function loadJSON(file) {
 function renderMarquee(skills) {
   const track = document.querySelector('.marquee-track');
   if (!track || !skills) return;
-  track.innerHTML = skills.map(s => `<span class="marquee-item">${s}</span>`).join('');
+  const isObject = skills.length > 0 && typeof skills[0] === 'object';
+  track.innerHTML = skills.map(s => {
+    const name = isObject ? s.name : s;
+    const icon = isObject ? s.icon : null;
+    const color = isObject ? s.color : null;
+    const iconHtml = icon
+      ? `<img src="https://cdn.simpleicons.org/${icon}/${color.replace('#','')}" alt="" width="12" height="12" loading="lazy" style="opacity:0.7" />`
+      : '';
+    return `<span class="marquee-item">${iconHtml}${name}</span>`;
+  }).join('');
 }
 
 function renderStats(stats) {
@@ -56,7 +65,17 @@ function renderExperience(data) {
 function renderSkillsGrid(skills) {
   const grid = document.querySelector('.skills-grid');
   if (!grid || !skills) return;
-  grid.innerHTML = skills.map(s => `<span class="skill-tag">${s}</span>`).join('');
+  const isObject = skills.length > 0 && typeof skills[0] === 'object';
+  grid.innerHTML = skills.map(s => {
+    const name  = isObject ? s.name : s;
+    const icon  = isObject ? s.icon : null;
+    const color = isObject ? s.color : null;
+    const iconHtml = icon
+      ? `<img class="skill-tag__icon" src="https://cdn.simpleicons.org/${icon}/${color.replace('#','')}" alt="" width="14" height="14" loading="lazy" />`
+      : '';
+    const style = color ? `--skill-color:${color}` : '';
+    return `<span class="skill-tag" style="${style}">${iconHtml}<span class="skill-tag__name">${name}</span></span>`;
+  }).join('');
 }
 
 function renderProjects(projects) {

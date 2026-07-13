@@ -482,6 +482,11 @@ h1, h2, h3, h4, h5, h6 {
   align-items: center;
   gap: var(--space-2);
 }
+.marquee-item img {
+  width: 12px;
+  height: 12px;
+  opacity: 0.6;
+}
 
 .marquee-item::after {
   content: '·';
@@ -508,11 +513,19 @@ h1, h2, h3, h4, h5, h6 {
 .github-section { overflow: hidden; }
 
 .github-graph-wrap {
-  border: 1px solid var(--border);
+  border: 1px solid rgba(196, 167, 231, 0.2);
   border-radius: var(--card-radius);
   overflow: hidden;
-  background: var(--bg-surface);
+  background: linear-gradient(135deg, rgba(196, 167, 231, 0.06) 0%, rgba(49, 116, 143, 0.04) 50%, rgba(156, 207, 216, 0.03) 100%);
   padding: var(--space-6);
+  position: relative;
+}
+.github-graph-wrap::before {
+  content: '';
+  position: absolute;
+  inset: 0;
+  background: radial-gradient(ellipse at 20% 50%, rgba(196, 167, 231, 0.08) 0%, transparent 60%);
+  pointer-events: none;
 }
 
 .github-stats-grid {

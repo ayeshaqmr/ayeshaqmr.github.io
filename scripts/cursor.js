@@ -6,6 +6,8 @@ if (!dot || !ring) {  }
 else {
 
   let mx = 0, my = 0, rx = 0, ry = 0;
+  let hovering = false;
+  let magnetX = 0, magnetY = 0;
 
   document.addEventListener('mousemove', e => {
     mx = e.clientX;
@@ -22,8 +24,17 @@ else {
   });
 
   (function loop() {
-    rx += (mx - rx) * 0.12;
-    ry += (my - ry) * 0.12;
+    if (hovering) {
+      magnetX += (mx - magnetX) * 0.15;
+      magnetY += (my - magnetY) * 0.15;
+      rx += (magnetX - rx) * 0.1;
+      ry += (magnetY - ry) * 0.1;
+    } else {
+      magnetX = mx;
+      magnetY = my;
+      rx += (mx - rx) * 0.12;
+      ry += (my - ry) * 0.12;
+    }
     ring.style.left = rx + 'px';
     ring.style.top  = ry + 'px';
     requestAnimationFrame(loop);
@@ -43,15 +54,19 @@ else {
 
   document.addEventListener('mouseover', e => {
     if (e.target.closest(targets)) {
+      hovering = true;
       dot.classList.add('hovering');
       ring.classList.add('hovering');
+      if (spotlight) spotlight.classList.add('hovering');
     }
   });
 
   document.addEventListener('mouseout', e => {
     if (e.target.closest(targets)) {
+      hovering = false;
       dot.classList.remove('hovering');
       ring.classList.remove('hovering');
+      if (spotlight) spotlight.classList.remove('hovering');
     }
   });
 

@@ -365,21 +365,41 @@
 .tag:hover { color: var(--accent); border-color: var(--accent-border); background: var(--accent-glow); }
 
 .skill-tag {
+  --skill-color: var(--text-muted);
   font-family: var(--font-mono);
   font-size: var(--text-xs);
   color: var(--text-secondary);
   background: var(--bg-elevated);
   border: 1px solid var(--border);
-  border-radius: 3px;
-  padding: var(--space-1) var(--space-3);
+  border-radius: 4px;
+  padding: 4px 10px;
   letter-spacing: 0.03em;
   transition: all var(--transition-fast);
   cursor: default;
+  display: inline-flex;
+  align-items: center;
+  gap: 5px;
+}
+.skill-tag__icon {
+  width: 14px;
+  height: 14px;
+  flex-shrink: 0;
+  opacity: 0.85;
+  transition: opacity var(--transition-fast), transform var(--transition-fast);
+}
+.skill-tag__name {
+  line-height: 1;
 }
 .skill-tag:hover {
-  color: var(--accent);
-  border-color: var(--accent-border);
-  background: var(--accent-glow);
+  color: var(--text-primary);
+  border-color: var(--skill-color);
+  background: color-mix(in srgb, var(--skill-color) 8%, transparent);
+  box-shadow: 0 0 12px color-mix(in srgb, var(--skill-color) 15%, transparent),
+              inset 0 0 12px color-mix(in srgb, var(--skill-color) 5%, transparent);
+}
+.skill-tag:hover .skill-tag__icon {
+  opacity: 1;
+  transform: scale(1.15);
 }
 
 .stats-grid {
@@ -647,42 +667,81 @@
 
 .cursor-dot {
   position: fixed;
-  width: 5px;
-  height: 5px;
+  width: 6px;
+  height: 6px;
   background: var(--text-primary);
   border-radius: 50%;
   pointer-events: none;
   z-index: var(--z-cursor);
   transform: translate(-50%, -50%);
-  transition: width 0.2s, height 0.2s, background 0.2s, opacity 0.2s;
+  transition: width 0.25s var(--ease-expo), height 0.25s var(--ease-expo),
+              background 0.25s, opacity 0.2s, box-shadow 0.3s var(--ease-expo);
   mix-blend-mode: difference;
 }
+.cursor-dot::before {
+  content: '';
+  position: absolute;
+  inset: -4px;
+  border-radius: 50%;
+  background: inherit;
+  opacity: 0.25;
+  filter: blur(4px);
+  animation: cursor-pulse 2s ease-in-out infinite;
+}
+@keyframes cursor-pulse {
+  0%, 100% { transform: scale(1);   opacity: 0.2; }
+  50%      { transform: scale(1.8); opacity: 0.08; }
+}
+
 .cursor-ring {
   position: fixed;
-  width: 30px;
-  height: 30px;
-  border: 1px solid rgba(255,255,255,0.3);
+  width: 32px;
+  height: 32px;
+  border: 1px solid rgba(224, 222, 244, 0.35);
   border-radius: 50%;
   pointer-events: none;
   z-index: var(--z-cursor);
   transform: translate(-50%, -50%);
-  transition: width 0.35s var(--ease-expo), height 0.35s var(--ease-expo), border-color 0.35s, background 0.35s, opacity 0.2s;
+  transition: width 0.4s var(--ease-expo), height 0.4s var(--ease-expo),
+              border-color 0.4s var(--ease-expo), background 0.4s var(--ease-expo),
+              border-width 0.3s var(--ease-expo), box-shadow 0.4s var(--ease-expo),
+              opacity 0.2s, border-radius 0.4s var(--ease-expo);
   mix-blend-mode: difference;
 }
-.cursor-dot.hovering { width: 8px; height: 8px; background: var(--accent); }
-.cursor-ring.hovering { width: 50px; height: 50px; border-color: rgba(232,228,168,0.5); background: rgba(232,228,168,0.04); }
+
+.cursor-dot.hovering {
+  width: 4px;
+  height: 4px;
+  background: #c4a7e7;
+  box-shadow: 0 0 8px #c4a7e7, 0 0 16px rgba(196, 167, 231, 0.4);
+}
+.cursor-dot.hovering::before {
+  animation: none;
+  opacity: 0;
+}
+.cursor-ring.hovering {
+  width: 22px;
+  height: 22px;
+  border-width: 2px;
+  border-color: #c4a7e7;
+  background: rgba(196, 167, 231, 0.06);
+  box-shadow: 0 0 12px rgba(196, 167, 231, 0.2);
+}
 
 .cursor-spotlight {
   position: fixed;
   width: 600px;
   height: 600px;
   border-radius: 50%;
-  background: radial-gradient(circle, rgba(232,228,168,0.04) 0%, transparent 70%);
+  background: radial-gradient(circle, rgba(156, 207, 216, 0.04) 0%, transparent 70%);
   pointer-events: none;
   z-index: 0;
   transform: translate(-50%, -50%);
-  transition: opacity 0.5s;
+  transition: opacity 0.5s, background 0.6s var(--ease-expo);
   opacity: 0;
+}
+.cursor-spotlight.hovering {
+  background: radial-gradient(circle, rgba(196, 167, 231, 0.06) 0%, transparent 70%);
 }
 
 .noise {

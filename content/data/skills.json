@@ -1,1 +1,22 @@
-["Python", "Flutter", "React.js", "Next.js", "TensorFlow", "Firebase", "OpenCV", "Figma", "Framer", "Supabase", "PostgreSQL", "Scikit-learn", "Tailwind CSS", "Dart", "C++", "Streamlit", "MongoDB", "Gemini API", "IoT / Blynk", "Git & GitHub"]
+[
+  { "name": "Python",      "icon": "python",      "color": "#3776AB" },
+  { "name": "Flutter / Dart", "icon": "flutter",   "color": "#02569B" },
+  { "name": "React.js",    "icon": "react",       "color": "#61DAFB" },
+  { "name": "Next.js",     "icon": "nextdotjs",   "color": "#FFFFFF" },
+  { "name": "TensorFlow",  "icon": "tensorflow",   "color": "#FF6F00" },
+  { "name": "PyTorch",     "icon": "pytorch",      "color": "#EE4C2C" },
+  { "name": "OpenCV",      "icon": "opencv",       "color": "#5C3EE8" },
+  { "name": "Firebase",    "icon": "firebase",     "color": "#FFCA28" },
+  { "name": "Supabase",    "icon": "supabase",     "color": "#3FCF8E" },
+  { "name": "PostgreSQL",  "icon": "postgresql",   "color": "#4169E1" },
+  { "name": "MongoDB",     "icon": "mongodb",      "color": "#47A248" },
+  { "name": "C / C++",     "icon": "cplusplus",    "color": "#00599C" },
+  { "name": "HTML / CSS / JS", "icon": "html5",    "color": "#E34F26" },
+  { "name": "Tailwind CSS","icon": "tailwindcss",  "color": "#06B6D4" },
+  { "name": "Figma",       "icon": "figma",        "color": "#F24E1E" },
+  { "name": "Framer",      "icon": "framer",       "color": "#BB4BFF" },
+  { "name": "Streamlit",   "icon": "streamlit",    "color": "#FF4B4B" },
+  { "name": "Git / GitHub","icon": "github",       "color": "#FFFFFF" },
+  { "name": "Gemini API",  "icon": "google",       "color": "#4285F4" },
+  { "name": "IoT / Blynk", "icon": "arduino",      "color": "#00979D" }
+]
