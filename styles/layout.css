@@ -138,7 +138,7 @@ h1, h2, h3, h4, h5, h6 {
 .navbar__time {
   font-family: var(--font-mono);
   font-size: 11px;
-  color: var(--text-muted);
+  color: #d7827e;
   letter-spacing: 0.04em;
   white-space: nowrap;
   padding-right: var(--space-2);
@@ -215,7 +215,7 @@ h1, h2, h3, h4, h5, h6 {
 .navbar-url__text {
   font-family: var(--font-mono);
   font-size: 12px;
-  color: var(--text-secondary);
+  color: #b4637a;
   letter-spacing: -0.01em;
   white-space: nowrap;
   overflow: hidden;
