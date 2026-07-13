@@ -6,22 +6,28 @@
   --bg-overlay:     #312d41;   
   --border:         #2a2841;
   --border-light:   #393552;
-  --border-bright:  #56526e;
+  --border-bright:  #524f67;
 
   --text-primary:   #e0def4;
-  --text-secondary: #c4a7e7;
+  --text-secondary: #908caa;
   --text-muted:     #6e6a86;
   --text-faint:     #44415a;
 
-  --accent:         #eb6f92;   
-  --accent-dim:     #d4738a;
-  --accent-glow:    rgba(235, 111, 146, 0.12);
-  --accent-border:  rgba(235, 111, 146, 0.25);
+  --accent:         #e0def4;
+  --accent-dim:     #9ccfd8;
+  --accent-glow:    rgba(156, 207, 216, 0.1);
+  --accent-border:  rgba(156, 207, 216, 0.25);
 
   --green:          #a6e3a1;
-  --green-glow:     rgba(166, 227, 161, 0.2);
+  --green-glow:     rgba(166, 227, 161, 0.15);
 
-  --spotlight-color: rgba(235, 111, 146, 0.04);
+  --gold:           #f6c177;
+  --rose:           #eb6f92;
+  --pine:           #31748f;
+  --foam:           #9ccfd8;
+  --iris:           #c4a7e7;
+
+  --spotlight-color: rgba(156, 207, 216, 0.04);
 
   --font-display:   'Monument Extended', sans-serif;
   --font-body:      'Wumpus Mono', 'Courier New', monospace;
@@ -62,7 +68,7 @@
   --shadow-sm:   0 1px 3px rgba(0,0,0,0.5);
   --shadow-md:   0 4px 16px rgba(0,0,0,0.4);
   --shadow-lg:   0 8px 40px rgba(0,0,0,0.5);
-  --shadow-accent: 0 0 30px var(--accent-glow), 0 0 60px rgba(235,111,146,0.04);
+  --shadow-accent: 0 0 30px var(--accent-glow), 0 0 60px rgba(156,207,216,0.04);
 
   --ease-expo:      cubic-bezier(0.16, 1, 0.3, 1);
   --ease-bounce:    cubic-bezier(0.34, 1.56, 0.64, 1);

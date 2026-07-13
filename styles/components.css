@@ -241,7 +241,7 @@
 .project-card:hover {
   transform: translateY(-6px);
   border-color: var(--accent-border);
-  box-shadow: 0 0 30px var(--accent-glow), 0 0 60px rgba(235,111,146,0.04), var(--shadow-lg);
+  box-shadow: 0 0 30px var(--accent-glow), 0 0 60px rgba(156,207,216,0.04), var(--shadow-lg);
   background: var(--bg-elevated);
 }
 
