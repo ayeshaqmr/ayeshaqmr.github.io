@@ -24,14 +24,24 @@
   .cursor-dot, .cursor-ring, .cursor-spotlight { display: none; }
 
   .navbar {
-    padding: 0 var(--space-4);
+    top: 8px;
+    left: 8px;
+    right: 8px;
+    height: 44px;
+    padding: 0 8px;
   }
   .navbar__status { display: none; }
   .navbar__name { display: none; }
   .navbar__center { display: none; }
   .navbar__burger { display: flex; }
-  .navbar__right { gap: var(--space-1); }
+  .navbar__right { gap: 2px; }
   .navbar__social-link { width: 28px; height: 28px; }
+
+  .navbar-drawer {
+    top: 60px;
+    left: 8px;
+    right: 8px;
+  }
 
   .main-content { margin-top: 60px; }
   .content-inner { padding: var(--space-8) var(--space-5) 0; }
