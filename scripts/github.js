@@ -5,7 +5,7 @@ function renderContributionGraph() {
   if (!wrap) return;
 
   const img = document.createElement('img');
-  img.src = `https://ghchart.rshah.org/7e6da8/${GITHUB_USER}`;
+  img.src = `https://ghchart.rshah.org/b4637a/${GITHUB_USER}`;
   img.alt = `${GITHUB_USER}'s GitHub contribution chart`;
   img.style.cssText = 'width:100%; border-radius:4px; opacity:0; transition:opacity 0.6s ease;';
   img.loading = 'lazy';
