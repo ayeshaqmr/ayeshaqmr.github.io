@@ -247,7 +247,11 @@ function initNavbarScroll() {
   if (!navbar) return;
 
   const onScroll = () => {
-    navbar.classList.toggle('navbar--scrolled', window.scrollY > 8);
+    const scrolled = window.scrollY > 8;
+    navbar.classList.toggle('navbar--scrolled', scrolled);
+    const maxScroll = document.documentElement.scrollHeight - window.innerHeight;
+    const progress = maxScroll > 0 ? Math.min(window.scrollY / maxScroll, 1) : 0;
+    navbar.style.setProperty('--scroll-progress', progress);
   };
 
   window.removeEventListener('scroll', navbar._scrollHandler);

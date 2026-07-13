@@ -8,6 +8,7 @@ else {
   let mx = 0, my = 0, rx = 0, ry = 0;
   let hovering = false;
   let magnetX = 0, magnetY = 0;
+  let currentType = '';
 
   document.addEventListener('mousemove', e => {
     mx = e.clientX;
@@ -50,22 +51,50 @@ else {
     ring.style.opacity = '1';
   });
 
-  const targets = 'a, button, .project-card, .skill-tag, .tag, .filter-btn, .contact__email-btn, .uses-item, .note-item, .cert-item';
+  const cursorTypes = [
+    { selector: '.project-card',                             cls: 'cursor-card' },
+    { selector: '.hero__avatar-frame, .navbar__avatar',      cls: 'cursor-profile' },
+    { selector: '.contact__email-btn, .contact__social-link, .contact__card', cls: 'cursor-contact' },
+    { selector: '.skill-tag, .tag',                          cls: 'cursor-skill' },
+    { selector: 'button, .filter-btn, .btn',                 cls: 'cursor-btn' },
+  ];
+
+  const defaultCls = 'hovering';
+
+  function clearCursorClasses() {
+    dot.className = 'cursor-dot';
+    ring.className = 'cursor-ring';
+    currentType = '';
+  }
+
+  function applyCursorType(el) {
+    clearCursorClasses();
+    for (const t of cursorTypes) {
+      if (el.closest(t.selector)) {
+        dot.classList.add(defaultCls, t.cls);
+        ring.classList.add(defaultCls, t.cls);
+        currentType = t.cls;
+        return;
+      }
+    }
+    dot.classList.add(defaultCls);
+    ring.classList.add(defaultCls);
+  }
 
   document.addEventListener('mouseover', e => {
-    if (e.target.closest(targets)) {
+    const target = e.target.closest('a, button, .project-card, .skill-tag, .tag, .filter-btn, .contact__email-btn, .uses-item, .cert-item, .hero__avatar-frame');
+    if (target) {
       hovering = true;
-      dot.classList.add('hovering');
-      ring.classList.add('hovering');
+      applyCursorType(target);
       if (spotlight) spotlight.classList.add('hovering');
     }
   });
 
   document.addEventListener('mouseout', e => {
-    if (e.target.closest(targets)) {
+    const target = e.target.closest('a, button, .project-card, .skill-tag, .tag, .filter-btn, .contact__email-btn, .uses-item, .cert-item, .hero__avatar-frame');
+    if (target) {
       hovering = false;
-      dot.classList.remove('hovering');
-      ring.classList.remove('hovering');
+      clearCursorClasses();
       if (spotlight) spotlight.classList.remove('hovering');
     }
   });

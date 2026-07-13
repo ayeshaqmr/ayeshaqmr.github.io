@@ -697,8 +697,9 @@
   pointer-events: none;
   z-index: var(--z-cursor);
   transform: translate(-50%, -50%);
-  transition: width 0.25s var(--ease-expo), height 0.25s var(--ease-expo),
-              background 0.25s, opacity 0.2s, box-shadow 0.3s var(--ease-expo);
+  transition: width 0.3s var(--ease-expo), height 0.3s var(--ease-expo),
+              background 0.3s, opacity 0.2s, box-shadow 0.3s var(--ease-expo),
+              border-radius 0.3s var(--ease-expo);
   mix-blend-mode: difference;
 }
 .cursor-dot::before {
@@ -728,27 +729,42 @@
   transition: width 0.4s var(--ease-expo), height 0.4s var(--ease-expo),
               border-color 0.4s var(--ease-expo), background 0.4s var(--ease-expo),
               border-width 0.3s var(--ease-expo), box-shadow 0.4s var(--ease-expo),
-              opacity 0.2s, border-radius 0.4s var(--ease-expo);
+              opacity 0.2s, border-radius 0.4s var(--ease-expo),
+              border-style 0.3s var(--ease-expo);
   mix-blend-mode: difference;
 }
 
-.cursor-dot.hovering {
-  width: 4px;
-  height: 4px;
-  background: #c4a7e7;
-  box-shadow: 0 0 8px #c4a7e7, 0 0 16px rgba(196, 167, 231, 0.4);
-}
-.cursor-dot.hovering::before {
-  animation: none;
-  opacity: 0;
-}
-.cursor-ring.hovering {
-  width: 22px;
-  height: 22px;
-  border-width: 2px;
-  border-color: #c4a7e7;
-  background: rgba(196, 167, 231, 0.06);
-  box-shadow: 0 0 12px rgba(196, 167, 231, 0.2);
+.cursor-dot.hovering { width: 4px; height: 4px; background: #c4a7e7; box-shadow: 0 0 8px #c4a7e7, 0 0 16px rgba(196,167,231,0.4); }
+.cursor-dot.hovering::before { animation: none; opacity: 0; }
+.cursor-ring.hovering { width: 22px; height: 22px; border-width: 2px; border-color: #c4a7e7; background: rgba(196,167,231,0.06); box-shadow: 0 0 12px rgba(196,167,231,0.2); }
+
+/* Button: thicker ring, tight */
+.cursor-dot.cursor-btn { width: 5px; height: 5px; background: #9ccfd8; box-shadow: 0 0 6px #9ccfd8; }
+.cursor-dot.cursor-btn::before { animation: none; opacity: 0; }
+.cursor-ring.cursor-btn { width: 28px; height: 28px; border-width: 2px; border-color: #9ccfd8; background: rgba(156,207,216,0.05); box-shadow: 0 0 10px rgba(156,207,216,0.15); }
+
+/* Project card: big soft ring */
+.cursor-dot.cursor-card { width: 3px; height: 3px; background: #ebbcba; box-shadow: 0 0 4px #ebbcba; }
+.cursor-dot.cursor-card::before { animation: none; opacity: 0; }
+.cursor-ring.cursor-card { width: 56px; height: 56px; border-width: 1px; border-color: rgba(235,188,186,0.3); background: rgba(235,188,186,0.03); box-shadow: 0 0 20px rgba(235,188,186,0.08); }
+
+/* Profile image: dashed ring */
+.cursor-dot.cursor-profile { width: 4px; height: 4px; background: #ebbcba; box-shadow: 0 0 6px #ebbcba; }
+.cursor-dot.cursor-profile::before { animation: none; opacity: 0; }
+.cursor-ring.cursor-profile { width: 48px; height: 48px; border-width: 1.5px; border-style: dashed; border-color: #ebbcba; background: transparent; box-shadow: none; }
+
+/* Skill tag: tiny dot with color glow */
+.cursor-dot.cursor-skill { width: 3px; height: 3px; background: #e0af68; box-shadow: 0 0 6px #e0af68, 0 0 12px rgba(224,175,104,0.3); }
+.cursor-dot.cursor-skill::before { animation: none; opacity: 0; }
+.cursor-ring.cursor-skill { width: 20px; height: 20px; border-width: 1.5px; border-color: #e0af68; background: rgba(224,175,104,0.04); box-shadow: 0 0 8px rgba(224,175,104,0.15); }
+
+/* Contact: pulsing ring */
+.cursor-dot.cursor-contact { width: 5px; height: 5px; background: #9d7cd8; box-shadow: 0 0 8px #9d7cd8; }
+.cursor-dot.cursor-contact::before { animation: none; opacity: 0; }
+.cursor-ring.cursor-contact { width: 36px; height: 36px; border-width: 1.5px; border-color: #9d7cd8; background: rgba(157,124,216,0.04); box-shadow: 0 0 14px rgba(157,124,216,0.2); animation: cursor-contact-pulse 1.5s ease-in-out infinite; }
+@keyframes cursor-contact-pulse {
+  0%, 100% { box-shadow: 0 0 14px rgba(157,124,216,0.2); }
+  50%      { box-shadow: 0 0 24px rgba(157,124,216,0.35); }
 }
 
 .cursor-spotlight {
