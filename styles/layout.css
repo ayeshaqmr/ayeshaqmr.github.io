@@ -327,10 +327,10 @@ h1, h2, h3, h4, h5, h6 {
 }
 .navbar__social-link svg { width: 15px; height: 15px; }
 
-.navbar__social-link[aria-label="GitHub"]:hover { color: #ea9a97; background: rgba(234, 154, 151, 0.12); }
-.navbar__social-link[aria-label="LinkedIn"]:hover { color: #8caaee; background: rgba(140, 170, 238, 0.12); }
-.navbar__social-link[aria-label="Email"]:hover { color: #9d7cd8; background: rgba(157, 124, 216, 0.12); }
-.navbar__social-link[aria-label="Download CV"]:hover { color: #a6d189; background: rgba(166, 209, 137, 0.12); }
+.navbar__social-link[aria-label="GitHub"]:hover { color: #b4637a; background: rgba(180, 99, 122, 0.1); }
+.navbar__social-link[aria-label="LinkedIn"]:hover { color: #6e8cbf; background: rgba(110, 140, 191, 0.1); }
+.navbar__social-link[aria-label="Email"]:hover { color: #7e6da8; background: rgba(126, 109, 168, 0.1); }
+.navbar__social-link[aria-label="Download CV"]:hover { color: #7da87a; background: rgba(125, 168, 122, 0.1); }
 
 .main-content {
   margin-top: 72px; 
