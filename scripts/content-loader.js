@@ -89,27 +89,6 @@ function renderProjects(projects) {
   }).join('');
 }
 
-function renderNotes(notes) {
-  const list = document.querySelector('.notes-list');
-  if (!list || !notes) return;
-  list.innerHTML = notes.map(n => {
-    const tags = n.tags.map(t => `<span class="tag">${t}</span>`).join('');
-    return `
-      <article class="note-item">
-        <span class="note-item__date">${n.date}</span>
-        <div>
-          <a href="${n.link}">
-            <h2 class="note-item__title">${n.title}</h2>
-          </a>
-          <p class="note-item__desc">${n.description}</p>
-          <div class="note-item__tags">${tags}</div>
-        </div>
-        <a href="${n.link}" class="note-item__read">Read →</a>
-      </article>
-    `;
-  }).join('');
-}
-
 function renderUses(uses) {
   const container = document.querySelector('.uses-content');
   if (!container || !uses) return;
@@ -150,27 +129,6 @@ function renderEducation(education) {
   `).join('');
 }
 
-function renderResearch(research) {
-  const list = document.querySelector('.research-list');
-  if (!list || !research) return;
-  list.innerHTML = research.map(r => {
-    const tags = r.tags.map(t => `<span class="tag">${t}</span>`).join('');
-    return `
-      <article class="research-item">
-        <span class="research-item__year">${r.year}</span>
-        <div>
-          <a href="${r.link}">
-            <h2 class="research-item__title">${r.title}</h2>
-          </a>
-          <p class="research-item__venue">${r.venue}</p>
-          <p class="research-item__desc">${r.description}</p>
-          <div class="research-item__tags">${tags}</div>
-        </div>
-      </article>
-    `;
-  }).join('');
-}
-
 async function initContent() {
   try {
     const skills = await loadJSON('skills.json');
@@ -188,11 +146,6 @@ async function initContent() {
       renderProjects(projects);
     }
 
-    if (document.querySelector('.notes-list')) {
-      const notes = await loadJSON('notes.json');
-      renderNotes(notes);
-    }
-
     if (document.querySelector('.uses-content')) {
       const uses = await loadJSON('uses.json');
       renderUses(uses);
@@ -203,10 +156,7 @@ async function initContent() {
       renderEducation(education);
     }
 
-    if (document.querySelector('.research-list')) {
-      const research = await loadJSON('research.json');
-      renderResearch(research);
-    }
+
   } catch (e) {
     console.warn('Content loader:', e.message);
   }

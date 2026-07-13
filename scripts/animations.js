@@ -15,11 +15,12 @@ function initScrollReveal() {
   const selector = [
     '.reveal',
     '.reveal--left',
+    '.reveal-scale',
+    '.reveal-up',
     '.reveal-stagger',
     '.experience-row',
-    '.note-item',
-    '.research-item',
     '.section-line',
+    '.page-hero__line',
   ].join(',');
 
   const els = document.querySelectorAll(selector);
@@ -32,14 +33,6 @@ function initScrollReveal() {
       if (entry.target.classList.contains('experience-row')) {
         const rows = [...document.querySelectorAll('.experience-row')];
         const idx  = rows.indexOf(entry.target);
-        setTimeout(() => entry.target.classList.add('visible'), idx * 60);
-      } else if (entry.target.classList.contains('note-item')) {
-        const items = [...document.querySelectorAll('.note-item')];
-        const idx   = items.indexOf(entry.target);
-        setTimeout(() => entry.target.classList.add('visible'), idx * 60);
-      } else if (entry.target.classList.contains('research-item')) {
-        const items = [...document.querySelectorAll('.research-item')];
-        const idx   = items.indexOf(entry.target);
         setTimeout(() => entry.target.classList.add('visible'), idx * 60);
       } else {
         entry.target.classList.add('visible');
@@ -148,7 +141,6 @@ function initActiveNav() {
   const path = window.location.pathname.split('/').pop() || 'index.html';
   const onArticle = path.includes('article');
   const onCaseStudy = path.includes('case-study');
-  const onResearch = path.includes('research');
   const links = document.querySelectorAll('.navbar-nav__item a, .navbar-drawer__list a');
 
   links.forEach(link => {
@@ -157,9 +149,8 @@ function initActiveNav() {
     let match = linkPath === path
       || (path === '' && linkPath === 'index.html');
 
-    if (onArticle && linkPath === 'notes.html') match = true;
+    if (onArticle && linkPath === 'case-study.html') match = true;
     if (onCaseStudy && linkPath === 'case-study.html') match = true;
-    if (onResearch && linkPath === 'research.html') match = true;
 
     link.classList.toggle('active', match);
     if (match) {
@@ -304,11 +295,10 @@ async function initPage() {
   initProjectFilter();
   initNavbarScroll();
 
-  document.body.classList.remove('page-article', 'page-case-study', 'page-research');
+  document.body.classList.remove('page-article', 'page-case-study');
   const page = window.location.pathname.split('/').pop() || 'index.html';
   if (page.includes('article')) document.body.classList.add('page-article');
   if (page.includes('case-study')) document.body.classList.add('page-case-study');
-  if (page.includes('research')) document.body.classList.add('page-research');
 
   if (typeof window.initMagneticButtons === 'function') window.initMagneticButtons();
   if (typeof window.initMarquee === 'function') window.initMarquee();

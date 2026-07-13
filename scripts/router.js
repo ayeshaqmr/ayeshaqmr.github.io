@@ -61,10 +61,9 @@
 
       if (doc.title) document.title = doc.title;
 
-      document.body.classList.remove('page-article', 'page-case-study', 'page-research');
+      document.body.classList.remove('page-article', 'page-case-study');
       if (fetchUrl.includes('article')) document.body.classList.add('page-article');
       if (fetchUrl.includes('case-study')) document.body.classList.add('page-case-study');
-      if (fetchUrl.includes('research')) document.body.classList.add('page-research');
 
       if (pushState) {
         history.pushState({ spa: true }, '', fullUrl);
