@@ -138,7 +138,7 @@ h1, h2, h3, h4, h5, h6 {
 .navbar__time {
   font-family: var(--font-mono);
   font-size: 11px;
-  color: #d7827e;
+  color: #e0af68;
   letter-spacing: 0.04em;
   white-space: nowrap;
   padding-right: var(--space-2);
@@ -193,7 +193,7 @@ h1, h2, h3, h4, h5, h6 {
   display: flex;
   align-items: center;
   gap: 6px;
-  background: rgba(38, 35, 58, 0.6);
+  background: rgba(48, 44, 66, 0.7);
   border: 1px solid rgba(57, 53, 82, 0.5);
   border-radius: 8px;
   padding: 5px 14px;
@@ -215,7 +215,7 @@ h1, h2, h3, h4, h5, h6 {
 .navbar-url__text {
   font-family: var(--font-mono);
   font-size: 12px;
-  color: #b4637a;
+  color: #ebbcba;
   letter-spacing: -0.01em;
   white-space: nowrap;
   overflow: hidden;
