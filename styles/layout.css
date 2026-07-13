@@ -665,14 +665,17 @@ h1, h2, h3, h4, h5, h6 {
 .uses-list { display: flex; flex-direction: column; gap: 1px; background: var(--border); border: 1px solid var(--border); border-radius: var(--card-radius); overflow: hidden; }
 
 .uses-item {
-  background: var(--bg-surface);
+  background: linear-gradient(135deg, rgba(196,167,231,0.03) 0%, var(--bg-surface) 100%);
   padding: var(--space-4) var(--space-5);
   display: flex;
   align-items: flex-start;
   gap: var(--space-4);
-  transition: background var(--transition-fast);
+  transition: all 0.3s var(--ease-expo);
+  position: relative;
 }
-.uses-item:hover { background: var(--bg-elevated); }
+.uses-item:hover {
+  background: linear-gradient(135deg, rgba(196,167,231,0.07) 0%, var(--bg-elevated) 100%);
+}
 
 .uses-item__emoji { font-size: 1.1em; flex-shrink: 0; margin-top: 1px; }
 

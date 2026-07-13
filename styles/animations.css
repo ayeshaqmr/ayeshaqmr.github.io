@@ -143,8 +143,7 @@
   animation-play-state: paused;
 }
 
-.stat-card__num { transition: color var(--transition-fast); }
-.stat-card:hover .stat-card__num { color: var(--accent); }
+.stat-card__num { transition: color 0.3s var(--ease-expo); }
 
 .hero__avatar-frame { animation: float 6s ease-in-out infinite; }
 

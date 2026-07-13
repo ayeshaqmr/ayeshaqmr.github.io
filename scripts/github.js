@@ -5,7 +5,7 @@ function renderContributionGraph() {
   if (!wrap) return;
 
   const img = document.createElement('img');
-  img.src = `https://ghchart.rshah.org/e8e4a8/${GITHUB_USER}`;
+  img.src = `https://ghchart.rshah.org/7e6da8/${GITHUB_USER}`;
   img.alt = `${GITHUB_USER}'s GitHub contribution chart`;
   img.style.cssText = 'width:100%; border-radius:4px; opacity:0; transition:opacity 0.6s ease;';
   img.loading = 'lazy';
@@ -28,11 +28,11 @@ function renderGithubStatsCard() {
     username: GITHUB_USER,
     show_icons: 'true',
     theme: 'transparent',
-    bg_color: '161616',
-    text_color: 'a8a8a8',
-    icon_color: 'e8e4a8',
-    border_color: '242424',
-    title_color: 'f0f0f0',
+    bg_color: '191724',
+    text_color: '908caa',
+    icon_color: 'c4a7e7',
+    border_color: '2a2841',
+    title_color: 'e0def4',
     hide_border: 'false',
     count_private: 'true',
     show: 'reviews,discussions_started',
@@ -125,14 +125,29 @@ async function renderPinnedRepos() {
         overflow: hidden;
       }
       .repo-card {
-        background: var(--bg-surface);
+        background: linear-gradient(135deg, rgba(196,167,231,0.04) 0%, var(--bg-surface) 100%);
         padding: var(--space-5);
         display: flex;
         flex-direction: column;
         gap: var(--space-2);
-        transition: background var(--transition-fast);
+        transition: all 0.3s var(--ease-expo);
+        position: relative;
       }
-      .repo-card:hover { background: var(--bg-elevated); }
+      .repo-card::after {
+        content: '';
+        position: absolute;
+        left: 0;
+        top: 0;
+        bottom: 0;
+        width: 2px;
+        background: #c4a7e7;
+        opacity: 0;
+        transition: opacity 0.3s var(--ease-expo);
+      }
+      .repo-card:hover {
+        background: linear-gradient(135deg, rgba(196,167,231,0.08) 0%, var(--bg-elevated) 100%);
+      }
+      .repo-card:hover::after { opacity: 0.6; }
       .repo-card__header {
         display: flex;
         align-items: center;
@@ -145,7 +160,7 @@ async function renderPinnedRepos() {
         color: var(--text-primary);
         transition: color var(--transition-fast);
       }
-      .repo-card:hover .repo-card__name { color: var(--accent); }
+      .repo-card:hover .repo-card__name { color: #c4a7e7; }
       .repo-card__desc {
         font-size: 11px;
         color: var(--text-muted);
@@ -161,9 +176,9 @@ async function renderPinnedRepos() {
       .repo-card__lang {
         font-family: var(--font-mono);
         font-size: 10px;
-        color: var(--accent-dim);
-        background: var(--accent-glow);
-        border: 1px solid var(--accent-border);
+        color: #c4a7e7;
+        background: rgba(196,167,231,0.1);
+        border: 1px solid rgba(196,167,231,0.2);
         padding: 1px 6px;
         border-radius: 2px;
       }
@@ -178,7 +193,7 @@ async function renderPinnedRepos() {
         color: var(--text-muted);
         transition: color var(--transition-fast), transform var(--transition-fast);
       }
-      .repo-card:hover .repo-card__arrow { color: var(--accent); transform: translate(3px,-3px); }
+      .repo-card:hover .repo-card__arrow { color: #c4a7e7; transform: translate(3px,-3px); }
       @media(max-width:768px) { #pinned-repos-grid { grid-template-columns: 1fr; } }
     `;
     document.head.appendChild(style);
