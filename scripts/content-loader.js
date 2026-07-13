@@ -13,9 +13,8 @@ function renderMarquee(skills) {
   track.innerHTML = skills.map(s => {
     const name = isObject ? s.name : s;
     const icon = isObject ? s.icon : null;
-    const color = isObject ? s.color : null;
     const iconHtml = icon
-      ? `<img src="https://cdn.simpleicons.org/${icon}/${color.replace('#','')}" alt="" width="12" height="12" loading="lazy" style="opacity:0.7" />`
+      ? `<img src="https://cdn.simpleicons.org/${icon}/908caa" alt="" width="12" height="12" loading="lazy" />`
       : '';
     return `<span class="marquee-item">${iconHtml}${name}</span>`;
   }).join('');

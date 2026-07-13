@@ -21,6 +21,7 @@
   button { cursor: pointer; }
   a { cursor: pointer; }
   .cursor-dot, .cursor-ring, .cursor-spotlight { display: none; }
+  .scroll-indicator { display: none; }
 
   .navbar {
     top: 8px;

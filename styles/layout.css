@@ -61,7 +61,6 @@ h1, h2, h3, h4, h5, h6 {
 }
 
 .navbar {
-  --scroll-progress: 0;
   position: fixed;
   top: 12px;
   left: 12px;
@@ -78,49 +77,12 @@ h1, h2, h3, h4, h5, h6 {
   backdrop-filter: blur(20px) saturate(180%);
   -webkit-backdrop-filter: blur(20px) saturate(180%);
   box-shadow: 0 4px 24px rgba(0, 0, 0, 0.2), inset 0 1px 0 rgba(224, 222, 244, 0.04);
-  transition: box-shadow 0.5s var(--ease-expo), border-color 0.5s var(--ease-expo),
-              background 0.5s var(--ease-expo), height 0.4s var(--ease-expo);
-}
-.navbar::before {
-  content: '';
-  position: absolute;
-  inset: -1px;
-  border-radius: 14px;
-  padding: 1px;
-  background: linear-gradient(90deg,
-    rgba(196,167,231,0.5) 0%,
-    rgba(156,207,216,0.5) calc(var(--scroll-progress) * 100%),
-    transparent calc(var(--scroll-progress) * 100%));
-  -webkit-mask: linear-gradient(#fff 0 0) content-box, linear-gradient(#fff 0 0);
-  mask: linear-gradient(#fff 0 0) content-box, linear-gradient(#fff 0 0);
-  -webkit-mask-composite: xor;
-  mask-composite: exclude;
-  opacity: 0;
-  transition: opacity 0.5s var(--ease-expo);
-  pointer-events: none;
-  z-index: -1;
-}
-.navbar::after {
-  content: '';
-  position: absolute;
-  bottom: -1px;
-  left: 20%;
-  right: 20%;
-  height: 1px;
-  background: linear-gradient(90deg, transparent, var(--accent-dim), transparent);
-  opacity: 0;
-  transition: opacity 0.5s var(--ease-expo);
-  pointer-events: none;
-  border-radius: 1px;
 }
 .navbar--scrolled {
   background: rgba(25, 23, 36, 0.92);
-  height: 44px;
   box-shadow: 0 8px 40px rgba(0, 0, 0, 0.4), inset 0 1px 0 rgba(224, 222, 244, 0.06);
   border-color: rgba(100, 96, 130, 0.5);
 }
-.navbar--scrolled::before { opacity: 1; }
-.navbar--scrolled::after { opacity: 0.7; }
 
 .navbar__left {
   display: flex;
@@ -344,15 +306,10 @@ h1, h2, h3, h4, h5, h6 {
   transition: all var(--transition-fast);
 }
 .navbar__social-link:hover {
-  color: var(--text-primary);
+  color: #f4ede8;
   background: rgba(86, 82, 110, 0.3);
 }
 .navbar__social-link svg { width: 15px; height: 15px; }
-
-.navbar__social-link[aria-label="GitHub"]:hover { color: #b4637a; background: rgba(180, 99, 122, 0.1); }
-.navbar__social-link[aria-label="LinkedIn"]:hover { color: #6e8cbf; background: rgba(110, 140, 191, 0.1); }
-.navbar__social-link[aria-label="Email"]:hover { color: #7e6da8; background: rgba(126, 109, 168, 0.1); }
-.navbar__social-link[aria-label="Download CV"]:hover { color: #7da87a; background: rgba(125, 168, 122, 0.1); }
 
 .main-content {
   margin-top: 72px; 
@@ -505,7 +462,6 @@ h1, h2, h3, h4, h5, h6 {
 .marquee-item img {
   width: 12px;
   height: 12px;
-  opacity: 0.6;
 }
 
 .marquee-item::after {
@@ -758,18 +714,31 @@ h1, h2, h3, h4, h5, h6 {
 .article-body a { color: var(--accent-dim); text-decoration: underline; text-decoration-color: var(--accent-border); }
 .article-body a:hover { color: var(--accent); }
 
-.reading-progress {
+.scroll-indicator {
   position: fixed;
-  top: 60px;
-  left: 0;
-  right: 0;
-  height: 2px;
-  background: var(--accent);
-  transform-origin: left;
-  transform: scaleX(0);
+  top: 70px;
+  right: 14px;
+  width: 3px;
+  height: 80px;
   z-index: var(--z-overlay);
-  transition: transform 0.1s linear;
   pointer-events: none;
+}
+
+.scroll-indicator__track {
+  width: 100%;
+  height: 100%;
+  background: rgba(110, 106, 134, 0.2);
+  border-radius: 3px;
+  overflow: hidden;
+}
+
+.scroll-indicator__thumb {
+  width: 100%;
+  height: 20%;
+  background: var(--accent-dim);
+  border-radius: 3px;
+  transform: translateY(0%);
+  transition: transform 0.15s ease-out, height 0.3s ease;
 }
 
 .article-body--loading {

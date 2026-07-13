@@ -175,16 +175,19 @@ function initSmoothNav() {
   });
 }
 
-function initReadingProgress() {
-  const bar = document.querySelector('.reading-progress');
-  if (!bar) return;
+function initScrollIndicator() {
+  const thumb = document.querySelector('.scroll-indicator__thumb');
+  if (!thumb) return;
   const update = () => {
-    const total    = document.documentElement.scrollHeight - window.innerHeight;
+    const total = document.documentElement.scrollHeight - window.innerHeight;
     const progress = total > 0 ? window.scrollY / total : 0;
-    bar.style.transform = `scaleX(${progress})`;
+    const trackHeight = thumb.parentElement.offsetHeight;
+    const thumbHeight = thumb.offsetHeight;
+    const maxTranslate = trackHeight - thumbHeight;
+    thumb.style.transform = `translateY(${progress * maxTranslate}px)`;
   };
-  window.removeEventListener('scroll', bar._scrollHandler);
-  bar._scrollHandler = update;
+  window.removeEventListener('scroll', thumb._scrollHandler);
+  thumb._scrollHandler = update;
   window.addEventListener('scroll', update, { passive: true });
   update();
 }
@@ -249,9 +252,6 @@ function initNavbarScroll() {
   const onScroll = () => {
     const scrolled = window.scrollY > 8;
     navbar.classList.toggle('navbar--scrolled', scrolled);
-    const maxScroll = document.documentElement.scrollHeight - window.innerHeight;
-    const progress = maxScroll > 0 ? Math.min(window.scrollY / maxScroll, 1) : 0;
-    navbar.style.setProperty('--scroll-progress', progress);
   };
 
   window.removeEventListener('scroll', navbar._scrollHandler);
@@ -270,7 +270,7 @@ async function initPage() {
   initSectionLines();
   initCopyEmail();
   initSmoothNav();
-  initReadingProgress();
+  initScrollIndicator();
   initProjectFilter();
   initNavbarScroll();
 

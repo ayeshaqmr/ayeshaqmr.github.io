@@ -197,7 +197,7 @@
 .hero__title-item {
   font-family: var(--font-mono);
   font-size: var(--text-sm);
-  color: var(--text-secondary);
+  color: #f2e9e1;
   letter-spacing: 0.03em;
 }
 
@@ -254,8 +254,8 @@
   border: 1px solid var(--text-primary);
 }
 .btn--primary:hover {
-  background: var(--accent);
-  border-color: var(--accent);
+  background: #f4ede8;
+  border-color: #f4ede8;
   color: var(--bg-base);
   box-shadow: 0 0 20px var(--accent-glow);
   transform: translateY(-2px);
@@ -267,9 +267,9 @@
   border: 1px solid var(--border);
 }
 .btn--outline:hover {
-  background: var(--bg-elevated);
-  border-color: var(--border-light);
-  color: var(--text-primary);
+  background: rgba(244, 237, 232, 0.08);
+  border-color: #f4ede8;
+  color: #f4ede8;
   transform: translateY(-2px);
 }
 
