@@ -93,7 +93,7 @@ function initCounters() {
         const elapsed  = now - start;
         const progress = Math.min(elapsed / dur, 1);
         const ease     = 1 - Math.pow(1 - progress, 3);
-        el.textContent = Math.floor(ease * target) + (progress === 1 ? suffix : '');
+        el.textContent = Math.floor(ease * target) + suffix;
         if (progress < 1) requestAnimationFrame(step);
       })(start);
 

@@ -81,7 +81,8 @@ function renderSkillsGrid(skills) {
 function renderProjects(projects) {
   const grid = document.querySelector('.projects-grid');
   if (!grid || !projects) return;
-  grid.innerHTML = projects.map(p => {
+  grid.innerHTML = projects.map((p, i) => {
+    const num = String(i + 1).padStart(2, '0');
     const img = p.image
       ? `<div class="project-card__image"><img src="assets/images/${p.image}" alt="${p.title}" loading="lazy" /><div class="project-card__glare" aria-hidden="true"></div></div>`
       : `<div class="project-card__image" style="display:flex;align-items:center;justify-content:center;background:var(--bg-elevated);color:var(--text-muted);font-size:var(--text-xs);font-family:var(--font-mono);">[ Internal Dashboard ]</div>`;
@@ -90,16 +91,16 @@ function renderProjects(projects) {
       <article class="project-card" data-category="${p.category}">
         <a href="${p.link}" class="project-card__link">
           ${img}
-          <div class="project-card__body">
-            <div class="project-card__meta">
-              <span class="project-card__category">${p.category.replace(/-/g, ' · ')}</span>
-              <span class="project-card__year">${p.year}</span>
+          <div class="project-card__info">
+            <div class="project-card__header">
+              <span class="project-card__number">project ${num}</span>
+              <span class="project-card__date">${p.year}</span>
             </div>
             <h2 class="project-card__title">${p.title}</h2>
             <p class="project-card__desc">${p.description}</p>
             <div class="project-card__footer">
               <div class="project-card__tags">${tags}</div>
-              <span class="project-card__arrow">↗</span>
+              <span class="project-card__view">View Project →</span>
             </div>
           </div>
         </a>

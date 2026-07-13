@@ -13,7 +13,6 @@
   .hero__cta-row { justify-content: center; }
   .hero__avatar-frame { width: 200px; height: 200px; }
   .hero__avatar-lg { width: 178px; height: 178px; }
-  .hero__avatar-ring--slow { inset: -14px; }
   .hero__avatar-glow { inset: -30px; }
 }
 
@@ -64,7 +63,6 @@
   .hero__orbit-area { min-height: auto; }
   .hero__avatar-frame { width: 170px; height: 170px; }
   .hero__avatar-lg { width: 152px; height: 152px; }
-  .hero__avatar-ring--slow { inset: -12px; }
   .hero__avatar-glow { inset: -26px; }
   .hero__title-row { flex-wrap: wrap; justify-content: center; }
   .hero__cta-row { flex-direction: column; align-items: center; }
@@ -94,7 +92,6 @@
   .github-stats-grid { grid-template-columns: 1fr; }
   .hero__avatar-frame { width: 140px; height: 140px; }
   .hero__avatar-lg { width: 124px; height: 124px; }
-  .hero__avatar-ring--slow { inset: -10px; }
   .hero__avatar-glow { inset: -22px; }
   .hero__orbit-area { min-height: auto; }
   .contact__card { padding: var(--space-6); }

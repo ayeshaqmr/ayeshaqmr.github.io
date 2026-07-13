@@ -414,16 +414,9 @@ h1, h2, h3, h4, h5, h6 {
 .section-line.visible::after { transform: scaleX(0.45); }
 
 .projects-grid {
-  display: grid;
-  grid-template-columns: repeat(3, 1fr);
-  gap: var(--space-4);
-}
-
-@media (max-width: 1024px) {
-  .projects-grid { grid-template-columns: repeat(2, 1fr); }
-}
-@media (max-width: 768px) {
-  .projects-grid { grid-template-columns: 1fr; }
+  display: flex;
+  flex-direction: column;
+  gap: var(--space-12);
 }
 
 .experience-list {

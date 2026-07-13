@@ -123,9 +123,7 @@
 
             <div class="hero__orbit-area">
               <a href="https://linkedin.com/in/ayeshaqmr" target="_blank" rel="noopener" class="hero__avatar-frame">
-                <div class="hero__avatar-ring" aria-hidden="true"></div>
-                <div class="hero__avatar-ring hero__avatar-ring--slow" aria-hidden="true"></div>
-                <div class="hero__avatar-ring hero__avatar-ring--dashed" aria-hidden="true"></div>
+                <div class="hero__avatar-dashes" aria-hidden="true"></div>
                 <img src="assets/images/profile.v0.png" alt="" class="hero__avatar-lg"
                   draggable="false" oncontextmenu="return false;" />
                 <div class="hero__avatar-glow" aria-hidden="true"></div>
@@ -322,17 +320,17 @@
             <button class="filter-btn" data-filter="systems">Systems</button>
           </div>
 
-          <div class="projects-grid reveal-stagger">
+          <div class="projects-grid">
             <article class="project-card" data-category="mobile ai">
               <a href="#" class="project-card__link">
                 <div class="project-card__image">
                   <img src="assets/images/project-mobile.png" alt="Speak Dine app UI" loading="lazy" />
                   <div class="project-card__glare" aria-hidden="true"></div>
                 </div>
-                <div class="project-card__body">
-                  <div class="project-card__meta">
-                    <span class="project-card__category">Final Year Project · AI + Mobile</span>
-                    <span class="project-card__year">2025</span>
+                <div class="project-card__info">
+                  <div class="project-card__header">
+                    <span class="project-card__number">project 01</span>
+                    <span class="project-card__date">2025</span>
                   </div>
                   <h2 class="project-card__title">Speak Dine</h2>
                   <p class="project-card__desc">An AI-assisted voice-accessibility food delivery app built for visually impaired users. Integrates STT, TTS, and conversational AI via Gemini API.</p>
@@ -340,7 +338,7 @@
                     <div class="project-card__tags">
                       <span class="tag">Flutter</span><span class="tag">Gemini API</span><span class="tag">Firebase</span><span class="tag">TTS/STT</span><span class="tag">Dart</span>
                     </div>
-                    <span class="project-card__arrow">↗</span>
+                    <span class="project-card__view">View Project →</span>
                   </div>
                 </div>
               </a>
@@ -352,10 +350,10 @@
                   <img src="assets/images/project-dashboard.png" alt="Glaucoma detection model" loading="lazy" />
                   <div class="project-card__glare" aria-hidden="true"></div>
                 </div>
-                <div class="project-card__body">
-                  <div class="project-card__meta">
-                    <span class="project-card__category">Computer Vision · AI</span>
-                    <span class="project-card__year">2024</span>
+                <div class="project-card__info">
+                  <div class="project-card__header">
+                    <span class="project-card__number">project 02</span>
+                    <span class="project-card__date">2024</span>
                   </div>
                   <h2 class="project-card__title">Glaucoma Detection</h2>
                   <p class="project-card__desc">Trained a deep learning model on the EyePACS dataset for early glaucoma detection.</p>
@@ -363,29 +361,7 @@
                     <div class="project-card__tags">
                       <span class="tag">TensorFlow</span><span class="tag">OpenCV</span><span class="tag">Python</span>
                     </div>
-                    <span class="project-card__arrow">↗</span>
-                  </div>
-                </div>
-              </a>
-            </article>
-
-            <article class="project-card" data-category="web">
-              <a href="#" class="project-card__link">
-                <div class="project-card__image" style="display:flex;align-items:center;justify-content:center;background:var(--bg-elevated);color:var(--text-muted);font-size:var(--text-xs);font-family:var(--font-mono);">
-                  [ Internal Dashboard ]
-                </div>
-                <div class="project-card__body">
-                  <div class="project-card__meta">
-                    <span class="project-card__category">Database · Full-Stack</span>
-                    <span class="project-card__year">2026</span>
-                  </div>
-                  <h2 class="project-card__title">OGDC E-Medical Dashboard</h2>
-                  <p class="project-card__desc">Built data analysis modules over large-scale Oracle SQL databases during my internship.</p>
-                  <div class="project-card__footer">
-                    <div class="project-card__tags">
-                      <span class="tag">Oracle SQL</span><span class="tag">Python</span>
-                    </div>
-                    <span class="project-card__arrow">↗</span>
+                    <span class="project-card__view">View Project →</span>
                   </div>
                 </div>
               </a>
@@ -394,21 +370,41 @@
             <article class="project-card" data-category="systems">
               <a href="#" class="project-card__link">
                 <div class="project-card__image">
-                  <img src="assets/images/project-ecommerce.png" alt="Route optimization system" loading="lazy" />
+                  <img src="assets/images/project-ecommerce.png" alt="Smart Trash Routing" loading="lazy" />
                   <div class="project-card__glare" aria-hidden="true"></div>
                 </div>
-                <div class="project-card__body">
-                  <div class="project-card__meta">
-                    <span class="project-card__category">Algorithms · Systems</span>
-                    <span class="project-card__year">2024</span>
+                <div class="project-card__info">
+                  <div class="project-card__header">
+                    <span class="project-card__number">project 03</span>
+                    <span class="project-card__date">2024</span>
                   </div>
                   <h2 class="project-card__title">Smart Trash Routing</h2>
-                  <p class="project-card__desc">Optimized waste-collection routing using graph theory algorithms to reduce fuel consumption.</p>
+                  <p class="project-card__desc">Optimized waste-collection vehicle routing using graph theory algorithms.</p>
                   <div class="project-card__footer">
                     <div class="project-card__tags">
-                      <span class="tag">Python</span><span class="tag">Graph Theory</span>
+                      <span class="tag">Python</span><span class="tag">Graph Theory</span><span class="tag">DSA</span>
                     </div>
-                    <span class="project-card__arrow">↗</span>
+                    <span class="project-card__view">View Project →</span>
+                  </div>
+                </div>
+              </a>
+            </article>
+
+            <article class="project-card" data-category="web">
+              <a href="#" class="project-card__link">
+                <div class="project-card__image" style="display:flex;align-items:center;justify-content:center;background:var(--bg-elevated);color:var(--text-muted);font-size:var(--text-xs);font-family:var(--font-mono);">[ Internal Dashboard ]</div>
+                <div class="project-card__info">
+                  <div class="project-card__header">
+                    <span class="project-card__number">project 04</span>
+                    <span class="project-card__date">2026</span>
+                  </div>
+                  <h2 class="project-card__title">OGDC E-Medical Dashboard</h2>
+                  <p class="project-card__desc">Internal medical management dashboard built during internship at OGDC.</p>
+                  <div class="project-card__footer">
+                    <div class="project-card__tags">
+                      <span class="tag">Oracle SQL</span><span class="tag">Python</span><span class="tag">AI</span>
+                    </div>
+                    <span class="project-card__view">View Project →</span>
                   </div>
                 </div>
               </a>
@@ -417,26 +413,25 @@
             <article class="project-card" data-category="web">
               <a href="#" class="project-card__link">
                 <div class="project-card__image">
-                  <img src="assets/images/project-banking.png" alt="Nextcent UI" loading="lazy" />
+                  <img src="assets/images/project-banking.png" alt="Nextcent Web App" loading="lazy" />
                   <div class="project-card__glare" aria-hidden="true"></div>
                 </div>
-                <div class="project-card__body">
-                  <div class="project-card__meta">
-                    <span class="project-card__category">UI Design · Web</span>
-                    <span class="project-card__year">2023</span>
+                <div class="project-card__info">
+                  <div class="project-card__header">
+                    <span class="project-card__number">project 05</span>
+                    <span class="project-card__date">2025</span>
                   </div>
                   <h2 class="project-card__title">Nextcent Web App</h2>
-                  <p class="project-card__desc">Developed a scalable community management dashboard focusing on data visualization.</p>
+                  <p class="project-card__desc">A community-focused web platform for managing memberships, events, and resources.</p>
                   <div class="project-card__footer">
                     <div class="project-card__tags">
-                      <span class="tag">React</span><span class="tag">Figma</span>
+                      <span class="tag">React</span><span class="tag">Node.js</span><span class="tag">MongoDB</span>
                     </div>
-                    <span class="project-card__arrow">↗</span>
+                    <span class="project-card__view">View Project →</span>
                   </div>
                 </div>
               </a>
             </article>
-
           </div>
 
         </section>

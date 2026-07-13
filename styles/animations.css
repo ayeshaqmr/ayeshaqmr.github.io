@@ -119,19 +119,10 @@
   animation: avatarReveal 0.9s var(--ease-expo) 0.3s both;
 }
 .hero__avatar-ring {
-  animation:
-    ringReveal 1s var(--ease-expo) 0.2s forwards,
-    spin-ring 4s linear 1.2s infinite;
+  display: none;
 }
-.hero__avatar-ring--slow {
-  animation:
-    ringReveal 1.2s var(--ease-expo) 0.4s forwards,
-    spin-ring-slow 8s linear 1.4s infinite;
-}
-.hero__avatar-ring--dashed {
-  animation:
-    ringReveal 1.4s var(--ease-expo) 0.6s forwards,
-    spin-ring-dashed 6s linear 1.6s infinite;
+.hero__avatar-dashes {
+  animation: fadeIn 0.8s ease 0.2s both, dash-spin 5s linear 0.8s infinite;
 }
 .hero__avatar-glow {
   animation:
@@ -163,7 +154,7 @@
     transform: none;
     filter: none;
   }
-  .hero__avatar-ring, .hero__avatar-ring--slow,
+  .hero__avatar-ring, .hero__avatar-dashes,
   .hero__avatar-glow {
     opacity: 0 !important;
     display: none;
