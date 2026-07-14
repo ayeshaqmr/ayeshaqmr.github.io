@@ -532,11 +532,12 @@
 .edu-item::after {
   content: "🎓";
   position: absolute;
-  top: -16px;
-  left: 20px;
-  font-size: 36px;
-  background: #f5efe6;
-  padding: 0 8px;
+  top: -20px;
+  right: -10px;
+  font-size: 48px;
+  transform: rotate(15deg);
+  background: transparent;
+  pointer-events: none;
 }
 
 .edu-item__year {
@@ -551,7 +552,6 @@
   padding: 4px 12px;
   border-radius: 0;
   margin-bottom: var(--space-3);
-  margin-left: 48px;
 }
 
 .edu-item__degree {
