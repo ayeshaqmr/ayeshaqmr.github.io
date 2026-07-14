@@ -731,45 +731,37 @@
   position: fixed;
   top: 0;
   left: 0;
+  width: 18px;
+  height: 18px;
+  border-radius: 50%;
+  background: radial-gradient(circle, #c4a7e7 0%, rgba(196, 167, 231, 0.6) 40%, transparent 70%);
+  box-shadow: 0 0 12px rgba(196, 167, 231, 0.5), 0 0 30px rgba(196, 167, 231, 0.2);
   pointer-events: none;
   z-index: var(--z-cursor);
-  transform: translate(-2px, -1px);
-  transition: transform 0.15s var(--ease-expo);
+  transform: translate(-50%, -50%);
+  transition: width 0.4s var(--ease-expo), height 0.4s var(--ease-expo),
+              background 0.4s var(--ease-expo), box-shadow 0.4s var(--ease-expo),
+              opacity 0.2s;
   opacity: 0;
+  animation: orb-pulse 2.5s ease-in-out infinite;
 }
 
-.cursor-arrow {
-  transition: transform 0.3s var(--ease-expo), filter 0.3s;
-  filter: drop-shadow(0 0 4px rgba(196, 167, 231, 0.4));
+@keyframes orb-pulse {
+  0%, 100% { box-shadow: 0 0 12px rgba(196, 167, 231, 0.5), 0 0 30px rgba(196, 167, 231, 0.2); }
+  50%      { box-shadow: 0 0 18px rgba(196, 167, 231, 0.7), 0 0 45px rgba(196, 167, 231, 0.35); }
 }
 
 .custom-cursor.cursor-hover {
-  transform: translate(-50%, -50%);
+  width: 48px;
+  height: 48px;
+  background: radial-gradient(circle, #9ccfd8 0%, rgba(156, 207, 216, 0.4) 40%, transparent 70%);
+  box-shadow: 0 0 20px rgba(156, 207, 216, 0.6), 0 0 50px rgba(156, 207, 216, 0.25);
+  animation: orb-hover-pulse 1.5s ease-in-out infinite;
 }
 
-.custom-cursor.cursor-hover .cursor-arrow {
-  transform: scale(0);
-  opacity: 0;
-}
-
-.custom-cursor.cursor-hover::after {
-  content: '';
-  position: absolute;
-  top: 50%;
-  left: 50%;
-  width: 32px;
-  height: 32px;
-  border-radius: 50%;
-  border: 1.5px solid #c4a7e7;
-  background: rgba(196, 167, 231, 0.06);
-  transform: translate(-50%, -50%) scale(1);
-  animation: cursor-ring-in 0.3s var(--ease-expo) forwards;
-  box-shadow: 0 0 12px rgba(196, 167, 231, 0.2);
-}
-
-@keyframes cursor-ring-in {
-  from { transform: translate(-50%, -50%) scale(0.3); opacity: 0; }
-  to   { transform: translate(-50%, -50%) scale(1);   opacity: 1; }
+@keyframes orb-hover-pulse {
+  0%, 100% { box-shadow: 0 0 20px rgba(156, 207, 216, 0.6), 0 0 50px rgba(156, 207, 216, 0.25); }
+  50%      { box-shadow: 0 0 28px rgba(156, 207, 216, 0.8), 0 0 65px rgba(156, 207, 216, 0.4); }
 }
 
 .noise {

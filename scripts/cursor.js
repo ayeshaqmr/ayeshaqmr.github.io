@@ -13,8 +13,8 @@ if (!cursor) {
   });
 
   (function loop() {
-    cx += (mx - cx) * 0.18;
-    cy += (my - cy) * 0.18;
+    cx += (mx - cx) * 0.12;
+    cy += (my - cy) * 0.12;
     cursor.style.left = cx + 'px';
     cursor.style.top = cy + 'px';
     requestAnimationFrame(loop);
@@ -26,15 +26,10 @@ if (!cursor) {
   const hoverTargets = 'a, button, .project-card-item, .skill-tag, .filter-btn, .contact__email-btn, .contact__social-link, .hero__avatar-frame, .cassette';
 
   document.addEventListener('mouseover', e => {
-    if (e.target.closest(hoverTargets)) {
-      cursor.classList.add('cursor-hover');
-    }
+    if (e.target.closest(hoverTargets)) cursor.classList.add('cursor-hover');
   });
-
   document.addEventListener('mouseout', e => {
-    if (e.target.closest(hoverTargets)) {
-      cursor.classList.remove('cursor-hover');
-    }
+    if (e.target.closest(hoverTargets)) cursor.classList.remove('cursor-hover');
   });
 
   cursor.style.opacity = '0';
