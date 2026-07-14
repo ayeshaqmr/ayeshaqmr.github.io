@@ -59,11 +59,25 @@ function renderExperience(data) {
   const certGrid = document.querySelector('.cert-grid');
   if (certGrid && data.certifications) {
     certGrid.innerHTML = data.certifications.map(c => `
-      <div class="cert-item">
-        <span class="cert-item__icon">🏅</span>
-        <div>
-          <p class="cert-item__name">${c.name}</p>
-          <p class="cert-item__issuer">${c.issuer}</p>
+      <div class="cassette">
+        <div class="cassette__body">
+          <div class="cassette__window">
+            <div class="cassette__reel cassette__reel--left">
+              <div class="cassette__hub"></div>
+            </div>
+            <div class="cassette__tape"></div>
+            <div class="cassette__reel cassette__reel--right">
+              <div class="cassette__hub"></div>
+            </div>
+          </div>
+          <div class="cassette__screws">
+            <span class="cassette__screw"></span>
+            <span class="cassette__screw"></span>
+          </div>
+          <div class="cassette__label">
+            <p class="cassette__name">${c.name}</p>
+            <p class="cassette__issuer">${c.issuer}</p>
+          </div>
         </div>
       </div>
     `).join('');
