@@ -873,6 +873,7 @@
   transform-style: preserve-3d;
 }
 .cassette:hover {
+  scale: 1.1;
   filter: drop-shadow(6px 10px 16px rgba(0,0,0,0.35));
   z-index: 20 !important;
 }
