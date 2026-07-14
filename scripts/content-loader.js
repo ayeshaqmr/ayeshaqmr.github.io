@@ -60,15 +60,23 @@ function renderExperience(data) {
   if (certGrid && data.certifications) {
     certGrid.innerHTML = data.certifications.map((c, i) => {
       const issuer = c.issuer.split('·')[0].trim();
+      const code = c.name.split(' ').slice(0, 2).map(w => w[0]).join('').toUpperCase();
+      const num = String(i + 1).padStart(2, '0');
       return `
-      <div class="cd">
-        <div class="cd__disc">
-          <div class="cd__shine"></div>
-          <div class="cd__label">
-            <p class="cd__title">${c.name}</p>
-            <p class="cd__issuer">${issuer}</p>
+      <div class="floppy">
+        <div class="floppy__body">
+          <div class="floppy__slider">
+            <div class="floppy__slider-hole"></div>
           </div>
-          <div class="cd__hole"></div>
+          <div class="floppy__label">
+            <p class="floppy__title">${c.name}</p>
+            <p class="floppy__issuer">${issuer}</p>
+            <div class="floppy__footer">
+              <span>${code}-${num}</span>
+              <span>1.44 MB</span>
+            </div>
+          </div>
+          <div class="floppy__notch"></div>
         </div>
       </div>`;
     }).join('');
