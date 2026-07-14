@@ -59,37 +59,16 @@ function renderExperience(data) {
   const certGrid = document.querySelector('.cert-grid');
   if (certGrid && data.certifications) {
     certGrid.innerHTML = data.certifications.map((c, i) => {
-      const num = String(i + 1).padStart(3, '0');
       const issuer = c.issuer.split('·')[0].trim();
-      const code = c.name.split(' ').slice(0, 2).map(w => w[0]).join('').toUpperCase();
       return `
-      <div class="cassette">
-        <div class="cassette__shell">
-          <span class="cassette__screw cassette__screw--tl"></span>
-          <span class="cassette__screw cassette__screw--tr"></span>
-          <span class="cassette__screw cassette__screw--bl"></span>
-          <span class="cassette__screw cassette__screw--br"></span>
-          <div class="cassette__label">
-            <div class="cassette__top">
-              <p class="cassette__title">${c.name}</p>
-              <p class="cassette__issuer">Issued by ${issuer}</p>
-            </div>
-            <div class="cassette__reels">
-              <div class="cassette__reel">
-                <div class="cassette__teeth"></div>
-                <div class="cassette__hub"></div>
-              </div>
-              <div class="cassette__bar"></div>
-              <div class="cassette__reel">
-                <div class="cassette__teeth"></div>
-                <div class="cassette__hub"></div>
-              </div>
-            </div>
-            <div class="cassette__footer">
-              <span>cert no. ${code}-${num}-2026</span>
-              <span>side a</span>
-            </div>
+      <div class="cd">
+        <div class="cd__disc">
+          <div class="cd__shine"></div>
+          <div class="cd__label">
+            <p class="cd__title">${c.name}</p>
+            <p class="cd__issuer">${issuer}</p>
           </div>
+          <div class="cd__hole"></div>
         </div>
       </div>`;
     }).join('');

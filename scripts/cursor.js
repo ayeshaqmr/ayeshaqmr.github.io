@@ -82,7 +82,7 @@ else {
   }
 
   document.addEventListener('mouseover', e => {
-    const target = e.target.closest('a, button, .project-card-item, .skill-tag, .tag, .filter-btn, .contact__email-btn, .uses-item, .cassette, .hero__avatar-frame');
+    const target = e.target.closest('a, button, .project-card-item, .skill-tag, .tag, .filter-btn, .contact__email-btn, .uses-item, .cd, .hero__avatar-frame');
     if (target) {
       hovering = true;
       applyCursorType(target);
@@ -91,7 +91,7 @@ else {
   });
 
   document.addEventListener('mouseout', e => {
-    const target = e.target.closest('a, button, .project-card-item, .skill-tag, .tag, .filter-btn, .contact__email-btn, .uses-item, .cassette, .hero__avatar-frame');
+    const target = e.target.closest('a, button, .project-card-item, .skill-tag, .tag, .filter-btn, .contact__email-btn, .uses-item, .cd, .hero__avatar-frame');
     if (target) {
       hovering = false;
       clearCursorClasses();

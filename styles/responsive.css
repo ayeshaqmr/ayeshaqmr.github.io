@@ -5,7 +5,7 @@
   .github-stats-grid { grid-template-columns: 1fr 1fr 1fr; }
   .experience-row { grid-template-columns: 24px 1fr; gap: var(--space-3); }
   .exp-company { font-size: var(--text-xs); }
-  .cert-grid { grid-template-columns: 1fr; }
+  .cert-grid { grid-template-columns: repeat(2, 1fr); }
   .hero__center-wrap { gap: var(--space-2); }
   .hero__orbit-area { min-height: auto; }
   .hero__title-row { justify-content: center; }
