@@ -550,23 +550,52 @@ h1, h2, h3, h4, h5, h6 {
   position: relative;
   display: flex;
   gap: var(--space-6);
-  padding-top: var(--space-4);
+  padding-top: var(--space-6);
 }
 
 .timeline__line {
-  display: none;
+  position: absolute;
+  top: 0;
+  left: 0;
+  right: 0;
+  height: 2px;
+  background: var(--border);
 }
 
 .timeline-item {
   position: relative;
   flex: 1;
   min-width: 0;
-  padding-left: var(--space-4);
-  border-left: 2px solid var(--border);
+  padding-top: var(--space-4);
 }
 
-.timeline-item:first-child {
-  border-left-color: var(--iris);
+.timeline-item:first-child::before {
+  content: '';
+  position: absolute;
+  top: -5px;
+  left: 0;
+  width: 10px;
+  height: 10px;
+  border-radius: 50%;
+  background: var(--iris);
+  border: 2px solid var(--bg-base);
+  z-index: 1;
+}
+
+.timeline-item::after {
+  content: '';
+  position: absolute;
+  top: -3px;
+  left: 0;
+  width: 6px;
+  height: 6px;
+  border-radius: 50%;
+  background: var(--border);
+  z-index: 1;
+}
+
+.timeline-item:first-child::after {
+  display: none;
 }
 
 .timeline-item__dot {
