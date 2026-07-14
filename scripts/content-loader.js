@@ -59,27 +59,56 @@ function renderExperience(data) {
   const certGrid = document.querySelector('.cert-grid');
   if (certGrid && data.certifications) {
     const titleColors = ['#eb6f92', '#f6c177', '#31748f', '#c4a7e7', '#9ccfd8', '#eb6f92', '#f6c177', '#31748f'];
+    const rotations = [-4, 3, -2, 5, -3, 4, -5, 2];
     certGrid.innerHTML = data.certifications.map((c, i) => {
       const color = titleColors[i % titleColors.length];
+      const rot = rotations[i % rotations.length];
       const code = c.name.split(' ').slice(0, 2).map(w => w[0]).join('').toUpperCase();
       const num = String(i + 1).padStart(2, '0');
+      const shortName = c.name.length > 28 ? c.name.slice(0, 26) + '...' : c.name;
+      const uid = 'c' + i;
       return `
-      <div class="cassette">
-        <div class="cassette-label">
-          <div>
-            <div class="cassette-title" style="color:${color}">${c.name}</div>
-            <div class="cassette-issuer">Issued by ${c.issuer}</div>
-          </div>
-          <div class="cassette-reels">
-            <div class="reel"><div class="reel-hub"></div></div>
-            <div class="reel-bar"></div>
-            <div class="reel"><div class="reel-hub"></div></div>
-          </div>
-          <div class="cassette-footer">
-            <span>cert no. ${code.toLowerCase()}-${num}-2026</span>
-            <span>side a</span>
-          </div>
-        </div>
+      <div class="cassette" style="transform:rotate(${rot}deg)">
+        <svg viewBox="0 0 380 200" class="cassette-svg">
+          <defs>
+            <linearGradient id="shell${uid}" x1="0" y1="0" x2="0" y2="1">
+              <stop offset="0%" stop-color="#FDF9F7"/>
+              <stop offset="100%" stop-color="#ece5df"/>
+            </linearGradient>
+            <radialGradient id="reel${uid}" cx="50%" cy="50%" r="50%">
+              <stop offset="0%" stop-color="#ddd4c0"/>
+              <stop offset="75%" stop-color="#b8ad97"/>
+              <stop offset="100%" stop-color="#948968"/>
+            </radialGradient>
+          </defs>
+          <rect x="10" y="10" width="360" height="180" rx="10" fill="url(#shell${uid})" stroke="#c9beac" stroke-width="2"/>
+          <rect x="30" y="52" width="320" height="90" fill="#f0e6cc"/>
+          <rect x="30" y="52" width="320" height="11" fill="#EADEC4"/>
+          <rect x="30" y="63" width="320" height="10" fill="#9C9994"/>
+          <rect x="30" y="118" width="320" height="10" fill="#9C9994"/>
+          <rect x="30" y="128" width="320" height="14" fill="#EADEC4"/>
+          <text x="190" y="34" font-size="14" font-weight="700" fill="${color}" font-family="Georgia, serif" text-anchor="middle">${shortName}</text>
+          <text x="190" y="46" font-size="8" fill="#6b5480" font-family="Georgia, serif" text-anchor="middle" letter-spacing="1">issued by ${c.issuer} &#8226; ${code.toLowerCase()}-${num}-2026</text>
+          <rect x="160" y="80" width="60" height="42" rx="4" fill="#e5ddc8" stroke="#7d715c" stroke-width="2"/>
+          <text x="190" y="98" font-size="8" font-weight="700" fill="#3d3157" font-family="Georgia, serif" text-anchor="middle">${code}</text>
+          <text x="190" y="110" font-size="7" fill="#6b5480" font-family="Georgia, serif" text-anchor="middle" letter-spacing="1">2026</text>
+          <circle cx="108" cy="101" r="27" fill="url(#reel${uid})" stroke="#7d715c" stroke-width="2"/>
+          <circle cx="108" cy="101" r="8" fill="#5a5140"/>
+          <g stroke="#7d715c" stroke-width="2">
+            <line x1="108" y1="82" x2="108" y2="74"/><line x1="108" y1="120" x2="108" y2="128"/>
+            <line x1="89" y1="101" x2="81" y2="101"/><line x1="127" y1="101" x2="135" y2="101"/>
+            <line x1="94" y1="87" x2="88" y2="81"/><line x1="122" y1="87" x2="128" y2="81"/>
+            <line x1="94" y1="115" x2="88" y2="121"/><line x1="122" y1="115" x2="128" y2="121"/>
+          </g>
+          <circle cx="272" cy="101" r="27" fill="url(#reel${uid})" stroke="#7d715c" stroke-width="2"/>
+          <circle cx="272" cy="101" r="8" fill="#5a5140"/>
+          <g stroke="#7d715c" stroke-width="2">
+            <line x1="272" y1="82" x2="272" y2="74"/><line x1="272" y1="120" x2="272" y2="128"/>
+            <line x1="253" y1="101" x2="245" y2="101"/><line x1="291" y1="101" x2="299" y2="101"/>
+            <line x1="258" y1="87" x2="252" y2="81"/><line x1="286" y1="87" x2="292" y2="81"/>
+            <line x1="258" y1="115" x2="252" y2="121"/><line x1="286" y1="115" x2="292" y2="121"/>
+          </g>
+        </svg>
       </div>`;
     }).join('');
   }
