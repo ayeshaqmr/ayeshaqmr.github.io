@@ -53,6 +53,64 @@ function initHeroGSAP() {
   requestAnimationFrame(() => { heroName.style.opacity = '1'; });
 }
 
+function initSectionParallax() {
+  if (typeof gsap === 'undefined' || typeof ScrollTrigger === 'undefined') return;
+
+  gsap.registerPlugin(ScrollTrigger);
+
+  document.querySelectorAll('.section').forEach(section => {
+    const inner = section.querySelector(':scope > .section-header + *') ||
+                  section.querySelector(':scope > div');
+    if (!inner) return;
+
+    gsap.fromTo(inner,
+      { y: 40 },
+      {
+        y: -40,
+        ease: 'none',
+        scrollTrigger: {
+          trigger: section,
+          start: 'top bottom',
+          end: 'bottom top',
+          scrub: 1.2,
+        }
+      }
+    );
+  });
+
+  document.querySelectorAll('.stat-card').forEach((card, i) => {
+    gsap.fromTo(card,
+      { y: 30 + (i * 8) },
+      {
+        y: -(30 + (i * 8)),
+        ease: 'none',
+        scrollTrigger: {
+          trigger: card.parentElement,
+          start: 'top bottom',
+          end: 'bottom top',
+          scrub: 1.0,
+        }
+      }
+    );
+  });
+
+  document.querySelectorAll('.section-label').forEach(label => {
+    gsap.fromTo(label,
+      { y: 20 },
+      {
+        y: -20,
+        ease: 'none',
+        scrollTrigger: {
+          trigger: label,
+          start: 'top bottom',
+          end: 'bottom top',
+          scrub: 1.5,
+        }
+      }
+    );
+  });
+}
+
 function initCounters() {
   const counters = document.querySelectorAll('[data-count]');
   const obs = new IntersectionObserver((entries) => {
@@ -229,6 +287,7 @@ async function initPage() {
   destroyPage();
   initHeroGSAP();
   initClock();
+  initSectionParallax();
   initCounters();
   initScrollspy();
   initSectionLines();

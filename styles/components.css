@@ -482,8 +482,9 @@
   font-size: var(--text-sm);
   text-transform: uppercase;
   letter-spacing: 0.1em;
-  color: var(--text-muted);
+  color: var(--iris);
   margin-bottom: var(--space-4);
+  font-weight: 500;
 }
 
 .education-content {
