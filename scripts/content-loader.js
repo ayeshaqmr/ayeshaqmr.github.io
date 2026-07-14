@@ -107,8 +107,7 @@ function renderExperience(data) {
           <text x="190" y="34" font-size="14" font-weight="700" fill="${color}" font-family="Georgia, serif" text-anchor="middle">${shortName}</text>
           <text x="190" y="46" font-size="8" fill="#6b5480" font-family="Georgia, serif" text-anchor="middle" letter-spacing="1">issued by ${c.issuer} &#8226; ${code.toLowerCase()}-${num}-2026</text>
           <rect x="160" y="80" width="60" height="42" rx="4" fill="#e5ddc8" stroke="#7d715c" stroke-width="2"/>
-          <text x="190" y="98" font-size="8" font-weight="700" fill="#3d3157" font-family="Georgia, serif" text-anchor="middle">${code}</text>
-          <text x="190" y="110" font-size="7" fill="#6b5480" font-family="Georgia, serif" text-anchor="middle" letter-spacing="1">2026</text>
+          <text x="190" y="104" font-size="9" font-weight="700" fill="#3d3157" font-family="Georgia, serif" text-anchor="middle">${code}</text>
           <circle cx="108" cy="101" r="27" fill="url(#reel${uid})" stroke="#7d715c" stroke-width="2"/>
           <circle cx="108" cy="101" r="8" fill="#5a5140"/>
           <g stroke="#7d715c" stroke-width="2">
