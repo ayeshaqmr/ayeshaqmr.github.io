@@ -485,6 +485,8 @@
   color: var(--iris);
   margin-bottom: var(--space-4);
   font-weight: 500;
+  position: relative;
+  z-index: 2;
 }
 
 .education-content {
@@ -532,9 +534,9 @@
 .edu-item::after {
   content: "🎓";
   position: absolute;
-  top: -20px;
-  right: -10px;
-  font-size: 48px;
+  top: -24px;
+  right: -12px;
+  font-size: 64px;
   transform: rotate(15deg);
   background: transparent;
   pointer-events: none;
