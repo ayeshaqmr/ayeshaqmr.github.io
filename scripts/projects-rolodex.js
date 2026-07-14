@@ -22,20 +22,20 @@ document.addEventListener('DOMContentLoaded', () => {
     cards.forEach((card, index) => {
       const ahead = (index - active + cards.length) % cards.length;
       const behind = (active - index + cards.length) % cards.length;
-      const visible = ahead < 4 || behind === 1;
+      const visible = ahead < 5 || behind === 1;
       let x = 0, y = 0, rotate = 0, depth = 1;
 
       if (ahead === 0) {
         depth = 10;
-      } else if (ahead < 4) {
-        x = ahead * 32;
-        y = ahead * 17;
-        rotate = ahead * 1.25;
+      } else if (ahead < 5) {
+        x = ahead * 28;
+        y = ahead * 22;
+        rotate = ahead * 1.8;
         depth = 10 - ahead;
       } else if (behind === 1) {
-        x = -54;
-        y = 28;
-        rotate = -3;
+        x = -48;
+        y = 36;
+        rotate = -4;
         depth = 1;
       }
 
