@@ -104,8 +104,8 @@ function renderExperience(data) {
           <rect x="30" y="63" width="320" height="10" fill="${line2}" opacity="0.25"/>
           <rect x="30" y="118" width="320" height="10" fill="${line2}" opacity="0.25"/>
           <rect x="30" y="128" width="320" height="14" fill="${line1}" opacity="0.35"/>
-          <text x="190" y="34" font-size="14" font-weight="700" fill="${color}" font-family="Georgia, serif" text-anchor="middle" textLength="300" lengthAdjust="spacingAndGlyphs">${shortName}</text>
-          <text x="190" y="46" font-size="8" fill="#6b5480" font-family="Georgia, serif" text-anchor="middle" letter-spacing="1" textLength="300" lengthAdjust="spacingAndGlyphs">issued by ${c.issuer} &#8226; ${code.toLowerCase()}-${num}-2026</text>
+          <text x="190" y="34" font-size="14" font-weight="700" fill="${color}" font-family="Georgia, serif" text-anchor="middle">${shortName}</text>
+          <text x="190" y="46" font-size="8" fill="#6b5480" font-family="Georgia, serif" text-anchor="middle" letter-spacing="1">${c.issuer} &#8226; ${code.toLowerCase()}-${num}-2026</text>
           <circle cx="108" cy="101" r="27" fill="#d8cdb2" stroke="#7d715c" stroke-width="2"/>
           <circle cx="108" cy="101" r="8" fill="#5a5140"/>
           <g stroke="#7d715c" stroke-width="2">
