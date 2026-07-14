@@ -3,9 +3,13 @@
     { "year": "Feb–Mar 2026", "role": "Software Development Intern", "company": "Oil & Gas Development Company (OGDC)", "badge": "Internship" }
   ],
   "certifications": [
-    { "name": "Google IT Support", "issuer": "Google · Networking, Cybersecurity, Sysadmin" },
-    { "name": "Google Project Management", "issuer": "Google · Agile, Scrum, SDLC" },
-    { "name": "Google UX Design", "issuer": "Google · Research, Wireframing, Prototyping" },
-    { "name": "Cisco Cybersecurity", "issuer": "Cisco · Security Fundamentals & Threats" }
+    { "name": "Introduction to Security, Compliance, and Identity", "issuer": "Microsoft", "topics": "InfoSec, Network Security, Identity & Access Management" },
+    { "name": "Introduction to Cybersecurity", "issuer": "Cisco", "topics": "Cybersecurity Fundamentals, Network Vulnerabilities, Threat Detection" },
+    { "name": "Cyber Threat Management", "issuer": "Cisco", "topics": "Vulnerability Assessment, Incident Response & Digital Forensics, Risk Management" },
+    { "name": "Claude Code In Action", "issuer": "Anthropic", "topics": "Claude Code, AI-Assisted Development, Agentic Workflows" },
+    { "name": "Gemini Enterprise Application", "issuer": "Google", "topics": "Google Gemini, AI Agents, Enterprise AI Integration" },
+    { "name": "Google IT Support", "issuer": "Google", "topics": "Troubleshooting, Networking, System Administration, Cybersecurity Basics" },
+    { "name": "Google Project Management", "issuer": "Google", "topics": "Agile, Scrum, SDLC, Project Lifecycle" },
+    { "name": "Google UX Design", "issuer": "Google", "topics": "User Research, Wireframing, Prototyping, Accessibility" }
   ]
 }

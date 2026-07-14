@@ -58,25 +58,27 @@ function renderExperience(data) {
 
   const certGrid = document.querySelector('.cert-grid');
   if (certGrid && data.certifications) {
+    const titleColors = ['#eb6f92', '#f6c177', '#31748f', '#c4a7e7', '#9ccfd8', '#eb6f92', '#f6c177', '#31748f'];
     certGrid.innerHTML = data.certifications.map((c, i) => {
-      const issuer = c.issuer.split('·')[0].trim();
+      const color = titleColors[i % titleColors.length];
       const code = c.name.split(' ').slice(0, 2).map(w => w[0]).join('').toUpperCase();
       const num = String(i + 1).padStart(2, '0');
       return `
-      <div class="floppy">
-        <div class="floppy__body">
-          <div class="floppy__slider">
-            <div class="floppy__slider-hole"></div>
+      <div class="cassette">
+        <div class="cassette-label">
+          <div>
+            <div class="cassette-title" style="color:${color}">${c.name}</div>
+            <div class="cassette-issuer">Issued by ${c.issuer}</div>
           </div>
-          <div class="floppy__label">
-            <p class="floppy__title">${c.name}</p>
-            <p class="floppy__issuer">${issuer}</p>
-            <div class="floppy__footer">
-              <span>${code}-${num}</span>
-              <span>1.44 MB</span>
-            </div>
+          <div class="cassette-reels">
+            <div class="reel"><div class="reel-hub"></div></div>
+            <div class="reel-bar"></div>
+            <div class="reel"><div class="reel-hub"></div></div>
           </div>
-          <div class="floppy__notch"></div>
+          <div class="cassette-footer">
+            <span>cert no. ${code.toLowerCase()}-${num}-2026</span>
+            <span>side a</span>
+          </div>
         </div>
       </div>`;
     }).join('');
