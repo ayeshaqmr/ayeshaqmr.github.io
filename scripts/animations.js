@@ -78,20 +78,13 @@ function initSectionParallax() {
     );
   });
 
-  document.querySelectorAll('.stat-card').forEach((card, i) => {
-    gsap.fromTo(card,
-      { y: 30 + (i * 8) },
-      {
-        y: -(30 + (i * 8)),
-        ease: 'none',
-        scrollTrigger: {
-          trigger: card.parentElement,
-          start: 'top bottom',
-          end: 'bottom top',
-          scrub: 1.0,
-        }
-      }
-    );
+  document.querySelectorAll('.stat-card').forEach((card) => {
+    card.addEventListener('mouseenter', () => {
+      gsap.to(card, { scale: 1.05, duration: 0.3, ease: 'power2.out' });
+    });
+    card.addEventListener('mouseleave', () => {
+      gsap.to(card, { scale: 1, duration: 0.3, ease: 'power2.out' });
+    });
   });
 
   document.querySelectorAll('.section-label').forEach(label => {
