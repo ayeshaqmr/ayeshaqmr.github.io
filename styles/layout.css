@@ -327,6 +327,27 @@ h1, h2, h3, h4, h5, h6 {
 
 .section {
   padding: var(--section-gap) 0;
+  position: relative;
+}
+
+.section--bg-1 { background: #1f1d2e; }
+.section--bg-2 { background: #26233a; }
+.section--bg-3 { background: #1f1d2e; }
+.section--bg-4 { background: #26233a; }
+.section--bg-5 { background: #1f1d2e; }
+
+.section--bg-1::before,
+.section--bg-2::before,
+.section--bg-3::before,
+.section--bg-4::before,
+.section--bg-5::before {
+  content: '';
+  position: absolute;
+  top: 0;
+  left: 0;
+  right: 0;
+  height: 1px;
+  background: linear-gradient(90deg, transparent, rgba(196, 167, 231, 0.15), transparent);
 }
 
 .section--no-top { padding-top: 0; }

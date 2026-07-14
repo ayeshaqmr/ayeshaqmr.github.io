@@ -59,19 +59,36 @@ function initSectionParallax() {
   gsap.registerPlugin(ScrollTrigger);
 
   document.querySelectorAll('.section').forEach(section => {
-    const inner = section.querySelector(':scope > .section-header + *');
+    const inner = section.querySelector(':scope > .section-header + *') ||
+                  section.querySelector(':scope > div');
     if (!inner) return;
 
     gsap.fromTo(inner,
-      { y: 20 },
+      { y: 30 },
       {
-        y: -20,
+        y: -30,
         ease: 'none',
         scrollTrigger: {
           trigger: section,
           start: 'top bottom',
           end: 'bottom top',
-          scrub: 1,
+          scrub: 1.5,
+        }
+      }
+    );
+  });
+
+  document.querySelectorAll('.stat-card').forEach((card, i) => {
+    gsap.fromTo(card,
+      { y: 20 + (i * 5) },
+      {
+        y: -(20 + (i * 5)),
+        ease: 'none',
+        scrollTrigger: {
+          trigger: card.parentElement,
+          start: 'top bottom',
+          end: 'bottom top',
+          scrub: 1.2,
         }
       }
     );
