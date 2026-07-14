@@ -866,14 +866,14 @@
 }
 
 .cassette {
-  width: 220px;
+  width: 260px;
   transition: transform 0.35s var(--ease-expo), filter 0.35s var(--ease-expo), scale 0.35s var(--ease-expo);
   filter: drop-shadow(4px 6px 8px rgba(0,0,0,0.2));
   cursor: pointer;
   transform-style: preserve-3d;
 }
 .cassette:hover {
-  scale: 1.18;
+  scale: 1.25;
   filter: drop-shadow(6px 10px 16px rgba(0,0,0,0.35));
   z-index: 20 !important;
 }
