@@ -558,9 +558,8 @@ h1, h2, h3, h4, h5, h6 {
   top: calc(var(--space-8) + 8px);
   left: 10%;
   right: 10%;
-  height: 3px;
-  background: linear-gradient(90deg, transparent, var(--iris), var(--foam), var(--iris), transparent);
-  border-radius: 2px;
+  height: 1px;
+  background: var(--border);
 }
 
 .timeline-item {
