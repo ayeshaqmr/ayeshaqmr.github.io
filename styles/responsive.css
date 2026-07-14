@@ -24,7 +24,7 @@
   body { cursor: auto; }
   button { cursor: pointer; }
   a { cursor: pointer; }
-  .custom-cursor { display: none; }
+  .custom-cursor, .custom-cursor-inner { display: none; }
   .scroll-indicator { display: none; }
 
   .navbar {
@@ -93,7 +93,7 @@
 
 @media (pointer: coarse) {
   body, button, a { cursor: auto; }
-  .custom-cursor { display: none; }
+  .custom-cursor, .custom-cursor-inner { display: none; }
 }
 
 @media (max-width: 420px) {
