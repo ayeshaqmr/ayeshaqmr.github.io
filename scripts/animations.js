@@ -85,6 +85,7 @@ function initCounters() {
       if (!entry.isIntersecting) return;
       const el     = entry.target;
       const target = parseInt(el.dataset.count, 10);
+      const suffix = el.dataset.suffix || '';
       const dur    = 1600;
       const start  = performance.now();
 
@@ -92,7 +93,7 @@ function initCounters() {
         const elapsed  = now - start;
         const progress = Math.min(elapsed / dur, 1);
         const ease     = 1 - Math.pow(1 - progress, 3);
-        el.textContent = Math.floor(ease * target);
+        el.textContent = Math.floor(ease * target) + suffix;
         if (progress < 1) requestAnimationFrame(step);
       })(start);
 
@@ -101,17 +102,6 @@ function initCounters() {
   }, { threshold: 0.6 });
 
   counters.forEach(c => obs.observe(c));
-
-  const bars = document.querySelectorAll('[data-fill]');
-  const barObs = new IntersectionObserver((entries) => {
-    entries.forEach(entry => {
-      if (!entry.isIntersecting) return;
-      entry.target.style.width = entry.target.dataset.fill + '%';
-      barObs.unobserve(entry.target);
-    });
-  }, { threshold: 0.6 });
-
-  bars.forEach(b => barObs.observe(b));
 }
 
 function initClock() {
