@@ -108,7 +108,7 @@ function renderExperience(data) {
           <text x="190" y="46" font-size="8" fill="#6b5480" font-family="Georgia, serif" text-anchor="middle" letter-spacing="1">issued by ${c.issuer} &#8226; ${code.toLowerCase()}-${num}-2026</text>
           <rect x="160" y="80" width="60" height="42" rx="4" fill="#e5ddc8" stroke="#7d715c" stroke-width="2"/>
           <text x="190" y="104" font-size="9" font-weight="700" fill="#3d3157" font-family="Georgia, serif" text-anchor="middle">${code}</text>
-          <circle cx="108" cy="101" r="27" fill="url(#reel${uid})" stroke="#7d715c" stroke-width="2"/>
+          <circle cx="108" cy="101" r="27" fill="#d8cdb2" stroke="#7d715c" stroke-width="2"/>
           <circle cx="108" cy="101" r="8" fill="#5a5140"/>
           <g stroke="#7d715c" stroke-width="2">
             <line x1="108" y1="82" x2="108" y2="74"/><line x1="108" y1="120" x2="108" y2="128"/>
@@ -116,7 +116,7 @@ function renderExperience(data) {
             <line x1="94" y1="87" x2="88" y2="81"/><line x1="122" y1="87" x2="128" y2="81"/>
             <line x1="94" y1="115" x2="88" y2="121"/><line x1="122" y1="115" x2="128" y2="121"/>
           </g>
-          <circle cx="272" cy="101" r="27" fill="url(#reel${uid})" stroke="#7d715c" stroke-width="2"/>
+          <circle cx="272" cy="101" r="27" fill="#d8cdb2" stroke="#7d715c" stroke-width="2"/>
           <circle cx="272" cy="101" r="8" fill="#5a5140"/>
           <g stroke="#7d715c" stroke-width="2">
             <line x1="272" y1="82" x2="272" y2="74"/><line x1="272" y1="120" x2="272" y2="128"/>
