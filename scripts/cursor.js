@@ -3,7 +3,8 @@ const ring      = document.querySelector('.cursor-ring');
 const spotlight = document.querySelector('.cursor-spotlight');
 
 if (!dot || !ring) {
-else {
+  /* no cursor elements on page */
+} else {
 
   let mx = 0, my = 0, rx = 0, ry = 0;
   let hovering = false;
