@@ -62,14 +62,14 @@ function renderExperience(data) {
     const funkyLine1 = ['#eb6f92', '#f6c177', '#31748f', '#9ccfd8', '#c4a7e7', '#ea9a97', '#f6c177', '#31748f'];
     const funkyLine2 = ['#9ccfd8', '#c4a7e7', '#eb6f92', '#f6c177', '#ea9a97', '#31748f', '#9ccfd8', '#eb6f92'];
     const placements = [
-      { x: -8, y: -6, rot: -6, z: 5 },
-      { x: 6, y: 4, rot: 4, z: 3 },
-      { x: -4, y: 8, rot: -3, z: 7 },
-      { x: 10, y: -4, rot: 7, z: 2 },
-      { x: -10, y: 2, rot: -5, z: 6 },
-      { x: 3, y: -8, rot: 3, z: 4 },
-      { x: 8, y: 6, rot: -4, z: 8 },
-      { x: -6, y: -3, rot: 5, z: 1 },
+      { x: -12, y: -4, rot: -5, z: 1 },
+      { x: 8, y: 2, rot: 3, z: 2 },
+      { x: -4, y: 6, rot: -3, z: 3 },
+      { x: 14, y: -3, rot: 6, z: 4 },
+      { x: -10, y: 4, rot: -4, z: 5 },
+      { x: 5, y: -6, rot: 4, z: 6 },
+      { x: 12, y: 5, rot: -6, z: 7 },
+      { x: -7, y: -5, rot: 5, z: 8 },
     ];
     certGrid.innerHTML = data.certifications.map((c, i) => {
       const color = titleColors[i % titleColors.length];
@@ -106,8 +106,6 @@ function renderExperience(data) {
           <rect x="30" y="128" width="320" height="14" fill="${line1}" opacity="0.35"/>
           <text x="190" y="34" font-size="14" font-weight="700" fill="${color}" font-family="Georgia, serif" text-anchor="middle">${shortName}</text>
           <text x="190" y="46" font-size="8" fill="#6b5480" font-family="Georgia, serif" text-anchor="middle" letter-spacing="1">issued by ${c.issuer} &#8226; ${code.toLowerCase()}-${num}-2026</text>
-          <rect x="160" y="80" width="60" height="42" rx="4" fill="#e5ddc8" stroke="#7d715c" stroke-width="2"/>
-          <text x="190" y="104" font-size="9" font-weight="700" fill="#3d3157" font-family="Georgia, serif" text-anchor="middle">${code}</text>
           <circle cx="108" cy="101" r="27" fill="#d8cdb2" stroke="#7d715c" stroke-width="2"/>
           <circle cx="108" cy="101" r="8" fill="#5a5140"/>
           <g stroke="#7d715c" stroke-width="2">
