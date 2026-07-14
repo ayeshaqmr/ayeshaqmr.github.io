@@ -1,74 +1,46 @@
-/* Turns the existing .projects-cards items into a desktop rolodex stack. */
+/* Layer the existing project cards as tabs, preserving the mobile grid. */
 document.addEventListener('DOMContentLoaded', () => {
-  const deck = document.querySelector('#projects .projects-cards');
-  if (!deck || deck.dataset.rolodexReady) return;
+  const stack = document.querySelector('#projects .projects-cards');
+  if (!stack || stack.dataset.stackReady) return;
 
-  const cards = [...deck.querySelectorAll('.project-card-item')];
+  const cards = [...stack.querySelectorAll('.project-card-item')];
   if (cards.length < 2) return;
-  deck.dataset.rolodexReady = 'true';
-  deck.classList.add('rolodex-projects');
+  stack.dataset.stackReady = 'true';
+  stack.classList.add('project-stack');
+
+  const tabColors = ['#ef4444', '#f59e0b', '#4f46e5', '#a855f7', '#0ea5a4'];
+  cards.forEach((card, index) => card.style.setProperty('--tab-color', tabColors[index % tabColors.length]));
 
   let active = 0;
   const controls = document.createElement('div');
-  controls.className = 'rolodex-controls';
+  controls.className = 'stack-controls';
   controls.innerHTML = `
-    <button class="rolodex-control" type="button" data-rolodex="previous" aria-label="Previous project">←</button>
-    <span class="rolodex-count" aria-live="polite"></span>
-    <button class="rolodex-control" type="button" data-rolodex="next" aria-label="Next project">→</button>`;
-  deck.after(controls);
-  const count = controls.querySelector('.rolodex-count');
+    <button class="stack-control" type="button" data-stack="previous" aria-label="Previous project">←</button>
+    <span class="stack-count" aria-live="polite"></span>
+    <button class="stack-control" type="button" data-stack="next" aria-label="Next project">→</button>`;
+  stack.after(controls);
+  const count = controls.querySelector('.stack-count');
 
-  function paint() {
+  function renderStack() {
     cards.forEach((card, index) => {
-      const ahead = (index - active + cards.length) % cards.length;
-      const behind = (active - index + cards.length) % cards.length;
-      const visible = ahead < 5 || behind === 1;
-      let x = 0, y = 0, rotate = 0, depth = 1;
-
-      if (ahead === 0) {
-        depth = 10;
-      } else if (ahead < 5) {
-        x = ahead * 28;
-        y = ahead * 22;
-        rotate = ahead * 1.8;
-        depth = 10 - ahead;
-      } else if (behind === 1) {
-        x = -48;
-        y = 36;
-        rotate = -4;
-        depth = 1;
-      }
-
-      card.style.setProperty('--x', `${x}px`);
-      card.style.setProperty('--y', `${y}px`);
-      card.style.setProperty('--rotate', `${rotate}deg`);
-      card.style.setProperty('--depth', depth);
-      card.classList.toggle('is-active', ahead === 0);
+      const distance = (index - active + cards.length) % cards.length;
+      const visible = distance < 4;
+      const y = distance === 0 ? 90 : (3 - distance) * 30;
+      card.style.setProperty('--stack-y', `${y}px`);
+      card.style.setProperty('--stack-z', distance === 0 ? 10 : 5 - distance);
+      card.classList.toggle('is-active', distance === 0);
       card.classList.toggle('is-hidden', !visible);
-      card.setAttribute('aria-hidden', ahead === 0 ? 'false' : 'true');
+      card.setAttribute('aria-hidden', distance === 0 ? 'false' : 'true');
     });
     count.textContent = `${String(active + 1).padStart(2, '0')} / ${String(cards.length).padStart(2, '0')}`;
   }
 
-  function move(by) {
-    active = (active + by + cards.length) % cards.length;
-    paint();
-  }
-
-  controls.addEventListener('click', event => {
-    const action = event.target.closest('[data-rolodex]')?.dataset.rolodex;
-    if (action) move(action === 'next' ? 1 : -1);
+  controls.addEventListener('click', (event) => {
+    const action = event.target.closest('[data-stack]')?.dataset.stack;
+    if (!action) return;
+    active = (active + (action === 'next' ? 1 : -1) + cards.length) % cards.length;
+    renderStack();
   });
 
-  deck.addEventListener('click', event => {
-    const card = event.target.closest('.project-card-item');
-    const index = cards.indexOf(card);
-    if (index >= 0 && index !== active) {
-      event.preventDefault();
-      active = index;
-      paint();
-    }
-  });
-
-  paint();
+  renderStack();
 });
