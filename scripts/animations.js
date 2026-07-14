@@ -143,7 +143,7 @@ function initClock() {
 }
 
 function initScrollspy() {
-  const navLinks = document.querySelectorAll('.navbar-nav__item a[href^="#"]');
+  const navLinks = document.querySelectorAll('.navbar-drawer__list a[href^="#"]');
   if (!navLinks.length) return;
 
   const sections = [...navLinks].map(l => {
@@ -257,10 +257,6 @@ function initProjectFilter() {
   });
 }
 
-function initTilt() {
-  // No tilt effect for project rows
-}
-
 function initNavbarScroll() {
   const navbar = document.querySelector('.navbar');
   if (!navbar) return;
@@ -298,8 +294,6 @@ async function initPage() {
   }
 
   initScrollReveal();
-
-  setTimeout(initTilt, 500);
 
   const yearEl = document.getElementById('footer-year');
   if (yearEl) yearEl.textContent = new Date().getFullYear();

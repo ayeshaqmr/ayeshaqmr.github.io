@@ -52,10 +52,6 @@
   justify-content: center;
 }
 
-.hero__avatar-ring {
-  display: none;
-}
-
 .hero__avatar-dashes {
   position: absolute;
   inset: 8px;
@@ -467,14 +463,6 @@
 .skill-tag:hover .skill-tag__icon {
   opacity: 1;
   transform: scale(1.15);
-}
-
-/* Stats moved to layout.css */
-  height: 100%;
-  border-radius: 3px;
-  background: linear-gradient(90deg, var(--rose), var(--iris));
-  width: 0%;
-  transition: width 1.2s var(--ease-expo);
 }
 
 .sec-label {

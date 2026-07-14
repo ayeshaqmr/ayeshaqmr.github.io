@@ -2,7 +2,7 @@ const dot       = document.querySelector('.cursor-dot');
 const ring      = document.querySelector('.cursor-ring');
 const spotlight = document.querySelector('.cursor-spotlight');
 
-if (!dot || !ring) {  }
+if (!dot || !ring) {
 else {
 
   let mx = 0, my = 0, rx = 0, ry = 0;

@@ -118,9 +118,6 @@
 .hero__avatar-lg {
   animation: avatarReveal 0.9s var(--ease-expo) 0.3s both;
 }
-.hero__avatar-ring {
-  display: none;
-}
 .hero__avatar-dashes {
   animation: fadeIn 0.8s ease 0.2s both, dash-spin 5s linear 0.8s infinite;
 }
@@ -168,7 +165,7 @@
     transform: none;
     filter: none;
   }
-  .hero__avatar-ring, .hero__avatar-dashes,
+  .hero__avatar-dashes,
   .hero__avatar-glow {
     opacity: 0 !important;
     display: none;

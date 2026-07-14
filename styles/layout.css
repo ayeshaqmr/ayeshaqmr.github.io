@@ -110,14 +110,6 @@ h1, h2, h3, h4, h5, h6 {
   background: var(--bg-elevated);
 }
 
-.navbar__name {
-  font-family: var(--font-mono);
-  font-size: 12px;
-  font-weight: 600;
-  color: #ebbcba;
-  letter-spacing: -0.02em;
-}
-
 .navbar__time {
   font-family: var(--font-mono);
   font-size: 11px;
@@ -1077,10 +1069,9 @@ body.nav-open {
   justify-content: space-between;
   gap: var(--space-4);
   flex-wrap: wrap;
-  margin-top: auto;
+  margin: 0 auto;
   max-width: var(--content-max);
   width: 100%;
-  margin: 0 auto;
 }
 .footer__copy, .footer__credit {
   font-family: var(--font-mono);
