@@ -62,14 +62,14 @@ function renderExperience(data) {
     const funkyLine1 = ['#eb6f92', '#f6c177', '#31748f', '#9ccfd8', '#c4a7e7', '#ea9a97', '#f6c177', '#31748f'];
     const funkyLine2 = ['#9ccfd8', '#c4a7e7', '#eb6f92', '#f6c177', '#ea9a97', '#31748f', '#9ccfd8', '#eb6f92'];
     const placements = [
-      { x: -12, y: -4, rot: -5, z: 1 },
-      { x: 8, y: 2, rot: 3, z: 2 },
-      { x: -4, y: 6, rot: -3, z: 3 },
-      { x: 14, y: -3, rot: 6, z: 4 },
-      { x: -10, y: 4, rot: -4, z: 5 },
-      { x: 5, y: -6, rot: 4, z: 6 },
-      { x: 12, y: 5, rot: -6, z: 7 },
-      { x: -7, y: -5, rot: 5, z: 8 },
+      { y: 0, rot: -4, z: 1 },
+      { y: 30, rot: 3, z: 2 },
+      { y: 0, rot: -5, z: 3 },
+      { y: 30, rot: 4, z: 4 },
+      { y: 0, rot: -3, z: 5 },
+      { y: 30, rot: 5, z: 6 },
+      { y: 0, rot: -6, z: 7 },
+      { y: 30, rot: 3, z: 8 },
     ];
     certGrid.innerHTML = data.certifications.map((c, i) => {
       const color = titleColors[i % titleColors.length];
@@ -78,10 +78,10 @@ function renderExperience(data) {
       const p = placements[i % placements.length];
       const code = c.name.split(' ').slice(0, 2).map(w => w[0]).join('').toUpperCase();
       const num = String(i + 1).padStart(2, '0');
-      const shortName = c.name.length > 26 ? c.name.slice(0, 24) + '..' : c.name;
+      const shortName = c.name.length > 20 ? c.name.slice(0, 18) + '..' : c.name;
       const uid = 'c' + i;
       return `
-      <div class="cassette" style="transform:translate(${p.x}%,${p.y}%) rotate(${p.rot}deg); z-index:${p.z}">
+      <div class="cassette" style="transform:translateY(${p.y}px) rotate(${p.rot}deg); z-index:${p.z}">
         <svg viewBox="0 0 380 200" class="cassette-svg">
           <defs>
             <linearGradient id="shell${uid}" x1="0" y1="0" x2="0.3" y2="1">
@@ -104,8 +104,8 @@ function renderExperience(data) {
           <rect x="30" y="63" width="320" height="10" fill="${line2}" opacity="0.25"/>
           <rect x="30" y="118" width="320" height="10" fill="${line2}" opacity="0.25"/>
           <rect x="30" y="128" width="320" height="14" fill="${line1}" opacity="0.35"/>
-          <text x="190" y="34" font-size="14" font-weight="700" fill="${color}" font-family="Georgia, serif" text-anchor="middle">${shortName}</text>
-          <text x="190" y="46" font-size="8" fill="#6b5480" font-family="Georgia, serif" text-anchor="middle" letter-spacing="1">issued by ${c.issuer} &#8226; ${code.toLowerCase()}-${num}-2026</text>
+          <text x="190" y="34" font-size="14" font-weight="700" fill="${color}" font-family="Georgia, serif" text-anchor="middle" textLength="300" lengthAdjust="spacingAndGlyphs">${shortName}</text>
+          <text x="190" y="46" font-size="8" fill="#6b5480" font-family="Georgia, serif" text-anchor="middle" letter-spacing="1" textLength="300" lengthAdjust="spacingAndGlyphs">issued by ${c.issuer} &#8226; ${code.toLowerCase()}-${num}-2026</text>
           <circle cx="108" cy="101" r="27" fill="#d8cdb2" stroke="#7d715c" stroke-width="2"/>
           <circle cx="108" cy="101" r="8" fill="#5a5140"/>
           <g stroke="#7d715c" stroke-width="2">
