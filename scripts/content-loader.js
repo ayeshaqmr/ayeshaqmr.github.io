@@ -58,31 +58,37 @@ function renderExperience(data) {
 
   const certGrid = document.querySelector('.cert-grid');
   if (certGrid && data.certifications) {
-    const colors = ['#f6c177', '#eb6f92', '#ea9a97', '#9ccfd8'];
     certGrid.innerHTML = data.certifications.map((c, i) => {
-      const color = colors[i % colors.length];
       const num = String(i + 1).padStart(3, '0');
       const issuer = c.issuer.split('·')[0].trim();
+      const code = c.name.split(' ').slice(0, 2).map(w => w[0]).join('').toUpperCase();
       return `
-      <div class="cassette" style="--accent:${color}">
-        <div class="cassette__body">
-          <span class="cassette__num">No. ${num}</span>
-          <span class="cassette__source">${issuer}</span>
-          <div class="cassette__window">
-            <div class="cassette__reel cassette__reel--left">
-              <div class="cassette__hub"></div>
-            </div>
-            <div class="cassette__tape"></div>
-            <div class="cassette__reel cassette__reel--right">
-              <div class="cassette__hub"></div>
-            </div>
-          </div>
-          <div class="cassette__screws">
-            <span class="cassette__screw"></span>
-            <span class="cassette__screw"></span>
-          </div>
+      <div class="cassette">
+        <div class="cassette__shell">
+          <span class="cassette__screw cassette__screw--tl"></span>
+          <span class="cassette__screw cassette__screw--tr"></span>
+          <span class="cassette__screw cassette__screw--bl"></span>
+          <span class="cassette__screw cassette__screw--br"></span>
           <div class="cassette__label">
-            <p class="cassette__name">${c.name}</p>
+            <div class="cassette__top">
+              <p class="cassette__title">${c.name}</p>
+              <p class="cassette__issuer">Issued by ${issuer}</p>
+            </div>
+            <div class="cassette__reels">
+              <div class="cassette__reel">
+                <div class="cassette__teeth"></div>
+                <div class="cassette__hub"></div>
+              </div>
+              <div class="cassette__bar"></div>
+              <div class="cassette__reel">
+                <div class="cassette__teeth"></div>
+                <div class="cassette__hub"></div>
+              </div>
+            </div>
+            <div class="cassette__footer">
+              <span>cert no. ${code}-${num}-2026</span>
+              <span>side a</span>
+            </div>
           </div>
         </div>
       </div>`;
