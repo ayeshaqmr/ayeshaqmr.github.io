@@ -58,35 +58,52 @@ function renderExperience(data) {
 
   const certGrid = document.querySelector('.cert-grid');
   if (certGrid && data.certifications) {
-    const titleColors = ['#eb6f92', '#f6c177', '#31748f', '#c4a7e7', '#9ccfd8', '#eb6f92', '#f6c177', '#31748f'];
-    const rotations = [-4, 3, -2, 5, -3, 4, -5, 2];
+    const titleColors = ['#eb6f92', '#f6c177', '#31748f', '#c4a7e7', '#9ccfd8', '#f6c177', '#eb6f92', '#c4a7e7'];
+    const funkyLine1 = ['#eb6f92', '#f6c177', '#31748f', '#9ccfd8', '#c4a7e7', '#ea9a97', '#f6c177', '#31748f'];
+    const funkyLine2 = ['#9ccfd8', '#c4a7e7', '#eb6f92', '#f6c177', '#ea9a97', '#31748f', '#9ccfd8', '#eb6f92'];
+    const placements = [
+      { x: -8, y: -6, rot: -6, z: 5 },
+      { x: 6, y: 4, rot: 4, z: 3 },
+      { x: -4, y: 8, rot: -3, z: 7 },
+      { x: 10, y: -4, rot: 7, z: 2 },
+      { x: -10, y: 2, rot: -5, z: 6 },
+      { x: 3, y: -8, rot: 3, z: 4 },
+      { x: 8, y: 6, rot: -4, z: 8 },
+      { x: -6, y: -3, rot: 5, z: 1 },
+    ];
     certGrid.innerHTML = data.certifications.map((c, i) => {
       const color = titleColors[i % titleColors.length];
-      const rot = rotations[i % rotations.length];
+      const line1 = funkyLine1[i % funkyLine1.length];
+      const line2 = funkyLine2[i % funkyLine2.length];
+      const p = placements[i % placements.length];
       const code = c.name.split(' ').slice(0, 2).map(w => w[0]).join('').toUpperCase();
       const num = String(i + 1).padStart(2, '0');
-      const shortName = c.name.length > 28 ? c.name.slice(0, 26) + '...' : c.name;
+      const shortName = c.name.length > 26 ? c.name.slice(0, 24) + '..' : c.name;
       const uid = 'c' + i;
       return `
-      <div class="cassette" style="transform:rotate(${rot}deg)">
+      <div class="cassette" style="transform:translate(${p.x}%,${p.y}%) rotate(${p.rot}deg); z-index:${p.z}">
         <svg viewBox="0 0 380 200" class="cassette-svg">
           <defs>
-            <linearGradient id="shell${uid}" x1="0" y1="0" x2="0" y2="1">
+            <linearGradient id="shell${uid}" x1="0" y1="0" x2="0.3" y2="1">
               <stop offset="0%" stop-color="#FDF9F7"/>
-              <stop offset="100%" stop-color="#ece5df"/>
+              <stop offset="50%" stop-color="#f0ebe3"/>
+              <stop offset="100%" stop-color="#e4ddd3"/>
             </linearGradient>
-            <radialGradient id="reel${uid}" cx="50%" cy="50%" r="50%">
-              <stop offset="0%" stop-color="#ddd4c0"/>
-              <stop offset="75%" stop-color="#b8ad97"/>
+            <radialGradient id="reel${uid}" cx="50%" cy="45%" r="55%">
+              <stop offset="0%" stop-color="#e8e0d0"/>
+              <stop offset="60%" stop-color="#c4b89a"/>
               <stop offset="100%" stop-color="#948968"/>
             </radialGradient>
+            <filter id="shadow${uid}">
+              <feDropShadow dx="4" dy="5" stdDeviation="4" flood-color="#000" flood-opacity="0.2"/>
+            </filter>
           </defs>
-          <rect x="10" y="10" width="360" height="180" rx="10" fill="url(#shell${uid})" stroke="#c9beac" stroke-width="2"/>
+          <rect x="10" y="10" width="360" height="180" rx="10" fill="url(#shell${uid})" stroke="#c9beac" stroke-width="2" filter="url(#shadow${uid})"/>
           <rect x="30" y="52" width="320" height="90" fill="#f0e6cc"/>
-          <rect x="30" y="52" width="320" height="11" fill="#EADEC4"/>
-          <rect x="30" y="63" width="320" height="10" fill="#9C9994"/>
-          <rect x="30" y="118" width="320" height="10" fill="#9C9994"/>
-          <rect x="30" y="128" width="320" height="14" fill="#EADEC4"/>
+          <rect x="30" y="52" width="320" height="11" fill="${line1}" opacity="0.35"/>
+          <rect x="30" y="63" width="320" height="10" fill="${line2}" opacity="0.25"/>
+          <rect x="30" y="118" width="320" height="10" fill="${line2}" opacity="0.25"/>
+          <rect x="30" y="128" width="320" height="14" fill="${line1}" opacity="0.35"/>
           <text x="190" y="34" font-size="14" font-weight="700" fill="${color}" font-family="Georgia, serif" text-anchor="middle">${shortName}</text>
           <text x="190" y="46" font-size="8" fill="#6b5480" font-family="Georgia, serif" text-anchor="middle" letter-spacing="1">issued by ${c.issuer} &#8226; ${code.toLowerCase()}-${num}-2026</text>
           <rect x="160" y="80" width="60" height="42" rx="4" fill="#e5ddc8" stroke="#7d715c" stroke-width="2"/>
