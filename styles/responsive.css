@@ -24,7 +24,7 @@
   body { cursor: auto; }
   button { cursor: pointer; }
   a { cursor: pointer; }
-  .cursor-dot, .cursor-ring, .cursor-spotlight { display: none; }
+  .custom-cursor { display: none; }
   .scroll-indicator { display: none; }
 
   .navbar {
@@ -93,7 +93,7 @@
 
 @media (pointer: coarse) {
   body, button, a { cursor: auto; }
-  .cursor-dot, .cursor-ring, .cursor-spotlight { display: none; }
+  .custom-cursor { display: none; }
 }
 
 @media (max-width: 420px) {
