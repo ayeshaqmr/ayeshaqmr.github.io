@@ -1,4 +1,4 @@
-/* Desktop-only stacked project cards. Load after the existing styles. */
+/* Desktop-only terminal-style project cards. Load after the existing styles. */
 @media (min-width: 901px) {
   #projects .filter-bar { display: none; }
 
@@ -21,116 +21,136 @@
     top: var(--stack-y);
     left: 0;
     display: grid;
-    grid-template-rows: 40px 1fr;
+    grid-template-rows: 36px 1fr;
     width: 100%;
     min-height: var(--card-height);
     padding: 0;
     overflow: hidden;
-    border: 1px solid rgba(196, 167, 231, .12);
-    border-radius: 16px;
-    background: rgba(31, 29, 46, .95);
-    box-shadow: 0 22px 52px rgba(0, 0, 0, .3), 0 2px 6px rgba(0, 0, 0, .15);
+    border: 1px solid rgba(0, 255, 65, .2);
+    border-radius: 8px;
+    background: #0a0a0a;
+    box-shadow: 0 22px 52px rgba(0, 0, 0, .6), 0 0 0 1px rgba(0, 255, 65, .05), inset 0 0 80px rgba(0, 255, 65, .02);
     transform: translateY(0);
     transition: top .65s cubic-bezier(.16, 1, .3, 1), box-shadow .35s ease, opacity .3s ease;
     z-index: var(--stack-z);
-    backdrop-filter: blur(12px);
+    font-family: var(--font-mono);
   }
 
+  /* Title bar */
   #projects .project-stack .project-card-item__top {
     display: flex;
     align-items: center;
     justify-content: flex-start;
-    gap: .7rem;
-    padding: 0 1.1rem;
-    border-bottom: 1px solid rgba(196, 167, 231, .08);
-    background: rgba(31, 29, 46, .97);
+    gap: .6rem;
+    padding: 0 1rem;
+    border-bottom: 1px solid rgba(0, 255, 65, .1);
+    background: rgba(0, 0, 0, .8);
   }
   #projects .project-stack .project-card-item__top::before {
-    content: '';
-    width: 10px;
-    height: 10px;
-    border-radius: 3px;
-    background: var(--tab-color, var(--iris));
-    box-shadow: 0 0 0 3px color-mix(in srgb, var(--tab-color, var(--iris)) 15%, transparent);
+    content: '● ● ●';
+    font-size: 9px;
+    letter-spacing: 4px;
+    color: var(--tab-color, #00ff41);
+    opacity: .7;
   }
   #projects .project-stack .project-card-item__number { display: none; }
   #projects .project-stack .project-card-item__category {
-    color: var(--text-primary);
-    font-family: var(--font-mono);
-    font-size: 11px;
+    color: rgba(0, 255, 65, .5);
+    font-size: 10px;
     font-weight: 600;
-    letter-spacing: .04em;
+    letter-spacing: .08em;
+    text-transform: uppercase;
   }
 
+  /* Project title */
   #projects .project-stack .project-card-item__title {
     position: absolute;
-    top: 92px;
+    top: 80px;
     left: 2rem;
     max-width: 490px;
     margin: 0;
-    color: var(--text-primary);
-    font-family: var(--font-display);
-    font-size: clamp(1.65rem, 3vw, 2.45rem);
-    font-weight: 800;
-    letter-spacing: -.04em;
-    line-height: 1.08;
-  }
-  #projects .project-stack .project-card-item__desc {
-    position: absolute;
-    top: 151px;
-    left: 2rem;
-    max-width: 500px;
-    margin: 0;
-    color: var(--text-muted);
+    color: var(--tab-color, #00ff41);
     font-family: var(--font-mono);
-    font-size: .85rem;
-    line-height: 1.55;
+    font-size: clamp(1.4rem, 2.5vw, 2rem);
+    font-weight: 700;
+    letter-spacing: -.02em;
+    line-height: 1.1;
+    text-shadow: 0 0 20px var(--tab-color, rgba(0, 255, 65, .3));
   }
 
+  /* Description */
+  #projects .project-stack .project-card-item__desc {
+    position: absolute;
+    top: 140px;
+    left: 2rem;
+    max-width: 480px;
+    margin: 0;
+    color: rgba(0, 255, 65, .5);
+    font-size: .8rem;
+    line-height: 1.6;
+  }
+
+  /* Faux terminal output */
   #projects .project-stack .project-card-item::after {
     content: '';
     position: absolute;
     right: 2rem;
     bottom: 1.6rem;
     left: 2rem;
-    height: 125px;
-    border: 1px solid rgba(196, 167, 231, .08);
-    border-radius: 10px;
+    height: 120px;
+    border: 1px solid rgba(0, 255, 65, .1);
+    border-radius: 4px;
     background:
-      linear-gradient(90deg, transparent 0 18%, rgba(196, 167, 231, .04) 18% 18.2%, transparent 18.2% 52%, rgba(196, 167, 231, .04) 52% 52.2%, transparent 52.2%),
-      linear-gradient(rgba(196, 167, 231, .02) 0 30px, transparent 30px),
-      rgba(31, 29, 46, .5);
+      repeating-linear-gradient(
+        0deg,
+        transparent,
+        transparent 14px,
+        rgba(0, 255, 65, .03) 14px,
+        rgba(0, 255, 65, .03) 15px
+      ),
+      rgba(0, 0, 0, .5);
   }
+
+  /* Footer/tags */
   #projects .project-stack .project-card-item__footer {
     position: absolute;
     right: 2rem;
     bottom: 1.6rem;
     left: 2rem;
     z-index: 1;
-    min-height: 125px;
+    min-height: 120px;
     align-items: flex-end;
-    padding: 0 1rem 1rem;
+    padding: 0 .75rem .75rem;
     border-top: 0;
   }
-  #projects .project-stack .project-card-item__tags { gap: .35rem; }
+  #projects .project-stack .project-card-item__tags { gap: .3rem; }
   #projects .project-stack .tag {
-    color: var(--foam);
-    background: rgba(156, 207, 216, .1);
-    border-color: transparent;
+    color: rgba(0, 255, 65, .6);
+    background: rgba(0, 255, 65, .05);
+    border: 1px solid rgba(0, 255, 65, .15);
+    border-radius: 3px;
+    font-size: 9px;
+    font-family: var(--font-mono);
+    letter-spacing: .05em;
+    text-transform: uppercase;
   }
   #projects .project-stack .project-card-item__arrow {
-    color: var(--tab-color, var(--iris));
+    color: var(--tab-color, #00ff41);
     opacity: 1;
     transform: none;
+    font-family: var(--font-mono);
+    text-shadow: 0 0 10px var(--tab-color, rgba(0, 255, 65, .4));
   }
 
+  /* States */
   #projects .project-stack .project-card-item.is-hidden { opacity: 0; visibility: hidden; }
   #projects .project-stack .project-card-item.is-active {
     cursor: default;
-    box-shadow: 0 26px 62px rgba(0, 0, 0, .4), 0 2px 8px rgba(0, 0, 0, .2);
+    box-shadow: 0 26px 62px rgba(0, 0, 0, .6), 0 0 1px rgba(0, 255, 65, .3), inset 0 0 100px rgba(0, 255, 65, .03);
   }
   #projects .project-stack .project-card-item:not(.is-active) { pointer-events: none; }
 
+  /* Controls */
   #projects .stack-controls {
     display: flex;
     justify-content: center;
@@ -143,21 +163,22 @@
     width: 36px;
     height: 36px;
     place-items: center;
-    border: 1px solid rgba(196, 167, 231, .2);
-    border-radius: 50%;
-    background: rgba(31, 29, 46, .8);
-    color: var(--iris);
+    border: 1px solid rgba(0, 255, 65, .25);
+    border-radius: 4px;
+    background: #0a0a0a;
+    color: #00ff41;
     font-size: 1rem;
-    backdrop-filter: blur(8px);
-    transition: border-color .2s ease, background .2s ease, color .2s ease;
+    font-family: var(--font-mono);
+    transition: border-color .2s ease, background .2s ease, color .2s ease, box-shadow .2s ease;
   }
   #projects .stack-control:hover {
-    border-color: var(--iris);
-    background: var(--iris);
-    color: var(--bg-base);
+    border-color: #00ff41;
+    background: rgba(0, 255, 65, .1);
+    color: #00ff41;
+    box-shadow: 0 0 15px rgba(0, 255, 65, .2);
   }
   #projects .stack-count {
-    color: var(--text-muted);
+    color: rgba(0, 255, 65, .4);
     font-family: var(--font-mono);
     font-size: 10px;
     letter-spacing: .1em;

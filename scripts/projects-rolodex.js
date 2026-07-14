@@ -1,4 +1,4 @@
-/* Layer the existing project cards as tabs, preserving the mobile grid. */
+/* Terminal-style stacked project cards. */
 document.addEventListener('DOMContentLoaded', () => {
   const stack = document.querySelector('#projects .projects-cards');
   if (!stack || stack.dataset.stackReady) return;
@@ -8,7 +8,7 @@ document.addEventListener('DOMContentLoaded', () => {
   stack.dataset.stackReady = 'true';
   stack.classList.add('project-stack');
 
-  const tabColors = ['#ef4444', '#f59e0b', '#4f46e5', '#a855f7', '#0ea5a4'];
+  const tabColors = ['#00ff41', '#ff6b35', '#00d4ff', '#ff3e8a', '#ffd700'];
   cards.forEach((card, index) => card.style.setProperty('--tab-color', tabColors[index % tabColors.length]));
 
   let active = 0;
@@ -32,7 +32,7 @@ document.addEventListener('DOMContentLoaded', () => {
       card.classList.toggle('is-hidden', !visible);
       card.setAttribute('aria-hidden', distance === 0 ? 'false' : 'true');
     });
-    count.textContent = `${String(active + 1).padStart(2, '0')} / ${String(cards.length).padStart(2, '0')}`;
+    count.textContent = `> ${String(active + 1).padStart(2, '0')}/${String(cards.length).padStart(2, '0')}`;
   }
 
   controls.addEventListener('click', (event) => {
