@@ -548,37 +548,29 @@ h1, h2, h3, h4, h5, h6 {
 
 .timeline {
   position: relative;
-  padding-left: var(--space-8);
+  display: flex;
+  gap: var(--space-6);
+  padding-top: var(--space-4);
 }
 
 .timeline__line {
-  position: absolute;
-  left: 5px;
-  top: 8px;
-  bottom: 8px;
-  width: 2px;
-  background: var(--border);
+  display: none;
 }
 
 .timeline-item {
   position: relative;
-  padding-bottom: var(--space-6);
+  flex: 1;
+  min-width: 0;
+  padding-left: var(--space-4);
+  border-left: 2px solid var(--border);
 }
 
-.timeline-item:last-child {
-  padding-bottom: 0;
+.timeline-item:first-child {
+  border-left-color: var(--iris);
 }
 
 .timeline-item__dot {
-  position: absolute;
-  left: calc(-1 * var(--space-8) + 1px);
-  top: 6px;
-  width: 10px;
-  height: 10px;
-  border-radius: 50%;
-  background: var(--iris);
-  border: 2px solid var(--bg-base);
-  z-index: 1;
+  display: none;
 }
 
 .timeline-item__content {
