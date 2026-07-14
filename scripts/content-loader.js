@@ -58,9 +58,16 @@ function renderExperience(data) {
 
   const certGrid = document.querySelector('.cert-grid');
   if (certGrid && data.certifications) {
-    certGrid.innerHTML = data.certifications.map(c => `
-      <div class="cassette">
+    const colors = ['#f6c177', '#eb6f92', '#ea9a97', '#9ccfd8'];
+    certGrid.innerHTML = data.certifications.map((c, i) => {
+      const color = colors[i % colors.length];
+      const num = String(i + 1).padStart(3, '0');
+      const issuer = c.issuer.split('·')[0].trim();
+      return `
+      <div class="cassette" style="--accent:${color}">
         <div class="cassette__body">
+          <span class="cassette__num">No. ${num}</span>
+          <span class="cassette__source">${issuer}</span>
           <div class="cassette__window">
             <div class="cassette__reel cassette__reel--left">
               <div class="cassette__hub"></div>
@@ -76,11 +83,10 @@ function renderExperience(data) {
           </div>
           <div class="cassette__label">
             <p class="cassette__name">${c.name}</p>
-            <p class="cassette__issuer">${c.issuer}</p>
           </div>
         </div>
-      </div>
-    `).join('');
+      </div>`;
+    }).join('');
   }
 }
 
