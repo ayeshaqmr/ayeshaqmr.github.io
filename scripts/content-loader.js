@@ -25,26 +25,35 @@ function renderStats(stats) {
   if (!grid || !stats) return;
   grid.innerHTML = stats.map(s => `
     <div class="stat-card">
-      <span class="stat-card__num"><span data-count="${s.count}" data-suffix="${s.suffix}">${s.count}${s.suffix || ''}</span></span>
-      <span class="stat-card__label">${s.label}</span>
+      <div class="stat-card__top">
+        <div class="stat-card__roller">
+          <div class="stat-card__digit" data-count="${s.count}">${s.count}</div>
+        </div>
+        <span class="stat-card__label">${s.label}</span>
+      </div>
+      <div class="stat-card__bar">
+        <div class="stat-card__bar-fill" data-fill="${s.fill || 50}"></div>
+      </div>
     </div>
   `).join('');
 }
 
 function renderExperience(data) {
-  const list = document.querySelector('.experience-list');
+  const list = document.querySelector('.timeline');
   if (list && data.rows) {
-    list.innerHTML = data.rows.map(r => `
-      <div class="experience-row" role="listitem">
-        <span class="exp-dot" aria-hidden="true"></span>
-        <div class="exp-content">
-          <span class="exp-year">${r.year}</span>
-          <span class="exp-role">${r.role}</span>
-          <span class="exp-company">${r.company}</span>
-          ${r.badge ? `<span class="exp-badge">${r.badge}</span>` : ''}
+    const lineHtml = '<div class="timeline__line" aria-hidden="true"></div>';
+    const itemsHtml = data.rows.map(r => `
+      <div class="timeline-item" role="listitem">
+        <div class="timeline-item__dot" aria-hidden="true"></div>
+        <div class="timeline-item__content">
+          <span class="timeline-item__date">${r.year}</span>
+          <h3 class="timeline-item__title">${r.role}</h3>
+          <p class="timeline-item__company">${r.company}</p>
+          ${r.badge ? `<span class="timeline-item__badge">${r.badge}</span>` : ''}
         </div>
       </div>
     `).join('');
+    list.innerHTML = lineHtml + itemsHtml;
   }
 
   const certGrid = document.querySelector('.cert-grid');
@@ -78,32 +87,24 @@ function renderSkillsGrid(skills) {
 }
 
 function renderProjects(projects) {
-  const grid = document.querySelector('.projects-grid');
+  const grid = document.querySelector('.projects-cards');
   if (!grid || !projects) return;
   grid.innerHTML = projects.map((p, i) => {
     const num = String(i + 1).padStart(2, '0');
-    const img = p.image
-      ? `<div class="project-card__image"><img src="assets/images/${p.image}" alt="${p.title}" loading="lazy" /><div class="project-card__glare" aria-hidden="true"></div></div>`
-      : `<div class="project-card__image" style="display:flex;align-items:center;justify-content:center;background:var(--bg-elevated);color:var(--text-muted);font-size:var(--text-xs);font-family:var(--font-mono);">[ Internal Dashboard ]</div>`;
     const tags = p.tags.map(t => `<span class="tag">${t}</span>`).join('');
     return `
-      <article class="project-card" data-category="${p.category}">
-        <a href="${p.link}" class="project-card__link">
-          ${img}
-          <div class="project-card__info">
-            <div class="project-card__header">
-              <span class="project-card__number">project ${num}</span>
-              <span class="project-card__date">${p.year}</span>
-            </div>
-            <h2 class="project-card__title">${p.title}</h2>
-            <p class="project-card__desc">${p.description}</p>
-            <div class="project-card__footer">
-              <div class="project-card__tags">${tags}</div>
-              <span class="project-card__view">View Project →</span>
-            </div>
-          </div>
-        </a>
-      </article>
+      <a href="${p.link}" class="project-card-item" data-category="${p.category}">
+        <div class="project-card-item__top">
+          <span class="project-card-item__number">${num}</span>
+          <span class="project-card-item__category">${p.category}</span>
+        </div>
+        <h3 class="project-card-item__title">${p.title}</h3>
+        <p class="project-card-item__desc">${p.description}</p>
+        <div class="project-card-item__footer">
+          <div class="project-card-item__tags">${tags}</div>
+          <span class="project-card-item__arrow">→</span>
+        </div>
+      </a>
     `;
   }).join('');
 }

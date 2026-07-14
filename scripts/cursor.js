@@ -52,7 +52,7 @@ else {
   });
 
   const cursorTypes = [
-    { selector: '.project-card',                             cls: 'cursor-card' },
+    { selector: '.project-card-item',                       cls: 'cursor-card' },
     { selector: '.hero__avatar-frame, .navbar__avatar',      cls: 'cursor-profile' },
     { selector: '.contact__email-btn, .contact__social-link, .contact__card', cls: 'cursor-contact' },
     { selector: '.skill-tag, .tag',                          cls: 'cursor-skill' },
@@ -82,7 +82,7 @@ else {
   }
 
   document.addEventListener('mouseover', e => {
-    const target = e.target.closest('a, button, .project-card, .skill-tag, .tag, .filter-btn, .contact__email-btn, .uses-item, .cert-item, .hero__avatar-frame');
+    const target = e.target.closest('a, button, .project-card-item, .skill-tag, .tag, .filter-btn, .contact__email-btn, .uses-item, .cert-item, .hero__avatar-frame');
     if (target) {
       hovering = true;
       applyCursorType(target);
@@ -91,7 +91,7 @@ else {
   });
 
   document.addEventListener('mouseout', e => {
-    const target = e.target.closest('a, button, .project-card, .skill-tag, .tag, .filter-btn, .contact__email-btn, .uses-item, .cert-item, .hero__avatar-frame');
+    const target = e.target.closest('a, button, .project-card-item, .skill-tag, .tag, .filter-btn, .contact__email-btn, .uses-item, .cert-item, .hero__avatar-frame');
     if (target) {
       hovering = false;
       clearCursorClasses();

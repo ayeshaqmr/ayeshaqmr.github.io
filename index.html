@@ -17,6 +17,7 @@
   <link rel="icon" href="assets/images/profile.v0.png" type="image/png" />
 
   <link rel="stylesheet" href="styles/fonts.css" />
+  <link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Material+Symbols+Rounded:opsz,wght,FILL,GRAD@20..48,100..700,0..1,-50..200&icon_names=location_on" />
   <link rel="stylesheet" href="styles/tokens.css" />
   <link rel="stylesheet" href="styles/layout.css" />
   <link rel="stylesheet" href="styles/components.css" />
@@ -152,25 +153,11 @@
                   View my work <span class="btn-arrow">→</span>
                 </a>
               </span>
-              <span class="btn-magnetic">
-                <a href="assets/resume/Ayesha Qamar.pdf" download class="btn btn--outline">
-                  <svg width="13" height="13" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"
-                    aria-hidden="true">
-                    <path
-                      d="M3 16.5v2.25A2.25 2.25 0 005.25 21h13.5A2.25 2.25 0 0021 18.75V16.5M16.5 12L12 16.5m0 0L7.5 12m4.5 4.5V3" />
-                  </svg>
-                  Download CV
-                </a>
-              </span>
             </div>
 
             <a href="https://maps.google.com/?q=Pakistan" target="_blank" rel="noopener" class="hero__location">
-              <svg width="11" height="11" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"
-                aria-hidden="true">
-                <path d="M12 2C8.13 2 5 5.13 5 9c0 5.25 7 13 7 13s7-7.75 7-13c0-3.87-3.13-7-7-7z" />
-                <circle cx="12" cy="9" r="2.5" />
-              </svg>
-              🇵🇰 Pakistan
+              <span class="material-symbols-rounded" style="color:#918DA9;font-size:18px;">location_on</span>
+              Pakistan
             </a>
           </div>
 
@@ -182,44 +169,40 @@
           </div>
         </div>
 
-        <div class="stats-grid reveal-stagger">
-          <div class="stat-card">
-            <span class="stat-card__num"><span data-count="8" data-suffix="+">8+</span></span>
-            <span class="stat-card__label">Projects Built</span>
+        <div class="stats-row reveal-stagger">
+          <div class="stat-item">
+            <span class="stat-item__num"><span data-count="8" data-suffix="+">8+</span></span>
+            <span class="stat-item__label">Projects Built</span>
           </div>
-          <div class="stat-card">
-            <span class="stat-card__num"><span data-count="4">4</span></span>
-            <span class="stat-card__label">Certifications</span>
+          <div class="stat-item">
+            <span class="stat-item__num"><span data-count="4">4</span></span>
+            <span class="stat-item__label">Certifications</span>
           </div>
-          <div class="stat-card">
-            <span class="stat-card__num"><span data-count="2" data-suffix=" yrs">2 yrs</span></span>
-            <span class="stat-card__label">Coding Experience</span>
+          <div class="stat-item">
+            <span class="stat-item__num"><span data-count="2" data-suffix=" yrs">2 yrs</span></span>
+            <span class="stat-item__label">Experience</span>
           </div>
         </div>
 
         <section class="section" id="background" aria-labelledby="bg-heading">
 
-          <div class="section-header reveal">
-            <span class="section-label" id="bg-heading">
-              <svg width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" aria-hidden="true"><path d="M20 21v-2a4 4 0 0 0-4-4H8a4 4 0 0 0-4 4v2"></path><circle cx="12" cy="7" r="4"></circle></svg>
-              Background
-            </span>
-            <div class="section-line"></div>
-          </div>
-
-          <p class="sec-label">// Education</p>
-          <div class="education-content"></div>
-
-          <div style="margin-top:var(--space-8);">
-            <p class="sec-label">// Experience</p>
-            <div class="experience-list" role="list">
-              <div class="experience-row" role="listitem">
-                <span class="exp-dot" aria-hidden="true"></span>
-                <div class="exp-content">
-                  <span class="exp-year">Feb–Mar 2026</span>
-                  <span class="exp-role">Software Development Intern</span>
-                  <span class="exp-company">Oil & Gas Development Company (OGDC)</span>
-                  <span class="exp-badge">Internship</span>
+          <div class="bg-grid">
+            <div class="bg-column">
+              <p class="sec-label">// Education</p>
+              <div class="education-content"></div>
+            </div>
+            <div class="bg-column">
+              <p class="sec-label">// Experience</p>
+              <div class="timeline" role="list">
+                <div class="timeline__line" aria-hidden="true"></div>
+                <div class="timeline-item" role="listitem">
+                  <div class="timeline-item__dot" aria-hidden="true"></div>
+                  <div class="timeline-item__content">
+                    <span class="timeline-item__date">Feb–Mar 2026</span>
+                    <h3 class="timeline-item__title">Software Development Intern</h3>
+                    <p class="timeline-item__company">Oil & Gas Development Company (OGDC)</p>
+                    <span class="timeline-item__badge">Internship</span>
+                  </div>
                 </div>
               </div>
             </div>
@@ -233,16 +216,6 @@
         </section>
 
         <section class="section github-section" id="github" aria-labelledby="gh-heading">
-
-          <div class="section-header reveal">
-            <span class="section-label" id="gh-heading">
-              <svg width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" aria-hidden="true"><path d="M9 19c-5 1.5-5-2.5-7-3m14 6v-3.87a3.37 3.37 0 0 0-.94-2.61c3.14-.35 6.44-1.54 6.44-7A5.44 5.44 0 0 0 20 4.77 5.07 5.07 0 0 0 19.91 1S18.73.65 16 2.48a13.38 13.38 0 0 0-7 0C6.27.65 5.09 1 5.09 1A5.07 5.07 0 0 0 5 4.77a5.44 5.44 0 0 0-1.5 3.78c0 5.42 3.3 6.61 6.44 7A3.37 3.37 0 0 0 9 18.13V22"></path></svg>
-              GitHub Activity
-            </span>
-            <div class="section-line"></div>
-            <a href="https://github.com/ayeshaqmr" target="_blank" rel="noopener" class="btn btn--ghost"
-              style="flex-shrink:0;font-size:11px;">github.com/ayeshaqmr →</a>
-          </div>
 
           <div class="github-graph-wrap reveal">
             <p
@@ -303,118 +276,81 @@
             <button class="filter-btn" data-filter="systems">Systems</button>
           </div>
 
-          <div class="projects-grid">
-            <article class="project-card" data-category="mobile ai">
-              <a href="#" class="project-card__link">
-                <div class="project-card__image">
-                  <img src="assets/images/project-mobile.png" alt="Speak Dine app UI" loading="lazy" />
-                  <div class="project-card__glare" aria-hidden="true"></div>
+          <div class="projects-cards">
+            <a href="#" class="project-card-item" data-category="mobile ai">
+              <div class="project-card-item__top">
+                <span class="project-card-item__number">01</span>
+                <span class="project-card-item__category">Mobile / AI</span>
+              </div>
+              <h3 class="project-card-item__title">Speak Dine</h3>
+              <p class="project-card-item__desc">AI-assisted voice-accessibility food delivery app for visually impaired users. Integrates STT, TTS, and conversational AI via Gemini API.</p>
+              <div class="project-card-item__footer">
+                <div class="project-card-item__tags">
+                  <span class="tag">Flutter</span><span class="tag">Gemini API</span><span class="tag">Firebase</span>
                 </div>
-                <div class="project-card__info">
-                  <div class="project-card__header">
-                    <span class="project-card__number">project 01</span>
-                    <span class="project-card__date">2025</span>
-                  </div>
-                  <h2 class="project-card__title">Speak Dine</h2>
-                  <p class="project-card__desc">An AI-assisted voice-accessibility food delivery app built for visually impaired users. Integrates STT, TTS, and conversational AI via Gemini API.</p>
-                  <div class="project-card__footer">
-                    <div class="project-card__tags">
-                      <span class="tag">Flutter</span><span class="tag">Gemini API</span><span class="tag">Firebase</span><span class="tag">TTS/STT</span><span class="tag">Dart</span>
-                    </div>
-                    <span class="project-card__view">View Project →</span>
-                  </div>
-                </div>
-              </a>
-            </article>
+                <span class="project-card-item__arrow">→</span>
+              </div>
+            </a>
 
-            <article class="project-card" data-category="ai">
-              <a href="#" class="project-card__link">
-                <div class="project-card__image">
-                  <img src="assets/images/project-dashboard.png" alt="Glaucoma detection model" loading="lazy" />
-                  <div class="project-card__glare" aria-hidden="true"></div>
+            <a href="#" class="project-card-item" data-category="ai">
+              <div class="project-card-item__top">
+                <span class="project-card-item__number">02</span>
+                <span class="project-card-item__category">AI / ML</span>
+              </div>
+              <h3 class="project-card-item__title">Glaucoma Detection</h3>
+              <p class="project-card-item__desc">Deep learning model on EyePACS dataset for early glaucoma detection using advanced image classification.</p>
+              <div class="project-card-item__footer">
+                <div class="project-card-item__tags">
+                  <span class="tag">TensorFlow</span><span class="tag">OpenCV</span><span class="tag">Python</span>
                 </div>
-                <div class="project-card__info">
-                  <div class="project-card__header">
-                    <span class="project-card__number">project 02</span>
-                    <span class="project-card__date">2024</span>
-                  </div>
-                  <h2 class="project-card__title">Glaucoma Detection</h2>
-                  <p class="project-card__desc">Trained a deep learning model on the EyePACS dataset for early glaucoma detection.</p>
-                  <div class="project-card__footer">
-                    <div class="project-card__tags">
-                      <span class="tag">TensorFlow</span><span class="tag">OpenCV</span><span class="tag">Python</span>
-                    </div>
-                    <span class="project-card__view">View Project →</span>
-                  </div>
-                </div>
-              </a>
-            </article>
+                <span class="project-card-item__arrow">→</span>
+              </div>
+            </a>
 
-            <article class="project-card" data-category="systems">
-              <a href="#" class="project-card__link">
-                <div class="project-card__image">
-                  <img src="assets/images/project-ecommerce.png" alt="Smart Trash Routing" loading="lazy" />
-                  <div class="project-card__glare" aria-hidden="true"></div>
+            <a href="#" class="project-card-item" data-category="systems">
+              <div class="project-card-item__top">
+                <span class="project-card-item__number">03</span>
+                <span class="project-card-item__category">Systems</span>
+              </div>
+              <h3 class="project-card-item__title">Smart Trash Routing</h3>
+              <p class="project-card-item__desc">Optimized waste-collection vehicle routing using graph theory algorithms for maximum efficiency.</p>
+              <div class="project-card-item__footer">
+                <div class="project-card-item__tags">
+                  <span class="tag">Python</span><span class="tag">Graph Theory</span><span class="tag">DSA</span>
                 </div>
-                <div class="project-card__info">
-                  <div class="project-card__header">
-                    <span class="project-card__number">project 03</span>
-                    <span class="project-card__date">2024</span>
-                  </div>
-                  <h2 class="project-card__title">Smart Trash Routing</h2>
-                  <p class="project-card__desc">Optimized waste-collection vehicle routing using graph theory algorithms.</p>
-                  <div class="project-card__footer">
-                    <div class="project-card__tags">
-                      <span class="tag">Python</span><span class="tag">Graph Theory</span><span class="tag">DSA</span>
-                    </div>
-                    <span class="project-card__view">View Project →</span>
-                  </div>
-                </div>
-              </a>
-            </article>
+                <span class="project-card-item__arrow">→</span>
+              </div>
+            </a>
 
-            <article class="project-card" data-category="web">
-              <a href="#" class="project-card__link">
-                <div class="project-card__image" style="display:flex;align-items:center;justify-content:center;background:var(--bg-elevated);color:var(--text-muted);font-size:var(--text-xs);font-family:var(--font-mono);">[ Internal Dashboard ]</div>
-                <div class="project-card__info">
-                  <div class="project-card__header">
-                    <span class="project-card__number">project 04</span>
-                    <span class="project-card__date">2026</span>
-                  </div>
-                  <h2 class="project-card__title">OGDC E-Medical Dashboard</h2>
-                  <p class="project-card__desc">Internal medical management dashboard built during internship at OGDC.</p>
-                  <div class="project-card__footer">
-                    <div class="project-card__tags">
-                      <span class="tag">Oracle SQL</span><span class="tag">Python</span><span class="tag">AI</span>
-                    </div>
-                    <span class="project-card__view">View Project →</span>
-                  </div>
+            <a href="#" class="project-card-item" data-category="web">
+              <div class="project-card-item__top">
+                <span class="project-card-item__number">04</span>
+                <span class="project-card-item__category">Web / Full-Stack</span>
+              </div>
+              <h3 class="project-card-item__title">OGDC E-Medical Dashboard</h3>
+              <p class="project-card-item__desc">Internal medical management dashboard built during internship at OGDC for streamlined operations.</p>
+              <div class="project-card-item__footer">
+                <div class="project-card-item__tags">
+                  <span class="tag">Oracle SQL</span><span class="tag">Python</span><span class="tag">AI</span>
                 </div>
-              </a>
-            </article>
+                <span class="project-card-item__arrow">→</span>
+              </div>
+            </a>
 
-            <article class="project-card" data-category="web">
-              <a href="#" class="project-card__link">
-                <div class="project-card__image">
-                  <img src="assets/images/project-banking.png" alt="Nextcent Web App" loading="lazy" />
-                  <div class="project-card__glare" aria-hidden="true"></div>
+            <a href="#" class="project-card-item" data-category="web">
+              <div class="project-card-item__top">
+                <span class="project-card-item__number">05</span>
+                <span class="project-card-item__category">Web / Full-Stack</span>
+              </div>
+              <h3 class="project-card-item__title">Nextcent Web App</h3>
+              <p class="project-card-item__desc">Community-focused web platform for managing memberships, events, and resources.</p>
+              <div class="project-card-item__footer">
+                <div class="project-card-item__tags">
+                  <span class="tag">React</span><span class="tag">Node.js</span><span class="tag">MongoDB</span>
                 </div>
-                <div class="project-card__info">
-                  <div class="project-card__header">
-                    <span class="project-card__number">project 05</span>
-                    <span class="project-card__date">2025</span>
-                  </div>
-                  <h2 class="project-card__title">Nextcent Web App</h2>
-                  <p class="project-card__desc">A community-focused web platform for managing memberships, events, and resources.</p>
-                  <div class="project-card__footer">
-                    <div class="project-card__tags">
-                      <span class="tag">React</span><span class="tag">Node.js</span><span class="tag">MongoDB</span>
-                    </div>
-                    <span class="project-card__view">View Project →</span>
-                  </div>
-                </div>
-              </a>
-            </article>
+                <span class="project-card-item__arrow">→</span>
+              </div>
+            </a>
           </div>
 
         </section>
@@ -491,14 +427,13 @@
           <div class="section-header reveal">
             <span class="section-label" id="contact-heading">
               <svg width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" aria-hidden="true"><path d="M4 4h16c1.1 0 2 .9 2 2v12c0 1.1-.9 2-2 2H4c-1.1 0-2-.9-2-2V6c0-1.1.9-2 2-2z"></path><polyline points="22,6 12,13 2,6"></polyline></svg>
-              Get in Touch
+              Let's Talk
             </span>
             <div class="section-line"></div>
           </div>
 
           <div class="contact-wrapper">
             <div class="contact__card reveal">
-              <h2 class="contact__heading">Let's build something together.</h2>
               <p class="contact__sub">
                 Whether it's a project collab, internship opportunity, or just a hello — my inbox is always open.
               </p>

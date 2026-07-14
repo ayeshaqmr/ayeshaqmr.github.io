@@ -1,7 +1,7 @@
 @media (max-width: 1100px) {
   .content-inner { padding: var(--space-12) var(--space-8) 0; }
   .case-meta-grid { grid-template-columns: 1fr 1fr; }
-  .stats-grid { grid-template-columns: 1fr 1fr 1fr; }
+  .stats-grid { gap: 24px; }
   .github-stats-grid { grid-template-columns: 1fr 1fr 1fr; }
   .experience-row { grid-template-columns: 24px 1fr; gap: var(--space-3); }
   .exp-company { font-size: var(--text-xs); }
@@ -48,7 +48,7 @@
 
   .projects-grid { grid-template-columns: 1fr; }
   .two-col { grid-template-columns: 1fr; gap: var(--space-6); }
-  .stats-grid { grid-template-columns: 1fr 1fr; }
+  .stats-grid { flex-wrap: wrap; gap: 24px; }
   .github-stats-grid { grid-template-columns: 1fr 1fr; }
   .cert-grid { grid-template-columns: 1fr; }
   .case-meta-grid { grid-template-columns: 1fr 1fr; }
@@ -89,7 +89,7 @@
 }
 
 @media (max-width: 420px) {
-  .stats-grid { grid-template-columns: 1fr; }
+  .stats-grid { flex-direction: column; align-items: center; gap: 20px; }
   .github-stats-grid { grid-template-columns: 1fr; }
   .hero__avatar-frame { width: 140px; height: 140px; }
   .hero__avatar-lg { width: 124px; height: 124px; }

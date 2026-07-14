@@ -85,7 +85,6 @@ function initCounters() {
       if (!entry.isIntersecting) return;
       const el     = entry.target;
       const target = parseInt(el.dataset.count, 10);
-      const suffix = el.dataset.suffix || '';
       const dur    = 1600;
       const start  = performance.now();
 
@@ -93,7 +92,7 @@ function initCounters() {
         const elapsed  = now - start;
         const progress = Math.min(elapsed / dur, 1);
         const ease     = 1 - Math.pow(1 - progress, 3);
-        el.textContent = Math.floor(ease * target) + suffix;
+        el.textContent = Math.floor(ease * target);
         if (progress < 1) requestAnimationFrame(step);
       })(start);
 
@@ -102,6 +101,17 @@ function initCounters() {
   }, { threshold: 0.6 });
 
   counters.forEach(c => obs.observe(c));
+
+  const bars = document.querySelectorAll('[data-fill]');
+  const barObs = new IntersectionObserver((entries) => {
+    entries.forEach(entry => {
+      if (!entry.isIntersecting) return;
+      entry.target.style.width = entry.target.dataset.fill + '%';
+      barObs.unobserve(entry.target);
+    });
+  }, { threshold: 0.6 });
+
+  bars.forEach(b => barObs.observe(b));
 }
 
 function initClock() {
@@ -194,7 +204,7 @@ function initScrollIndicator() {
 
 function initProjectFilter() {
   const btns  = document.querySelectorAll('.filter-btn');
-  const cards = document.querySelectorAll('.project-card[data-category]');
+  const cards = document.querySelectorAll('.project-card-item[data-category]');
   if (!btns.length) return;
 
   btns.forEach(btn => {
@@ -232,17 +242,7 @@ function initProjectFilter() {
 }
 
 function initTilt() {
-  if (typeof VanillaTilt === 'undefined') return;
-  document.querySelectorAll('.project-card').forEach(el => {
-    if (el.vanillaTilt) el.vanillaTilt.destroy();
-  });
-  VanillaTilt.init(document.querySelectorAll('.project-card'), {
-    max: 4,
-    speed: 600,
-    glare: true,
-    'max-glare': 0.08,
-    gyroscope: false,
-  });
+  // No tilt effect for project rows
 }
 
 function initNavbarScroll() {
