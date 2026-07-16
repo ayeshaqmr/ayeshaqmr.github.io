@@ -54,52 +54,46 @@ function renderExperience(data) {
     certGrid.innerHTML = data.certifications.map((c, i) => {
       const accent = accentColors[i % accentColors.length];
       const p = placements[i % placements.length];
-      const issuerCert = c.issuer.toUpperCase() + ' CERT';
-      const patterns = [
-        `<path d="M0,8 Q5,0 10,8 T20,8 T30,8 T40,8 T50,8 T60,8 T70,8 T80,8 T90,8 T100,8 T110,8 T120,8" fill="none" stroke="#1c1a18" stroke-width="1.2"/>
-         <path d="M0,20 Q5,12 10,20 T20,20 T30,20 T40,20 T50,20 T60,20 T70,20 T80,20 T90,20 T100,20 T110,20 T120,20" fill="none" stroke="#1c1a18" stroke-width="1.2"/>
-         <path d="M0,32 Q5,24 10,32 T20,32 T30,32 T40,32 T50,32 T60,32 T70,32 T80,32 T90,32 T100,32 T110,32 T120,32" fill="none" stroke="#1c1a18" stroke-width="1.2"/>`,
-        `<line x1="0" y1="8" x2="120" y2="8" stroke="#1c1a18" stroke-width="1.2" stroke-dasharray="4 3"/>
-         <line x1="0" y1="20" x2="120" y2="20" stroke="#1c1a18" stroke-width="1.2" stroke-dasharray="4 3"/>
-         <line x1="0" y1="32" x2="120" y2="32" stroke="#1c1a18" stroke-width="1.2" stroke-dasharray="4 3"/>`,
-        `<path d="M0,10 L10,5 L20,10 L30,5 L40,10 L50,5 L60,10 L70,5 L80,10 L90,5 L100,10 L110,5 L120,10" fill="none" stroke="#1c1a18" stroke-width="1.2"/>
-         <path d="M0,22 L10,17 L20,22 L30,17 L40,22 L50,17 L60,22 L70,17 L80,22 L90,17 L100,22 L110,17 L120,22" fill="none" stroke="#1c1a18" stroke-width="1.2"/>
-         <path d="M0,34 L10,29 L20,34 L30,29 L40,34 L50,29 L60,34 L70,29 L80,34 L90,29 L100,34 L110,29 L120,34" fill="none" stroke="#1c1a18" stroke-width="1.2"/>`,
-        `<circle cx="20" cy="20" r="3" fill="none" stroke="#1c1a18" stroke-width="1"/>
-         <circle cx="40" cy="20" r="3" fill="none" stroke="#1c1a18" stroke-width="1"/>
-         <circle cx="60" cy="20" r="3" fill="none" stroke="#1c1a18" stroke-width="1"/>
-         <circle cx="80" cy="20" r="3" fill="none" stroke="#1c1a18" stroke-width="1"/>
-         <circle cx="100" cy="20" r="3" fill="none" stroke="#1c1a18" stroke-width="1"/>
-         <line x1="0" y1="35" x2="120" y2="35" stroke="#1c1a18" stroke-width="0.8" stroke-dasharray="1 3"/>`,
-        `<path d="M0,15 Q15,5 30,15 T60,15 T90,15 T120,15" fill="none" stroke="#1c1a18" stroke-width="1.2"/>
-         <path d="M0,25 Q15,35 30,25 T60,25 T90,25 T120,25" fill="none" stroke="#1c1a18" stroke-width="1.2"/>`,
-        `<rect x="10" y="6" width="100" height="28" rx="4" fill="none" stroke="#1c1a18" stroke-width="1" stroke-dasharray="3 2"/>
-         <line x1="10" y1="20" x2="110" y2="20" stroke="#1c1a18" stroke-width="0.6" stroke-dasharray="2 4"/>`,
-        `<path d="M0,10 C20,0 40,20 60,10 S100,0 120,10" fill="none" stroke="#1c1a18" stroke-width="1.2"/>
-         <path d="M0,25 C20,15 40,35 60,25 S100,15 120,25" fill="none" stroke="#1c1a18" stroke-width="1.2"/>`,
-        `<path d="M5,5 L115,5 M5,15 L115,15 M5,25 L115,25 M5,35 L115,35" fill="none" stroke="#1c1a18" stroke-width="0.8" stroke-dasharray="1 5"/>
-         <circle cx="60" cy="20" r="8" fill="none" stroke="#1c1a18" stroke-width="1"/>`
-      ];
-      const pattern = patterns[i % patterns.length];
+      const code = c.name.split(' ').slice(0, 2).map(w => w[0]).join('').toUpperCase();
+      const issuerUpper = c.issuer.toUpperCase();
+      const isTall = i % 3 === 1;
+      if (isTall) {
+        return `
+        <div class="stamp stamp-tall" style="transform:translateY(${p.y}px) rotate(${p.rot}deg); z-index:${p.z}">
+          <div class="airpost-header"><span>POST SERVICE</span></div>
+          <div class="airpost-badge-wrap">
+            <svg class="squiggle-side" viewBox="0 0 60 120">
+              <path d="M8,0 Q0,4 8,8 T8,16 T8,24 T8,32 T8,40 T8,48 T8,56 T8,64 T8,72 T8,80 T8,88 T8,96 T8,104 T8,112" fill="none" stroke="#493D60" stroke-width="1.4"/>
+              <path d="M20,0 Q12,4 20,8 T20,16 T20,24 T20,32 T20,40 T20,48 T20,56 T20,64 T20,72 T20,80 T20,88 T20,96 T20,104 T20,112" fill="none" stroke="#493D60" stroke-width="1.4"/>
+            </svg>
+            <div class="cent-badge" style="background:${accent}">
+              <div class="cent-badge-num">${code}</div>
+              <div class="cent-badge-label">Cert</div>
+            </div>
+          </div>
+          <div class="stamp-footer-single">${c.name}</div>
+          <div class="airpost-bar">${issuerUpper}</div>
+        </div>`;
+      }
       return `
       <div class="stamp" style="transform:translateY(${p.y}px) rotate(${p.rot}deg); z-index:${p.z}">
-        <div class="stamp-top">
-          <div class="stamp-title" style="background:${accent}">
-            <div class="stamp-title__name">${c.name}</div>
-          </div>
+        <div class="cent-box">
+          <div class="cent-num">${code}</div>
+          <div class="cent-label">Cert</div>
+          <div class="cent-star">★</div>
         </div>
-        <div class="stamp-mid">
-          <div class="stamp-mid-row">
-            <div class="stamp-cent">
-              <div class="stamp-cent__num">${issuerCert.split(' ').map(w => w[0]).join('')}</div>
-              <div class="stamp-cent__label">${issuerCert}</div>
-            </div>
-            <svg viewBox="0 0 120 40" class="stamp-squiggle">
-              ${pattern}
-              <circle cx="105" cy="20" r="12" fill="none" stroke="${accent}" stroke-width="1.2" stroke-dasharray="2.5 2" opacity="0.55"/>
-              <text x="105" y="22" font-size="4.5" fill="${accent}" text-anchor="middle" font-family="var(--font-mono)">CERT</text>
-            </svg>
-          </div>
+        <div class="post-block" style="background:${accent}">
+          <div class="post-title">CERTIFIED</div>
+          <div class="post-sub">${issuerUpper}</div>
+        </div>
+        <svg class="squiggle-corner" viewBox="0 0 90 60">
+          <path d="M0,8 Q4,0 8,8 T16,8 T24,8 T32,8 T40,8 T48,8 T56,8 T64,8 T72,8 T80,8 T88,8" fill="none" stroke="#493D60" stroke-width="1.4"/>
+          <path d="M0,18 Q4,10 8,18 T16,18 T24,18 T32,18 T40,18 T48,18 T56,18 T64,18 T72,18 T80,18 T88,18" fill="none" stroke="#493D60" stroke-width="1.4"/>
+          <path d="M0,28 Q4,20 8,28 T16,28 T24,28 T32,28 T40,28 T48,28 T56,28 T64,28 T72,28 T80,28 T88,28" fill="none" stroke="#493D60" stroke-width="1.4"/>
+          <path d="M0,38 Q4,30 8,38 T16,38 T24,38 T32,38 T40,38 T48,38 T56,38 T64,38 T72,38 T80,38 T88,38" fill="none" stroke="#493D60" stroke-width="1.4"/>
+        </svg>
+        <div class="stamp-footer">
+          <span>${c.name}</span>
         </div>
       </div>`;
     }).join('');
