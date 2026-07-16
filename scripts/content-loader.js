@@ -51,23 +51,36 @@ function renderExperience(data) {
       { y: 0, rot: -2.5, z: 7 },
       { y: 8, rot: 1.5, z: 8 },
     ];
-    const inkStamps = [
-      `<svg class="ink-stamp" viewBox="0 0 100 100"><circle cx="50" cy="50" r="38" fill="none" stroke="currentColor" stroke-width="3" opacity="0.55"/><circle cx="50" cy="50" r="32" fill="none" stroke="currentColor" stroke-width="1.5" opacity="0.4"/><text x="50" y="46" font-size="11" font-weight="700" fill="currentColor" text-anchor="middle" font-family="var(--font-mono)" letter-spacing="1" opacity="0.55">VERIFIED</text><text x="50" y="60" font-size="7" fill="currentColor" text-anchor="middle" font-family="var(--font-mono)" opacity="0.4">2026</text></svg>`,
-      `<svg class="ink-stamp" viewBox="0 0 120 50"><rect x="4" y="4" width="112" height="42" rx="3" fill="none" stroke="currentColor" stroke-width="2.5" opacity="0.5"/><text x="60" y="32" font-size="14" font-weight="700" fill="currentColor" text-anchor="middle" font-family="var(--font-mono)" letter-spacing="3" opacity="0.5">APPROVED</text></svg>`,
-      `<svg class="ink-stamp" viewBox="0 0 100 100"><ellipse cx="50" cy="50" rx="42" ry="30" fill="none" stroke="currentColor" stroke-width="2.5" opacity="0.5"/><text x="50" y="47" font-size="10" font-weight="700" fill="currentColor" text-anchor="middle" font-family="var(--font-mono)" letter-spacing="1" opacity="0.5">AUTHENTIC</text><text x="50" y="60" font-size="6.5" fill="currentColor" text-anchor="middle" font-family="var(--font-mono)" opacity="0.35">CERT NO. ${String(i + 1).padStart(3, '0')}</text></svg>`,
-      `<svg class="ink-stamp" viewBox="0 0 100 100"><circle cx="50" cy="50" r="38" fill="none" stroke="currentColor" stroke-width="2.5" opacity="0.5"/><line x1="12" y1="50" x2="88" y2="50" stroke="currentColor" stroke-width="1.5" opacity="0.35"/><text x="50" y="45" font-size="9" font-weight="700" fill="currentColor" text-anchor="middle" font-family="var(--font-mono)" letter-spacing="1" opacity="0.5">OFFICIAL</text><text x="50" y="58" font-size="6.5" fill="currentColor" text-anchor="middle" font-family="var(--font-mono)" opacity="0.35">${c.issuer.toUpperCase()}</text></svg>`,
-      `<svg class="ink-stamp" viewBox="0 0 100 60"><rect x="4" y="4" width="92" height="52" rx="2" fill="none" stroke="currentColor" stroke-width="2" opacity="0.5"/><line x1="4" y1="20" x2="96" y2="20" stroke="currentColor" stroke-width="1" opacity="0.3"/><line x1="4" y1="40" x2="96" y2="40" stroke="currentColor" stroke-width="1" opacity="0.3"/><text x="50" y="35" font-size="10" font-weight="700" fill="currentColor" text-anchor="middle" font-family="var(--font-mono)" letter-spacing="2" opacity="0.5">COMPLETE</text></svg>`,
-      `<svg class="ink-stamp" viewBox="0 0 100 100"><circle cx="50" cy="50" r="38" fill="none" stroke="currentColor" stroke-width="2" opacity="0.5" stroke-dasharray="6 3"/><text x="50" y="46" font-size="10" font-weight="700" fill="currentColor" text-anchor="middle" font-family="var(--font-mono)" letter-spacing="1" opacity="0.55">QUALITY</text><text x="50" y="58" font-size="7" fill="currentColor" text-anchor="middle" font-family="var(--font-mono)" opacity="0.4">ASSURED</text></svg>`,
-      `<svg class="ink-stamp" viewBox="0 0 110 50"><rect x="3" y="3" width="104" height="44" rx="22" fill="none" stroke="currentColor" stroke-width="2.5" opacity="0.5"/><text x="55" y="32" font-size="12" font-weight="700" fill="currentColor" text-anchor="middle" font-family="var(--font-mono)" letter-spacing="2" opacity="0.5">VALIDATED</text></svg>`,
-      `<svg class="ink-stamp" viewBox="0 0 100 100"><circle cx="50" cy="50" r="38" fill="none" stroke="currentColor" stroke-width="2.5" opacity="0.5"/><circle cx="50" cy="50" r="30" fill="none" stroke="currentColor" stroke-width="1" opacity="0.3"/><text x="50" y="44" font-size="8" font-weight="700" fill="currentColor" text-anchor="middle" font-family="var(--font-mono)" letter-spacing="1" opacity="0.5">CERTIFIED</text><text x="50" y="56" font-size="8" font-weight="700" fill="currentColor" text-anchor="middle" font-family="var(--font-mono)" letter-spacing="1" opacity="0.5">PROFESSIONAL</text></svg>`
-    ];
-
     certGrid.innerHTML = data.certifications.map((c, i) => {
       const accent = accentColors[i % accentColors.length];
       const p = placements[i % placements.length];
       const issuerCert = c.issuer.toUpperCase() + ' CERT';
-      const ink = inkStamps[i % inkStamps.length];
-      const inkRot = [-12, 8, -5, 15, -10, 6, -14, 9][i % 8];
+      const patterns = [
+        `<path d="M0,8 Q5,0 10,8 T20,8 T30,8 T40,8 T50,8 T60,8 T70,8 T80,8 T90,8 T100,8 T110,8 T120,8" fill="none" stroke="#1c1a18" stroke-width="1.2"/>
+         <path d="M0,20 Q5,12 10,20 T20,20 T30,20 T40,20 T50,20 T60,20 T70,20 T80,20 T90,20 T100,20 T110,20 T120,20" fill="none" stroke="#1c1a18" stroke-width="1.2"/>
+         <path d="M0,32 Q5,24 10,32 T20,32 T30,32 T40,32 T50,32 T60,32 T70,32 T80,32 T90,32 T100,32 T110,32 T120,32" fill="none" stroke="#1c1a18" stroke-width="1.2"/>`,
+        `<line x1="0" y1="8" x2="120" y2="8" stroke="#1c1a18" stroke-width="1.2" stroke-dasharray="4 3"/>
+         <line x1="0" y1="20" x2="120" y2="20" stroke="#1c1a18" stroke-width="1.2" stroke-dasharray="4 3"/>
+         <line x1="0" y1="32" x2="120" y2="32" stroke="#1c1a18" stroke-width="1.2" stroke-dasharray="4 3"/>`,
+        `<path d="M0,10 L10,5 L20,10 L30,5 L40,10 L50,5 L60,10 L70,5 L80,10 L90,5 L100,10 L110,5 L120,10" fill="none" stroke="#1c1a18" stroke-width="1.2"/>
+         <path d="M0,22 L10,17 L20,22 L30,17 L40,22 L50,17 L60,22 L70,17 L80,22 L90,17 L100,22 L110,17 L120,22" fill="none" stroke="#1c1a18" stroke-width="1.2"/>
+         <path d="M0,34 L10,29 L20,34 L30,29 L40,34 L50,29 L60,34 L70,29 L80,34 L90,29 L100,34 L110,29 L120,34" fill="none" stroke="#1c1a18" stroke-width="1.2"/>`,
+        `<circle cx="20" cy="20" r="3" fill="none" stroke="#1c1a18" stroke-width="1"/>
+         <circle cx="40" cy="20" r="3" fill="none" stroke="#1c1a18" stroke-width="1"/>
+         <circle cx="60" cy="20" r="3" fill="none" stroke="#1c1a18" stroke-width="1"/>
+         <circle cx="80" cy="20" r="3" fill="none" stroke="#1c1a18" stroke-width="1"/>
+         <circle cx="100" cy="20" r="3" fill="none" stroke="#1c1a18" stroke-width="1"/>
+         <line x1="0" y1="35" x2="120" y2="35" stroke="#1c1a18" stroke-width="0.8" stroke-dasharray="1 3"/>`,
+        `<path d="M0,15 Q15,5 30,15 T60,15 T90,15 T120,15" fill="none" stroke="#1c1a18" stroke-width="1.2"/>
+         <path d="M0,25 Q15,35 30,25 T60,25 T90,25 T120,25" fill="none" stroke="#1c1a18" stroke-width="1.2"/>`,
+        `<rect x="10" y="6" width="100" height="28" rx="4" fill="none" stroke="#1c1a18" stroke-width="1" stroke-dasharray="3 2"/>
+         <line x1="10" y1="20" x2="110" y2="20" stroke="#1c1a18" stroke-width="0.6" stroke-dasharray="2 4"/>`,
+        `<path d="M0,10 C20,0 40,20 60,10 S100,0 120,10" fill="none" stroke="#1c1a18" stroke-width="1.2"/>
+         <path d="M0,25 C20,15 40,35 60,25 S100,15 120,25" fill="none" stroke="#1c1a18" stroke-width="1.2"/>`,
+        `<path d="M5,5 L115,5 M5,15 L115,15 M5,25 L115,25 M5,35 L115,35" fill="none" stroke="#1c1a18" stroke-width="0.8" stroke-dasharray="1 5"/>
+         <circle cx="60" cy="20" r="8" fill="none" stroke="#1c1a18" stroke-width="1"/>`
+      ];
+      const pattern = patterns[i % patterns.length];
       return `
       <div class="stamp" style="transform:translateY(${p.y}px) rotate(${p.rot}deg); z-index:${p.z}">
         <div class="stamp-top">
@@ -81,16 +94,13 @@ function renderExperience(data) {
               <div class="stamp-cent__num">${issuerCert.split(' ').map(w => w[0]).join('')}</div>
               <div class="stamp-cent__label">${issuerCert}</div>
             </div>
-            <svg viewBox="0 0 120 50" class="stamp-squiggle">
-              <path d="M0,8 Q5,0 10,8 T20,8 T30,8 T40,8 T50,8 T60,8 T70,8 T80,8 T90,8 T100,8 T110,8 T120,8" fill="none" stroke="#1c1a18" stroke-width="1.2"/>
-              <path d="M0,20 Q5,12 10,20 T20,20 T30,20 T40,20 T50,20 T60,20 T70,20 T80,20 T90,20 T100,20 T110,20 T120,20" fill="none" stroke="#1c1a18" stroke-width="1.2"/>
-              <path d="M0,32 Q5,24 10,32 T20,32 T30,32 T40,32 T50,32 T60,32 T70,32 T80,32 T90,32 T100,32 T110,32 T120,32" fill="none" stroke="#1c1a18" stroke-width="1.2"/>
-              <circle cx="90" cy="20" r="16" fill="none" stroke="${accent}" stroke-width="1.5" stroke-dasharray="3 2.5" opacity="0.6"/>
-              <text x="90" y="22" font-size="5.5" fill="${accent}" text-anchor="middle" font-family="var(--font-mono)">CERTIFIED</text>
+            <svg viewBox="0 0 120 40" class="stamp-squiggle">
+              ${pattern}
+              <circle cx="105" cy="20" r="12" fill="none" stroke="${accent}" stroke-width="1.2" stroke-dasharray="2.5 2" opacity="0.55"/>
+              <text x="105" y="22" font-size="4.5" fill="${accent}" text-anchor="middle" font-family="var(--font-mono)">CERT</text>
             </svg>
           </div>
         </div>
-        <div class="ink-stamp-wrap" style="transform:rotate(${inkRot}deg); color:${accent}">${ink}</div>
       </div>`;
     }).join('');
   }
