@@ -850,7 +850,7 @@
 
 .stamp {
   width: 280px;
-  background: var(--bg-elevated);
+  background: #F2EADD;
   padding: 12px;
   font-family: var(--font-mono);
   --r: 8px;
@@ -878,7 +878,7 @@
 }
 
 .stamp-top {
-  border: 1.5px solid var(--border);
+  border: 1.5px solid #1c1a18;
 }
 .stamp-title {
   padding: 10px 12px;
@@ -903,10 +903,10 @@
 }
 
 .stamp-mid {
-  border: 1.5px solid var(--border);
+  border: 1.5px solid #1c1a18;
   border-top: none;
   padding: 6px 8px;
-  background: var(--bg-surface);
+  background: #ede6da;
 }
 .stamp-mid-row {
   display: flex;
@@ -924,14 +924,14 @@
 .stamp-cent__num {
   font-size: 1.1rem;
   font-weight: 700;
-  color: var(--text-primary);
+  color: #1c1a18;
   font-family: var(--font-display);
 }
 .stamp-cent__label {
   font-size: 0.5rem;
   text-transform: uppercase;
   letter-spacing: 2px;
-  color: var(--text-muted);
+  color: #6b5480;
   margin-top: 1px;
 }
 .stamp-squiggle {
