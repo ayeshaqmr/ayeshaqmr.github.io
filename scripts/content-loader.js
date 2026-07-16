@@ -60,7 +60,6 @@ function renderExperience(data) {
         <div class="stamp-top">
           <div class="stamp-title" style="background:${accent}">
             <div class="stamp-title__name">${c.name}</div>
-            <div class="stamp-title__issuer">${c.issuer.toUpperCase()}</div>
           </div>
         </div>
         <div class="stamp-mid">
