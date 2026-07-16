@@ -36,7 +36,7 @@ if (!cursor || !cursorInner) {
     cursorInner.style.opacity = '1';
   });
 
-  const hoverTargets = 'a, button, .project-card-item, .skill-tag, .filter-btn, .contact__email-btn, .contact__social-link, .hero__avatar-frame, .cassette';
+  const hoverTargets = 'a, button, .project-card-item, .skill-tag, .filter-btn, .contact__email-btn, .contact__social-link, .hero__avatar-frame, .stamp';
 
   document.addEventListener('mouseover', e => {
     if (e.target.closest(hoverTargets)) {
