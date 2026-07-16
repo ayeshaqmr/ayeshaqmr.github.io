@@ -55,7 +55,7 @@ function renderExperience(data) {
       const accent = accentColors[i % accentColors.length];
       const p = placements[i % placements.length];
       const issuerUpper = c.issuer.toUpperCase();
-      const issuerCert = issuerUpper + ' CERT';
+      const issuerLabel = issuerUpper + ' CERT';
       const isTall = i % 3 === 1;
       if (isTall) {
         return `
@@ -67,22 +67,24 @@ function renderExperience(data) {
               <path d="M20,0 Q12,4 20,8 T20,16 T20,24 T20,32 T20,40 T20,48 T20,56 T20,64 T20,72 T20,80 T20,88 T20,96 T20,104 T20,112" fill="none" stroke="#493D60" stroke-width="1.4"/>
             </svg>
             <div class="cent-badge" style="background:${accent}">
-              <div class="cent-badge-num">CERTIFIED</div>
+              <div class="cent-badge-num">${issuerUpper}</div>
+              <div class="cent-badge-label">Cert</div>
             </div>
           </div>
           <div class="stamp-footer-single">${c.name}</div>
-          <div class="airpost-bar">${issuerCert}</div>
+          <div class="airpost-bar">${issuerUpper}</div>
         </div>`;
       }
       return `
       <div class="stamp" style="transform:translateY(${p.y}px) rotate(${p.rot}deg); z-index:${p.z}">
         <div class="cent-box">
-          <div class="cent-num">CERTIFIED</div>
+          <div class="cent-num">${issuerUpper}</div>
+          <div class="cent-label">Cert</div>
           <div class="cent-star">★</div>
         </div>
         <div class="post-block" style="background:${accent}">
-          <div class="post-title">${c.name}</div>
-          <div class="post-sub">${issuerCert}</div>
+          <div class="post-title">CERTIFIED</div>
+          <div class="post-sub">${issuerUpper}</div>
         </div>
         <svg class="squiggle-corner" viewBox="0 0 90 60">
           <path d="M0,8 Q4,0 8,8 T16,8 T24,8 T32,8 T40,8 T48,8 T56,8 T64,8 T72,8 T80,8 T88,8" fill="none" stroke="#493D60" stroke-width="1.4"/>
