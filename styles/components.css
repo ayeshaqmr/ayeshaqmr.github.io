@@ -856,18 +856,14 @@
   position: relative;
   --r: 8px;
   --gap: 17px;
-  mask-image:
-    radial-gradient(circle var(--r) at var(--gap) 0, transparent calc(var(--r) - 0.5px), black var(--r)),
-    radial-gradient(circle var(--r) at 0 var(--gap), transparent calc(var(--r) - 0.5px), black var(--r));
-  mask-repeat: repeat-x, repeat-y;
-  mask-size: var(--gap) 100%, 100% var(--gap);
+  --top: radial-gradient(circle var(--r) at 50% 0, transparent calc(var(--r) - 0.5px), black var(--r)) repeat-x 0 0 / var(--gap) 100%;
+  --left: radial-gradient(circle var(--r) at 0 50%, transparent calc(var(--r) - 0.5px), black var(--r)) repeat-y 0 0 / 100% var(--gap);
+  --bottom: radial-gradient(circle var(--r) at 50% 100%, transparent calc(var(--r) - 0.5px), black var(--r)) repeat-x 0 0 / var(--gap) 100%;
+  --right: radial-gradient(circle var(--r) at 100% 50%, transparent calc(var(--r) - 0.5px), black var(--r)) repeat-y 0 0 / 100% var(--gap);
+  mask-image: var(--top), var(--left), var(--bottom), var(--right);
   mask-composite: intersect;
-  -webkit-mask-image:
-    radial-gradient(circle var(--r) at var(--gap) 0, transparent calc(var(--r) - 0.5px), black var(--r)),
-    radial-gradient(circle var(--r) at 0 var(--gap), transparent calc(var(--r) - 0.5px), black var(--r));
-  -webkit-mask-repeat: repeat-x, repeat-y;
-  -webkit-mask-size: var(--gap) 100%, 100% var(--gap);
-  -webkit-mask-composite: source-in, source-in;
+  -webkit-mask-image: var(--top), var(--left), var(--bottom), var(--right);
+  -webkit-mask-composite: source-in, source-in, source-in, source-in;
   box-shadow: 3px 3px 10px rgba(0,0,0,0.15);
   padding: 18px;
   box-sizing: border-box;
@@ -915,8 +911,18 @@
 
 .stamp-tall {
   width: 220px; height: 300px; display: flex; flex-direction: column;
-  padding: 0; border: 1.5px solid #493D60;
+  padding: 0;
   background: #F2E9D8;
+  --r: 8px;
+  --gap: 17px;
+  --top: radial-gradient(circle var(--r) at 50% 0, transparent calc(var(--r) - 0.5px), black var(--r)) repeat-x 0 0 / var(--gap) 100%;
+  --left: radial-gradient(circle var(--r) at 0 50%, transparent calc(var(--r) - 0.5px), black var(--r)) repeat-y 0 0 / 100% var(--gap);
+  --bottom: radial-gradient(circle var(--r) at 50% 100%, transparent calc(var(--r) - 0.5px), black var(--r)) repeat-x 0 0 / var(--gap) 100%;
+  --right: radial-gradient(circle var(--r) at 100% 50%, transparent calc(var(--r) - 0.5px), black var(--r)) repeat-y 0 0 / 100% var(--gap);
+  mask-image: var(--top), var(--left), var(--bottom), var(--right);
+  mask-composite: intersect;
+  -webkit-mask-image: var(--top), var(--left), var(--bottom), var(--right);
+  -webkit-mask-composite: source-in, source-in, source-in, source-in;
 }
 .airpost-header {
   text-align: center; padding: 12px 0 8px; font-size: 0.75rem;
