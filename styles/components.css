@@ -857,16 +857,22 @@
   --gap: 18px;
   mask-image:
     radial-gradient(circle var(--r) at var(--gap) 0, transparent calc(var(--r) - 0.5px), black var(--r)),
-    radial-gradient(circle var(--r) at 0 var(--gap), transparent calc(var(--r) - 0.5px), black var(--r));
-  mask-repeat: repeat-x, repeat-y;
-  mask-size: var(--gap) 100%, 100% var(--gap);
+    radial-gradient(circle var(--r) at 0 var(--gap), transparent calc(var(--r) - 0.5px), black var(--r)),
+    radial-gradient(circle var(--r) at calc(100% - var(--gap)) 0, transparent calc(var(--r) - 0.5px), black var(--r)),
+    radial-gradient(circle var(--r) at 100% calc(100% - var(--gap)), transparent calc(var(--r) - 0.5px), black var(--r));
+  mask-repeat: repeat-x, repeat-y, repeat-x, repeat-y;
+  mask-size: var(--gap) 100%, 100% var(--gap), var(--gap) 100%, 100% var(--gap);
+  mask-position: 0 0, 0 0, 100% 0, 0 100%;
   mask-composite: intersect;
   -webkit-mask-image:
     radial-gradient(circle var(--r) at var(--gap) 0, transparent calc(var(--r) - 0.5px), black var(--r)),
-    radial-gradient(circle var(--r) at 0 var(--gap), transparent calc(var(--r) - 0.5px), black var(--r));
-  -webkit-mask-repeat: repeat-x, repeat-y;
-  -webkit-mask-size: var(--gap) 100%, 100% var(--gap);
-  -webkit-mask-composite: source-in, source-in;
+    radial-gradient(circle var(--r) at 0 var(--gap), transparent calc(var(--r) - 0.5px), black var(--r)),
+    radial-gradient(circle var(--r) at calc(100% - var(--gap)) 0, transparent calc(var(--r) - 0.5px), black var(--r)),
+    radial-gradient(circle var(--r) at 100% calc(100% - var(--gap)), transparent calc(var(--r) - 0.5px), black var(--r));
+  -webkit-mask-repeat: repeat-x, repeat-y, repeat-x, repeat-y;
+  -webkit-mask-size: var(--gap) 100%, 100% var(--gap), var(--gap) 100%, 100% var(--gap);
+  -webkit-mask-position: 0 0, 0 0, 100% 0, 0 100%;
+  -webkit-mask-composite: source-in, source-in, source-in, source-in;
   box-shadow: 4px 5px 14px rgba(0,0,0,0.25);
   transition: transform 0.35s var(--ease-expo), filter 0.35s var(--ease-expo), scale 0.35s var(--ease-expo);
   cursor: pointer;
