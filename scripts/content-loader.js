@@ -54,37 +54,29 @@ function renderExperience(data) {
     certGrid.innerHTML = data.certifications.map((c, i) => {
       const accent = accentColors[i % accentColors.length];
       const p = placements[i % placements.length];
-      const code = c.name.split(' ').slice(0, 2).map(w => w[0]).join('').toUpperCase();
-      const num = String(i + 1).padStart(2, '0');
-      const title = c.name.length > 26 ? c.name.slice(0, 24) + '..' : c.name;
-      const month = ['JAN', 'FEB', 'MAR', 'APR', 'MAY', 'JUN', 'JUL', 'AUG', 'SEP', 'OCT', 'NOV', 'DEC'][i % 12];
+      const issuerCert = c.issuer.toUpperCase() + ' CERT';
       return `
       <div class="stamp" style="transform:translateY(${p.y}px) rotate(${p.rot}deg); z-index:${p.z}">
         <div class="stamp-top">
           <div class="stamp-title" style="background:${accent}">
-            <div class="stamp-title__name">${title}</div>
+            <div class="stamp-title__name">${c.name}</div>
             <div class="stamp-title__issuer">${c.issuer.toUpperCase()}</div>
           </div>
         </div>
         <div class="stamp-mid">
           <div class="stamp-mid-row">
             <div class="stamp-cent">
-              <div class="stamp-cent__num">${code}</div>
-              <div class="stamp-cent__label">Cert</div>
+              <div class="stamp-cent__num">${issuerCert.split(' ').map(w => w[0]).join('')}</div>
+              <div class="stamp-cent__label">${issuerCert}</div>
             </div>
             <svg viewBox="0 0 120 50" class="stamp-squiggle">
               <path d="M0,8 Q5,0 10,8 T20,8 T30,8 T40,8 T50,8 T60,8 T70,8 T80,8 T90,8 T100,8 T110,8 T120,8" fill="none" stroke="var(--border)" stroke-width="1.2"/>
               <path d="M0,20 Q5,12 10,20 T20,20 T30,20 T40,20 T50,20 T60,20 T70,20 T80,20 T90,20 T100,20 T110,20 T120,20" fill="none" stroke="var(--border)" stroke-width="1.2"/>
               <path d="M0,32 Q5,24 10,32 T20,32 T30,32 T40,32 T50,32 T60,32 T70,32 T80,32 T90,32 T100,32 T110,32 T120,32" fill="none" stroke="var(--border)" stroke-width="1.2"/>
               <circle cx="90" cy="20" r="16" fill="none" stroke="${accent}" stroke-width="1.5" stroke-dasharray="3 2.5" opacity="0.6"/>
-              <text x="90" y="18" font-size="5.5" fill="${accent}" text-anchor="middle" font-family="var(--font-mono)">CERTIFIED</text>
-              <text x="90" y="26" font-size="5" fill="${accent}" text-anchor="middle" font-family="var(--font-mono)" opacity="0.7">2026</text>
+              <text x="90" y="22" font-size="5.5" fill="${accent}" text-anchor="middle" font-family="var(--font-mono)">CERTIFIED</text>
             </svg>
           </div>
-        </div>
-        <div class="stamp-bottom">
-          <span>${month} · 2026</span>
-          <span>No. ${code}-${num}-2026</span>
         </div>
       </div>`;
     }).join('');

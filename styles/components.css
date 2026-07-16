@@ -940,19 +940,6 @@
   min-width: 0;
 }
 
-.stamp-bottom {
-  display: flex;
-  justify-content: space-between;
-  border: 1.5px solid var(--border);
-  border-top: none;
-  padding: 6px 10px;
-  font-size: 0.6rem;
-  font-weight: 700;
-  color: var(--text-muted);
-  letter-spacing: 0.5px;
-  background: var(--bg-elevated);
-}
-
 .skills-grid {
   display: flex;
   flex-wrap: wrap;
