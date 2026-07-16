@@ -878,59 +878,66 @@
 }
 
 .stamp-top {
-  display: flex;
   border: 1.5px solid var(--border);
-  height: 80px;
 }
-.stamp-cent {
-  width: 72px;
-  border-right: 1.5px solid var(--border);
+.stamp-title {
+  padding: 10px 12px;
   display: flex;
   flex-direction: column;
   align-items: center;
   justify-content: center;
 }
-.stamp-cent__num {
-  font-size: 1.4rem;
-  font-weight: 700;
-  color: var(--text-primary);
-}
-.stamp-cent__label {
-  font-size: 0.55rem;
-  text-transform: uppercase;
-  letter-spacing: 2px;
-  color: var(--text-muted);
-  margin-top: 2px;
-}
-.stamp-banner {
-  flex: 1;
-  display: flex;
-  flex-direction: column;
-  align-items: center;
-  justify-content: center;
-}
-.stamp-banner__title {
-  font-size: 1.2rem;
+.stamp-title__name {
+  font-size: 0.7rem;
   font-weight: 700;
   color: var(--bg-base);
-  letter-spacing: 1px;
+  letter-spacing: 0.5px;
+  text-align: center;
+  line-height: 1.3;
 }
-.stamp-banner__sub {
-  font-size: 0.7rem;
-  color: rgba(255,255,255,0.75);
+.stamp-title__issuer {
+  font-size: 0.55rem;
+  color: rgba(255,255,255,0.7);
   letter-spacing: 3px;
-  margin-top: 2px;
+  margin-top: 3px;
 }
 
 .stamp-mid {
   border: 1.5px solid var(--border);
   border-top: none;
-  padding: 4px 8px;
+  padding: 6px 8px;
   background: var(--bg-surface);
 }
+.stamp-mid-row {
+  display: flex;
+  align-items: center;
+  gap: 6px;
+}
+.stamp-cent {
+  width: 56px;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  justify-content: center;
+  flex-shrink: 0;
+}
+.stamp-cent__num {
+  font-size: 1.1rem;
+  font-weight: 700;
+  color: var(--text-primary);
+  font-family: var(--font-display);
+}
+.stamp-cent__label {
+  font-size: 0.5rem;
+  text-transform: uppercase;
+  letter-spacing: 2px;
+  color: var(--text-muted);
+  margin-top: 1px;
+}
 .stamp-squiggle {
-  width: 100%;
+  flex: 1;
   height: 40px;
+  min-width: 0;
 }
 
 .stamp-bottom {
