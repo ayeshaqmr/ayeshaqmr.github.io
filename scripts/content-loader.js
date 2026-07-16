@@ -51,10 +51,23 @@ function renderExperience(data) {
       { y: 0, rot: -2.5, z: 7 },
       { y: 8, rot: 1.5, z: 8 },
     ];
+    const inkStamps = [
+      `<svg class="ink-stamp" viewBox="0 0 100 100"><circle cx="50" cy="50" r="38" fill="none" stroke="currentColor" stroke-width="3" opacity="0.55"/><circle cx="50" cy="50" r="32" fill="none" stroke="currentColor" stroke-width="1.5" opacity="0.4"/><text x="50" y="46" font-size="11" font-weight="700" fill="currentColor" text-anchor="middle" font-family="var(--font-mono)" letter-spacing="1" opacity="0.55">VERIFIED</text><text x="50" y="60" font-size="7" fill="currentColor" text-anchor="middle" font-family="var(--font-mono)" opacity="0.4">2026</text></svg>`,
+      `<svg class="ink-stamp" viewBox="0 0 120 50"><rect x="4" y="4" width="112" height="42" rx="3" fill="none" stroke="currentColor" stroke-width="2.5" opacity="0.5"/><text x="60" y="32" font-size="14" font-weight="700" fill="currentColor" text-anchor="middle" font-family="var(--font-mono)" letter-spacing="3" opacity="0.5">APPROVED</text></svg>`,
+      `<svg class="ink-stamp" viewBox="0 0 100 100"><ellipse cx="50" cy="50" rx="42" ry="30" fill="none" stroke="currentColor" stroke-width="2.5" opacity="0.5"/><text x="50" y="47" font-size="10" font-weight="700" fill="currentColor" text-anchor="middle" font-family="var(--font-mono)" letter-spacing="1" opacity="0.5">AUTHENTIC</text><text x="50" y="60" font-size="6.5" fill="currentColor" text-anchor="middle" font-family="var(--font-mono)" opacity="0.35">CERT NO. ${String(i + 1).padStart(3, '0')}</text></svg>`,
+      `<svg class="ink-stamp" viewBox="0 0 100 100"><circle cx="50" cy="50" r="38" fill="none" stroke="currentColor" stroke-width="2.5" opacity="0.5"/><line x1="12" y1="50" x2="88" y2="50" stroke="currentColor" stroke-width="1.5" opacity="0.35"/><text x="50" y="45" font-size="9" font-weight="700" fill="currentColor" text-anchor="middle" font-family="var(--font-mono)" letter-spacing="1" opacity="0.5">OFFICIAL</text><text x="50" y="58" font-size="6.5" fill="currentColor" text-anchor="middle" font-family="var(--font-mono)" opacity="0.35">${c.issuer.toUpperCase()}</text></svg>`,
+      `<svg class="ink-stamp" viewBox="0 0 100 60"><rect x="4" y="4" width="92" height="52" rx="2" fill="none" stroke="currentColor" stroke-width="2" opacity="0.5"/><line x1="4" y1="20" x2="96" y2="20" stroke="currentColor" stroke-width="1" opacity="0.3"/><line x1="4" y1="40" x2="96" y2="40" stroke="currentColor" stroke-width="1" opacity="0.3"/><text x="50" y="35" font-size="10" font-weight="700" fill="currentColor" text-anchor="middle" font-family="var(--font-mono)" letter-spacing="2" opacity="0.5">COMPLETE</text></svg>`,
+      `<svg class="ink-stamp" viewBox="0 0 100 100"><circle cx="50" cy="50" r="38" fill="none" stroke="currentColor" stroke-width="2" opacity="0.5" stroke-dasharray="6 3"/><text x="50" y="46" font-size="10" font-weight="700" fill="currentColor" text-anchor="middle" font-family="var(--font-mono)" letter-spacing="1" opacity="0.55">QUALITY</text><text x="50" y="58" font-size="7" fill="currentColor" text-anchor="middle" font-family="var(--font-mono)" opacity="0.4">ASSURED</text></svg>`,
+      `<svg class="ink-stamp" viewBox="0 0 110 50"><rect x="3" y="3" width="104" height="44" rx="22" fill="none" stroke="currentColor" stroke-width="2.5" opacity="0.5"/><text x="55" y="32" font-size="12" font-weight="700" fill="currentColor" text-anchor="middle" font-family="var(--font-mono)" letter-spacing="2" opacity="0.5">VALIDATED</text></svg>`,
+      `<svg class="ink-stamp" viewBox="0 0 100 100"><circle cx="50" cy="50" r="38" fill="none" stroke="currentColor" stroke-width="2.5" opacity="0.5"/><circle cx="50" cy="50" r="30" fill="none" stroke="currentColor" stroke-width="1" opacity="0.3"/><text x="50" y="44" font-size="8" font-weight="700" fill="currentColor" text-anchor="middle" font-family="var(--font-mono)" letter-spacing="1" opacity="0.5">CERTIFIED</text><text x="50" y="56" font-size="8" font-weight="700" fill="currentColor" text-anchor="middle" font-family="var(--font-mono)" letter-spacing="1" opacity="0.5">PROFESSIONAL</text></svg>`
+    ];
+
     certGrid.innerHTML = data.certifications.map((c, i) => {
       const accent = accentColors[i % accentColors.length];
       const p = placements[i % placements.length];
       const issuerCert = c.issuer.toUpperCase() + ' CERT';
+      const ink = inkStamps[i % inkStamps.length];
+      const inkRot = [-12, 8, -5, 15, -10, 6, -14, 9][i % 8];
       return `
       <div class="stamp" style="transform:translateY(${p.y}px) rotate(${p.rot}deg); z-index:${p.z}">
         <div class="stamp-top">
@@ -77,6 +90,7 @@ function renderExperience(data) {
             </svg>
           </div>
         </div>
+        <div class="ink-stamp-wrap" style="transform:rotate(${inkRot}deg); color:${accent}">${ink}</div>
       </div>`;
     }).join('');
   }
