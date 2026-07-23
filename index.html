@@ -16,6 +16,8 @@
   <link rel="canonical" href="https://ayeshaqmr.github.io" />
   <link rel="icon" href="assets/images/profile.v0.png" type="image/png" />
 
+  <link rel="preconnect" href="https://cdn.simpleicons.org" />
+  <link rel="preconnect" href="https://cdnjs.cloudflare.com" />
   <link rel="stylesheet" href="styles/fonts.css" />
   <link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Material+Symbols+Rounded:opsz,wght,FILL,GRAD@20..48,100..700,0..1,-50..200&icon_names=location_on" />
   <link rel="stylesheet" href="styles/tokens.css" />
@@ -112,7 +114,13 @@
     <div class="navbar-drawer" data-drawer aria-hidden="true">
       <ul class="navbar-drawer__list">
         <li><a href="#home"><span>Portfolio</span></a></li>
+        <li><a href="#background"><span>Education</span></a></li>
+        <li><a href="#github"><span>GitHub</span></a></li>
         <li><a href="#projects"><span>Work</span></a></li>
+        <li><a href="#contact"><span>Contact</span></a></li>
+        <li class="navbar-drawer__divider"></li>
+        <li><a href="https://github.com/ayeshaqmr" target="_blank" rel="noopener"><span>GitHub ↗</span></a></li>
+        <li><a href="https://linkedin.com/in/ayeshaqmr" target="_blank" rel="noopener"><span>LinkedIn ↗</span></a></li>
       </ul>
     </div>
 
@@ -122,8 +130,9 @@
         <section class="hero section--no-top" id="home" aria-labelledby="hero-name">
 
           <div class="hero__center-wrap">
-            <p class="hero__greeting">// Hello, I'm</p>
+            <p class="hero__greeting reveal-up">// Hello, I'm</p>
             <h1 class="hero__name" id="hero-name">AYESHA QAMAR</h1>
+            <p class="hero__tagline reveal-up">Building AI-powered apps, accessibility tools,<br>and thoughtful web experiences.</p>
 
             <div class="hero__orbit-area">
               <a href="https://linkedin.com/in/ayeshaqmr" target="_blank" rel="noopener" class="hero__avatar-frame">
@@ -168,7 +177,7 @@
           </div>
         </div>
 
-        <div class="stat-grid">
+        <div class="stat-grid reveal-up">
           <div class="stat-card">
             <div class="stat-number" data-count="2" data-suffix=" yrs">0</div>
             <div class="stat-label">Experience</div>
@@ -187,28 +196,32 @@
           </div>
         </div>
 
+        <div class="section-line reveal" aria-hidden="true"></div>
+
         <section class="section" id="background">
 
-          <p class="sec-label">// EDUCATION</p>
+          <p class="sec-label reveal-up">// EDUCATION</p>
           <div class="education-content"></div>
 
           <div style="margin-top:var(--space-6);">
-            <p class="sec-label">// EXPERIENCE</p>
+            <p class="sec-label reveal-up">// EXPERIENCE</p>
             <div class="timeline" role="list" id="experience-list">
               <div class="timeline__line" aria-hidden="true"></div>
             </div>
           </div>
 
           <div style="margin-top:var(--space-8);">
-            <p class="sec-label">// CERTIFICATIONS</p>
+            <p class="sec-label reveal-up">// CERTIFICATIONS</p>
             <div class="cert-grid reveal-stagger"></div>
           </div>
 
         </section>
 
+        <div class="section-line reveal" aria-hidden="true"></div>
+
         <section class="section github-section" id="github">
 
-          <p class="sec-label">// GITHUB ACTIVITY</p>
+          <p class="sec-label reveal-up">// GITHUB ACTIVITY</p>
           <div class="github-graph-wrap reveal">
             <div id="github-graph-img-wrap"></div>
           </div>
@@ -217,8 +230,8 @@
             <div id="github-stats-card"></div>
           </div>
 
-          <p class="sec-label" style="margin-top:var(--space-8);">// SKILLS &amp; TOOLS</p>
-          <div class="skills-grid">
+          <p class="sec-label reveal-up" style="margin-top:var(--space-8);">// SKILLS &amp; TOOLS</p>
+          <div class="skills-grid reveal-stagger">
             <span class="skill-tag" style="--skill-color:#3776AB"><img class="skill-tag__icon" src="https://cdn.simpleicons.org/python/3776AB" alt="" width="14" height="14" loading="lazy" /><span class="skill-tag__name">Python</span></span>
             <span class="skill-tag" style="--skill-color:#02569B"><img class="skill-tag__icon" src="https://cdn.simpleicons.org/flutter/02569B" alt="" width="14" height="14" loading="lazy" /><span class="skill-tag__name">Flutter / Dart</span></span>
             <span class="skill-tag" style="--skill-color:#61DAFB"><img class="skill-tag__icon" src="https://cdn.simpleicons.org/react/61DAFB" alt="" width="14" height="14" loading="lazy" /><span class="skill-tag__name">React.js</span></span>
@@ -243,11 +256,11 @@
 
         </section>
 
-
+        <div class="section-line reveal" aria-hidden="true"></div>
 
         <section class="section" id="projects">
 
-          <p class="sec-label">// WORK</p>
+          <p class="sec-label reveal-up">// WORK</p>
 
           <div class="filter-bar reveal-up">
             <button class="filter-btn active" data-filter="all">All</button>
@@ -338,7 +351,7 @@
 
         <section class="section" id="contact">
 
-          <p class="sec-label">// GET IN TOUCH</p>
+          <p class="sec-label reveal-up">// GET IN TOUCH</p>
 
           <div class="contact-wrapper">
             <div class="contact__card reveal">
@@ -380,8 +393,35 @@
       </div>
 
       <footer class="footer" role="contentinfo">
-        <p class="footer__copy">&copy; <span id="footer-year">2026</span> Ayesha Qamar. All rights reserved.</p>
-        <p class="footer__credit">ayeshaqmr.github.io</p>
+        <div class="footer__inner">
+          <div class="footer__col footer__col--brand">
+            <p class="footer__tagline">Building AI-powered apps, accessibility tools, and thoughtful web experiences.</p>
+            <p class="footer__sign">made with curiosity · Pakistan</p>
+          </div>
+          <div class="footer__col">
+            <p class="footer__col-title">Navigate</p>
+            <a href="#home">Portfolio</a>
+            <a href="#background">Education</a>
+            <a href="#projects">Work</a>
+            <a href="#contact">Contact</a>
+          </div>
+          <div class="footer__col">
+            <p class="footer__col-title">Connect</p>
+            <a href="https://github.com/ayeshaqmr" target="_blank" rel="noopener">GitHub</a>
+            <a href="https://linkedin.com/in/ayeshaqmr" target="_blank" rel="noopener">LinkedIn</a>
+            <a href="mailto:ayeshqmr@gmail.com">Email</a>
+            <a href="assets/resume/Ayesha Qamar.pdf" download>Resume</a>
+          </div>
+          <div class="footer__col">
+            <p class="footer__col-title">Legal</p>
+            <a href="#">Privacy</a>
+            <a href="#">Terms</a>
+          </div>
+        </div>
+        <div class="footer__bottom">
+          <p class="footer__copy">&copy; <span id="footer-year">2026</span> Ayesha Qamar. All rights reserved.</p>
+          <p class="footer__credit">ayeshaqmr.github.io</p>
+        </div>
       </footer>
 
     </main>

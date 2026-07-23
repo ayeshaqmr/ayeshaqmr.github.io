@@ -43,6 +43,16 @@
   text-transform: uppercase;
 }
 
+.hero__tagline {
+  font-family: var(--font-body);
+  font-size: clamp(var(--text-base), 2vw, var(--text-lg));
+  color: var(--text-secondary);
+  text-align: center;
+  line-height: 1.7;
+  max-width: 520px;
+  margin-top: var(--space-2);
+}
+
 .hero__avatar-frame {
   position: relative;
   width: 300px;
@@ -246,19 +256,22 @@
 }
 
 .btn--primary {
-  background: #f2e9d8;
-  color: #3d3157;
-  border: 2px solid #3d3157;
-  border-radius: 10px;
+  background: var(--iris);
+  color: #fff;
+  border: 1px solid var(--iris);
+  border-radius: 999px;
   font-family: var(--font-mono);
   font-weight: 600;
   letter-spacing: 0.05em;
-  text-transform: uppercase;
-  transition: background 0.2s ease, color 0.2s ease;
+  padding: 12px var(--space-6);
+  transition: all 0.3s var(--ease-expo);
 }
 .btn--primary:hover {
-  background: #3d3157;
-  color: #f2e9d8;
+  background: var(--foam);
+  border-color: var(--foam);
+  color: var(--bg-base);
+  box-shadow: 0 0 24px rgba(156, 207, 216, 0.25);
+  transform: translateY(-2px);
 }
 
 .btn--outline {
@@ -485,39 +498,43 @@
 }
 
 .edu-item {
-  border: 3px solid #3d3157;
-  border-radius: 0 !important;
-  background: linear-gradient(135deg, #f5efe6 0%, #f0e8d8 100%);
+  border: 1px solid var(--border);
+  border-radius: var(--card-radius);
+  background: var(--bg-surface);
   padding: var(--space-6) var(--space-8);
   position: relative;
-  box-shadow: 8px 8px 0 #6b5480;
-  transform: rotate(-0.5deg);
-  transition: transform 0.3s ease, box-shadow 0.3s ease;
+  transition: all 0.3s var(--ease-expo);
 }
 
 .edu-item:nth-child(even) {
-  transform: rotate(0.5deg);
+  transform: none;
 }
 
 .edu-item:hover {
-  transform: rotate(0deg) translateY(-4px);
-  box-shadow: 12px 12px 0 #6b5480;
+  border-color: var(--iris);
+  transform: translateY(-4px);
+  box-shadow: 0 8px 30px rgba(196, 167, 231, 0.1);
 }
 
 .edu-item::before {
   content: "";
   position: absolute;
-  top: 10px;
-  left: 10px;
-  right: 10px;
-  bottom: 10px;
-  border: 2px dashed #908caa;
-  border-radius: 0 !important;
-  pointer-events: none;
+  top: 0;
+  left: 0;
+  right: 0;
+  height: 2px;
+  background: linear-gradient(90deg, var(--iris), var(--foam));
+  opacity: 0;
+  transition: opacity 0.3s ease;
+  border-radius: var(--card-radius) var(--card-radius) 0 0;
+}
+
+.edu-item:hover::before {
+  opacity: 1;
 }
 
 .edu-item__body {
-  border-radius: 0 !important;
+  border-radius: var(--card-radius);
 }
 
 .edu-item::after {
@@ -534,14 +551,14 @@
 .edu-item__year {
   font-family: var(--font-mono);
   font-size: var(--text-xs);
-  color: #6b5480;
+  color: var(--iris);
   text-transform: uppercase;
   letter-spacing: 0.12em;
   display: inline-block;
-  background: #3d3157;
-  color: #f5efe6;
+  background: rgba(196, 167, 231, 0.1);
+  border: 1px solid rgba(196, 167, 231, 0.2);
   padding: 4px 12px;
-  border-radius: 0;
+  border-radius: 999px;
   margin-bottom: var(--space-3);
 }
 
@@ -549,7 +566,7 @@
   font-family: var(--font-display);
   font-size: var(--text-lg);
   font-weight: 700;
-  color: #3d3157;
+  color: var(--text-primary);
   letter-spacing: -0.02em;
   margin-bottom: var(--space-2);
   line-height: 1.3;
@@ -558,7 +575,7 @@
 .edu-item__school {
   font-family: var(--font-mono);
   font-size: var(--text-sm);
-  color: #6b5480;
+  color: var(--text-secondary);
   font-weight: 500;
   line-height: 1.5;
 }
@@ -566,11 +583,11 @@
 .edu-item__desc {
   font-family: var(--font-mono);
   font-size: var(--text-sm);
-  color: #6b5480;
+  color: var(--text-muted);
   margin-top: var(--space-4);
   line-height: 1.6;
   padding-top: var(--space-4);
-  border-top: 1px dashed #908caa;
+  border-top: 1px dashed var(--border);
 }
 
 .exp-year { font-family: var(--font-mono); font-size: var(--text-xs); color: var(--iris); letter-spacing: 0.04em; }
